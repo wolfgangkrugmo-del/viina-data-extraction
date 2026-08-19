@@ -1,0 +1,4 @@
+event_id_1pd,split_required,split_status,known_components,reason
+431572,TRUE,PENDING_SOURCE_SPLIT,"Moscow | Yaroslavl refinery | Rostov","Single VIINA row aggregates attacks/effects in multiple Russian locations; target-level counting prohibited until components are resolved."
+378313,TRUE,PENDING_SOURCE_SPLIT,"Tver oil facilities | Krymskaya pumping station, Krasnodar Krai","Composite Russia-proper report covers at least two distinct facilities/sectors/locations; must split before TargetID/NodeID counting."
+378319,TRUE,PENDING_SOURCE_SPLIT,"Slavyansk refinery | additional Krasnodar/Kuban targets unresolved","Contemporaneous composite report; Slavyansk refinery is identifiable but remaining reported targets require source-level resolution before counting."
