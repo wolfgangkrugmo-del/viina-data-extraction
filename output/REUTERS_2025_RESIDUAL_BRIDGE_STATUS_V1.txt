@@ -1,0 +1,30 @@
+REUTERS 2025 RESIDUAL BRIDGE STATUS V1
+
+Evidence matrix:
+output/REUTERS_2025_RESIDUAL_SOURCE_BRIDGE_EVIDENCE_MATRIX_V1.csv
+
+SOURCE IDENTITY RESIDUALS
+13 source identities reviewed line-by-line.
+- Fully closed source identity: 1 (R25S-Q3-R3-04 -> Unecha 2025-08-13).
+- Identity recoverable but stable ordinal not proven: 2 Q3-R6 slots (Sergiyev Posad and Kursk NPP set membership).
+- Set-level event membership recoverable but individual stable ordinal not proven: 4 Q3-R1 residual slots.
+- Class decidable as Non-Candidate but exact mobile-asset identity unrecoverable: 4 Q4-R7 slots.
+- Irreducibly unidentified retained direct source components: 2 Q2-R4 slots.
+
+R25R MAPPING RESIDUALS
+7 mappings reviewed.
+- CLOSED: R25R-0015 -> Q1-R3 direct component; R25R-0013 must be treated as VIINA-side reconciliation addition for source inventory balance.
+- CLOSED: R25R-0027 -> Non-Candidate reconciliation expansion.
+- CLOSED: R25R-0028 -> Non-Candidate reconciliation expansion.
+- CLOSED: R25R-0066 -> Non-Candidate; Q4-R4 has zero retained direct source components.
+- PARTIAL: R25R-0094 -> Reuters-direct 1:1 event membership supported, but exact stable Q4-R1 source ordinal is not recoverable from frozen evidence.
+- CLOSED: R25R-0100 -> Follow-up to Saratov 20-Sep, no new source component.
+- CLOSED: R25R-0101 -> Follow-up to Samara/Novokuibyshevsk 20-Sep, no new source component.
+
+FORMAL BRIDGE DECISION
+BridgeComplete = FALSE.
+Reason: DEEP-COMP-V1 source-row acceptance requires a machine-reconcilable raw/source-component-to-ledger balance. Frozen Reuters artifacts still do not recover every one of the 86 retained direct source identities with stable row-level provenance. Several residuals are decidable only at set/class level, not at exact source-component identity level.
+
+RowAcceptanceStatus = NOT_READY.
+CandidateCensusComplete = FALSE.
+Master-matrix Reuters 2025 row MUST NOT be promoted to PASS on the basis of this residual review.
