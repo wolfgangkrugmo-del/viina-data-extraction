@@ -1,0 +1,59 @@
+REUTERS 2025 86 -> 101 RECONCILIATION BRIDGE AUDIT V1
+
+Scope
+Frozen search-log inventory: 86 Reuters-direct named components across 28/28 completed cells.
+Historical reconciliation file: 101 rows (R25R-0001 through R25R-0101).
+Required acceptance condition: every direct component must be row-level traceable into the candidate ledger, and every reconciliation expansion must have an explicit transformation class.
+
+PROVEN TRANSFORMATION CLASSES
+A. OSC-routed rows, not Reuters-direct yield (5):
+- R25R-0060 Zenzevatka pumping station 2025-09-20
+- R25R-0061 Zenzevatka pumping station 2025-09-24
+- R25R-0062 Samara pumping station 2025-09-20
+- R25R-0063 Samara pumping station 2025-09-23
+- R25R-0064 Chuvashia pumping station 2025-09-27
+These are explicitly routed to DG_OSINT_SPECIALIST.
+
+B. VIINA-origin reconciliation components added for cross-source comparison (at least 3 explicitly identifiable):
+- R25R-0087 Slavyansk-EKO refinery 2025-11-30
+- R25R-0088 Gukovo district-heating boiler 2025-11-30
+- R25R-0089 unidentified industrial enterprise Novoshakhtinsk 2025-11-30
+The reconciliation text states that the VIINA components exist and Reuters direct target-level confirmation was not found.
+
+C. Late reconciliation/correction rows (6):
+- R25R-0096 Ryazan refinery September date-resolution candidate
+- R25R-0097 Ufa/Bashneft refinery target-resolution candidate
+- R25R-0098 Samara-region refinery later merged to Novokuibyshevsk 20-Sep
+- R25R-0099 Krasnodar-region refinery later resolved as Afipsky duplicate
+- R25R-0100 Saratov-region oil-infrastructure follow-on placeholder
+- R25R-0101 Samara-region oil-infrastructure follow-on placeholder
+Their later final mapping is documented in the final-disposition/provenance closure artifacts.
+
+CELL-LEVEL CONTRADICTIONS THAT PREVENT A COMPLETE BRIDGE
+The frozen search log and historical reconciliation cannot be reconciled by a simple 86 direct + 15 expansion model, because some cells have more reconciliation rows than frozen direct components while other cells have fewer.
+
+Hard examples:
+- Q1-R3 PIPELINE_PUMPING: frozen direct count 3; reconciliation contains four Q1 R3 rows (Andreapol, Kropotkinskaya CPC, Chertkovsky pipeline, Steel Horse/Druzhba). One row is therefore an expansion/non-direct component, but the historical artifacts do not identify which source-component transformation created it.
+- Q2-R4 DEFENSE_INDUSTRY: frozen direct count 7; reconciliation contains only five Q2 R4 rows (Murom, Alabuga, Kazan, Kronstadt, Raduga). Two frozen direct components are not represented by dedicated reconciliation rows or machine-level non-candidate records.
+- Q2-R5 STRATEGIC_AIR: frozen direct count 4; reconciliation contains six Q2 R5 rows (Belaya, Olenya, Ivanovo Severny, Dyagilevo 1-Jun, Engels 6-Jun, Dyagilevo 6-Jun). Two rows are expansions beyond the frozen direct count, but no historical row-level bridge states which direct source component generated the extra rows.
+- Q3-R3 PIPELINE_PUMPING: frozen direct count 4; reconciliation contains nine rows, exactly five of which are the OSC-routed rows above. This cell is explainable at aggregate level but still lacks original direct-component IDs.
+- Q3-R6 GRID_SUPPORT: frozen direct count 3; reconciliation contains only the Luch 28-Sep dedicated R25R row in Q3-R6. The search log names Sergiyev Posad/Kursk NPP/Belgorod reporting; a later supplemental provenance correction restores Sergiyev Posad, but the original three direct components are not fully represented by dedicated historical R25R rows.
+- Q4-R4 DEFENSE_INDUSTRY: frozen direct count 0; reconciliation contains Dzerzhinsk, Beriev TANTK and Atlant Aero rows. These are therefore reconciliation-added rows, not frozen Reuters-direct components, but their transformation source is not encoded in the historical file.
+- Q4-R7 LOGISTICS_OTHER: frozen direct count 5; reconciliation contains only Gukovo, unidentified Novoshakhtinsk and Belgorod dam as Q4 R7 rows. The search log notes tanker/submarine reports and non-census mobile assets, but the missing two direct components were not preserved as machine-level non-candidate records.
+
+FORMAL RESULT
+The 9 previously open final dispositions are closed.
+The 5 previously named provenance links are closed.
+The mandatory-schema candidate ledger exists and candidate-level review/dedupe checks pass.
+However, the frozen raw/source-component inventory does NOT balance row-by-row to the historical reconciliation.
+
+Therefore:
+- SourceInventoryBridgeComplete = FALSE
+- ReviewStatus = COMPLETE at candidate coding level
+- DedupeReviewStatus = COMPLETE at candidate/cluster level
+- RowAcceptanceStatus = NOT_READY
+- CandidateCensusComplete = FALSE
+- SRC-2025-REUTERS MUST NOT be promoted to PASS.
+
+Required remediation for PASS
+Recover or reconstruct the original 86 direct-component manifest with stable component IDs and explicit disposition for every component, including machine-level non-candidates, then map every R25R reconciliation row to one of: DIRECT_1_TO_1, DIRECT_SPLIT_CHILD, FOLLOWUP_LINK, VIINA_RECON_ADDITION, OSC_ROUTED, PLACEHOLDER_CORRECTION, or NONCANDIDATE. Until that manifest exists, a complete row-level 86->101 proof cannot be made from the currently committed historical artifacts without inventing provenance.
