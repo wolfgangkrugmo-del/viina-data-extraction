@@ -1,0 +1,49 @@
+name: VIINA 2024 low residual audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_viina_2024_low_residual.py'
+      - '.github/workflows/viina_2024_low_residual_audit.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viina-2024-low-residual-main
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Run audit
+        run: |
+          set -euo pipefail
+          python scripts/audit_viina_2024_low_residual.py \
+            --input output/VIINA_2024_UNKNOWN_REDUCTION_V2.csv \
+            --output output/VIINA_2024_LOW_PRIORITY_RESIDUAL_AUDIT_V1.csv \
+            --flagged-output output/VIINA_2024_LOW_PRIORITY_RESIDUAL_FLAGGED_V1.csv \
+            --summary output/VIINA_2024_LOW_PRIORITY_RESIDUAL_AUDIT_V1_SUMMARY.txt
+          cat output/VIINA_2024_LOW_PRIORITY_RESIDUAL_AUDIT_V1_SUMMARY.txt
+      - name: Commit outputs
+        run: |
+          set -euo pipefail
+          git add output/VIINA_2024_LOW_PRIORITY_RESIDUAL_AUDIT_V1.csv output/VIINA_2024_LOW_PRIORITY_RESIDUAL_FLAGGED_V1.csv output/VIINA_2024_LOW_PRIORITY_RESIDUAL_AUDIT_V1_SUMMARY.txt
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record VIINA 2024 low residual audit'
+          for i in 1 2 3; do
+            git pull --rebase origin main
+            git push origin HEAD:main && exit 0
+            sleep 2
+          done
+          exit 1
