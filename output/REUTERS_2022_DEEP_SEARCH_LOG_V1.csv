@@ -16,8 +16,8 @@ Q2-R7,Q2,2022-04-01,2022-06-30,R7_LOGISTICS_OTHER,COMPLETE,0,0,,Executed search;
 Q3-R1,Q3,2022-07-01,2022-09-30,R1_ENERGY_REFINING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
 Q3-R2,Q3,2022-07-01,2022-09-30,R2_ENERGY_STORAGE_EXPORT,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
 Q3-R3,Q3,2022-07-01,2022-09-30,R3_PIPELINE_PUMPING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
-Q3-R4,Q3,2022-07-01,2022-09-30,R4_DEFENSE_INDUSTRY,COMPLETE,1,1,"Reuters 2022-08-18 Timonovo/Soloti ammunition storage depot fire",Cause/actor unresolved; retained as source component.
-Q3-R5,Q3,2022-07-01,2022-09-30,R5_STRATEGIC_AIR,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q3-R4,Q3,2022-07-01,2022-09-30,R4_DEFENSE_INDUSTRY,COMPLETE,2,2,"Reuters 2022-08-18 Timonovo/Soloti ammunition storage depot fire; Reuters 2022-08-17 report on 16-Aug Dzhankoi Crimea ammunition-depot explosions",Dzhankoi is CRIMEA_SEVASTOPOL audit-only and requires split of connected grid/rail physical nodes before dedupe.
+Q3-R5,Q3,2022-07-01,2022-09-30,R5_STRATEGIC_AIR,COMPLETE,1,1,"Reuters 2022-08-11 satellite assessment of 09-Aug Saki air-base damage",Saki is CRIMEA_SEVASTOPOL audit-only; outside Russia-proper census.
 Q3-R6,Q3,2022-07-01,2022-09-30,R6_GRID_SUPPORT,COMPLETE,1,1,"Reuters 2022-09-16 Valuyki electricity substation outage",Russian official attribution to Ukrainian shelling; Reuters could not independently verify.
 Q3-R7,Q3,2022-07-01,2022-09-30,R7_LOGISTICS_OTHER,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
 Q4-R1,Q4,2022-10-01,2022-12-31,R1_ENERGY_REFINING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
@@ -26,4 +26,4 @@ Q4-R3,Q4,2022-10-01,2022-12-31,R3_PIPELINE_PUMPING,COMPLETE,0,0,,Executed search
 Q4-R4,Q4,2022-10-01,2022-12-31,R4_DEFENSE_INDUSTRY,COMPLETE,1,1,"Reuters 2022-10-14 report on 13-Oct Belgorod-region ammunition depot destruction",Search complete for defence-industry/fixed military-storage family.
 Q4-R5,Q4,2022-10-01,2022-12-31,R5_STRATEGIC_AIR,COMPLETE,4,4,"Reuters 2022-12-05 Engels/Dyagilevo; Reuters 2022-12-06 Kursk airfield; Reuters 2022-12-26 Engels repeat",Search complete for strategic-air family.
 Q4-R6,Q4,2022-10-01,2022-12-31,R6_GRID_SUPPORT,COMPLETE,3,3,"Reuters 2022-10-11 Shebekino substation; Reuters 2022-10-13 Kursk substation; Reuters 2022-11-30 Kursk-region power plant",Two Kursk target identities remain facility-name unresolved and must be carried into candidate coding.
-Q4-R7,Q4,2022-10-01,2022-12-31,R7_LOGISTICS_OTHER,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q4-R7,Q4,2022-10-01,2022-12-31,R7_LOGISTICS_OTHER,COMPLETE,1,1,"Reuters 2022-10-08 Crimea/Kerch road-and-rail bridge blast",CRIMEA_SEVASTOPOL audit-only; outside Russia-proper census.
