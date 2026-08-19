@@ -1,0 +1,7 @@
+RecoveredSourceID,SearchCell,CanonicalEventDate,TargetOrEvent,ReutersArticleDate,ReutersArticleIdentity,RecoveryBasis,RecoveryStatus,Frozen86MembershipStatus,DEEPDisposition,Notes
+REC25-Q1-R1-001,Q1-R1,2025-01-24,Ryazan oil refinery,2025-03-19,R25-0004 / frozen raw-hit chronology,FROZEN_RAW_HIT,EXACT,PROVEN_MEMBER,IN_SCOPE,"Seed from preserved row-level ReutersHitID; recovered manifest uses content-derived IDs and does not alter frozen source IDs."
+REC25-Q1-R2-001,Q1-R2,2025-03-19,Kavkazskaya oil depot,2025-03-19,R25-0001 / frozen raw-hit coverage,FROZEN_RAW_HIT,EXACT,PROVEN_MEMBER,IN_SCOPE,"Seed from preserved row-level ReutersHitID."
+REC25-Q2-R5-001,Q2-R5,2025-06-01,Belaya military air base,2025-06-03,R25-0012 / frozen raw-hit verification,FROZEN_RAW_HIT,EXACT,PROVEN_MEMBER,IN_SCOPE,"Seed from preserved row-level ReutersHitID."
+REC25-Q2-R5-002,Q2-R5,2025-06-01,Olenya military air base,2025-06-03,R25-0013 / frozen raw-hit verification,FROZEN_RAW_HIT,EXACT,PROVEN_MEMBER,IN_SCOPE,"Seed from preserved row-level ReutersHitID."
+REC25-Q3-R3-001,Q3-R3,2025-08-21,Unecha Druzhba pumping station,2025-08-22,R25-0016 / frozen raw-hit report,FROZEN_RAW_HIT,EXACT,PROVEN_MEMBER,IN_SCOPE,"Seed from preserved row-level ReutersHitID."
+REC25-Q4-R2-001,Q4-R2,2025-11-14,Sheskharis oil terminal berths 1 and 1A,2025-11-14,R25-0027 / frozen raw-hit report,FROZEN_RAW_HIT,EXACT,PROVEN_MEMBER,IN_SCOPE,"Seed from preserved row-level ReutersHitID."
