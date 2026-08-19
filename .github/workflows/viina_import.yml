@@ -20,6 +20,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Persist runner start marker
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          echo "runner_started_utc=$(date -u +%FT%TZ)" > output/RUNNER_STARTED.txt
+          echo "head_sha=${GITHUB_SHA}" >> output/RUNNER_STARTED.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/RUNNER_STARTED.txt
+          git commit -m "Record VIINA runner start"
+          git push
+
       - name: Download GeoNames Russia gazetteer
         shell: bash
         run: |
@@ -42,15 +55,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add output/GEONAMES_PREFLIGHT.txt
-          if git diff --cached --quiet; then
-            echo "Preflight unchanged."
-          else
-            git commit -m "Record GeoNames location preflight"
-            git push
-          fi
+          git commit -m "Record GeoNames location preflight"
+          git push
 
       - name: Clone VIINA
         shell: bash
@@ -95,11 +102,8 @@ jobs:
             --review-output output/viina_deep_strike_location_review.csv
           test -s output/viina_deep_strike_candidates.csv
           test -s output/viina_deep_strike_location_review.csv
-          echo "Strict rows including header:"
           wc -l output/viina_deep_strike_candidates.csv
-          echo "Review rows including header:"
           wc -l output/viina_deep_strike_location_review.csv
-          sha256sum output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv
 
       - name: Write provenance
         shell: bash
@@ -120,12 +124,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt output/GEONAMES_PREFLIGHT.txt output/PROVENANCE.txt
-          if git diff --cached --quiet; then
-            echo "No output changes."
-          else
-            git commit -m "Record VIINA pipeline diagnostics and candidate extract"
-            git push
-          fi
+          git commit -m "Record VIINA pipeline diagnostics and candidate extract"
+          git push
