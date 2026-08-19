@@ -1,0 +1,16 @@
+REUTERS 2022 DEPENDENCY AUDIT V1
+
+SourceID = REUTERS
+SourceDependenceGroup = DG_REUTERS
+DependencyAuditStatus = PARTLY_DERIVATIVE
+
+Basis
+- Several retained source components rely primarily on Russian regional/government/operator statements carried by Reuters. Republication of those statements does not create a second independent dependence group.
+- Reuters-original verification is present for some components, including visual/location verification of the 1-Apr Belgorod fuel-depot event and satellite-imagery assessment of the Saki air-base damage.
+- Reuters reporting on Novoshakhtinsk carries direct plant/operator statements establishing physical effect and production suspension, but Ukrainian operator attribution remains unresolved.
+- Reuters articles that only relay an official attribution are coded SINGLE_SOURCE or DEPENDENT/CONTRADICTED as appropriate in the candidate ledger; they do not receive artificial independence credit.
+- Crimea/Sevastopol components remain audit-only and do not enter the Russia-proper census.
+
+Formal result
+DependencyAuditStatus=PARTLY_DERIVATIVE.
+The Reuters lane remains a distinct discovery lane DG_REUTERS, but record-level confirmation independence is separately coded and cannot be inferred from Reuters republication alone.
