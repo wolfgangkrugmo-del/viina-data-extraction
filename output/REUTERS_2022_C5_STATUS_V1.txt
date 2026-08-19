@@ -1,0 +1,32 @@
+REUTERS 2022 C5 TARGETED STATUS V1
+
+Source lane: SRC-2022-REUTERS
+Track: FROZEN_COMPLETENESS
+Input unresolved count: 11
+Resolved in targeted pass: 4
+Remaining OutcomeRelevantUnresolved: 7
+
+CLOSED
+- R22C-001: Belgorod/Krasny Oktyabr ammunition depot; canonical date corrected to 2022-03-29; later Russian investigative attribution to Ukrainian Tochka-U strike resolves event/actor for census coding.
+- R22C-002: Novoshakhtinsk refinery 2022-06-22; exact node/effect already established and contemporaneous Russian official/refinery reporting provides sufficient Ukrainian attribution for candidate coding.
+- R22C-010: Oktyabrsky ammunition depot 2022-10-13; settlement/node and Ukrainian shelling attribution resolved.
+- R22C-016: Popovo-Lezhachi transformer substation 2022-10-13; exact location/node and Ukrainian-side shelling attribution resolved.
+
+REMAINING OPEN
+- R22C-004 Bryansk Transneft oil storage 2022-04-25: cause/actor unresolved.
+- R22C-005 Staraya Nelidovka ammunition depot 2022-04-27: actor unresolved.
+- R22C-006 Timonovo/Soloti ammunition depot 2022-08-18: actor unresolved.
+- R22C-008 Surazh/Kombinat Slava fuel storage 2022-11-30: target identity recoverable, drone operator unresolved.
+- R22C-009 Razumnoye-71 oil/fuel depot 2022-10-15: target identity recoverable, shelling origin/actor unresolved.
+- R22C-013 Kursk airfield fuel tank 2022-12-06: drone impact confirmed, attacker not explicitly identified.
+- R22C-017 Sudzha district energy-supply facility 2022-11-29: Ukrainian attribution resolved, exact facility/NodeID unresolved and could alter repeat-node logic.
+
+FORMAL GATE RESULT
+C5_NoOutcomeRelevantUnresolved = FALSE
+YearAcceptanceStatus = NOT_READY
+CandidateCensusComplete = FALSE
+
+No source-lane PASS is revoked: SRC-2022-REUTERS remains RowAcceptanceStatus=PASS because source discovery, provenance bridge, candidate review and dedupe are complete. C5 is a YEAR/GLOBAL acceptance gate and remains blocked by the seven listed records.
+
+Authoritative evidence matrix:
+output/REUTERS_2022_C5_TARGETED_RESOLUTION_V1.csv
