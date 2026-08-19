@@ -1,0 +1,8 @@
+protocol=VIINA_2025_LOW_RESIDUAL_AUDIT_V1
+input_low_rows=56
+flagged_rows=14
+russia_text_rows=0
+possible_composite_rows=14
+possible_other_year_rows=0
+policy=AUDIT_ONLY_NO_AUTOMATIC_EXCLUSION
+candidate_census_complete=FALSE
