@@ -1,0 +1,68 @@
+name: VIINA 2022 exact dedupe
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/canonicalize_viina_2022_exact_duplicates.py"
+      - ".github/workflows/viina_2022_exact_dedupe.yml"
+
+concurrency:
+  group: viina-2022-exact-dedupe-main
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  dedupe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Canonicalize exact duplicate clusters
+        run: |
+          set -euo pipefail
+          python scripts/canonicalize_viina_2022_exact_duplicates.py \
+            --input output/VIINA_2022_TRIAGE.csv \
+            --all-output output/VIINA_2022_EXACT_DEDUPE.csv \
+            --review-output output/VIINA_2022_POST_EXACT_DEDUPE_REVIEW.csv \
+            --cluster-output output/VIINA_2022_EXACT_DUPLICATE_CLUSTERS.csv \
+            --summary output/VIINA_2022_EXACT_DEDUPE_SUMMARY.txt \
+            --matrix output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          cat output/VIINA_2022_EXACT_DEDUPE_SUMMARY.txt
+
+      - name: Commit dedupe outputs
+        run: |
+          set -euo pipefail
+          git add \
+            output/VIINA_2022_EXACT_DEDUPE.csv \
+            output/VIINA_2022_POST_EXACT_DEDUPE_REVIEW.csv \
+            output/VIINA_2022_EXACT_DUPLICATE_CLUSTERS.csv \
+            output/VIINA_2022_EXACT_DEDUPE_SUMMARY.txt \
+            output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          if git diff --cached --quiet; then
+            echo "No dedupe output changes."
+            exit 0
+          fi
+          git commit -m "Record VIINA 2022 exact duplicate canonicalization"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Push failed after 3 attempts" >&2
+              exit 1
+            fi
+            git fetch origin main
+            git rebase origin/main
+          done
