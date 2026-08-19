@@ -1,0 +1,18 @@
+REUTERS 2025 SOURCE COMPONENT / 101-ROW BRIDGE FORMAL AUDIT V1
+
+Frozen source components required: 86
+Manifest rows: 86
+EXACT source identities: 29
+ANCHORED_ONLY source identities: 44
+UNRECOVERED source identities: 13
+
+R25R rows required: 101
+Bridge rows: 101
+EXACT R25R mappings: 35
+ANCHORED_ONLY R25R mappings: 47
+Explicit external VIINA/OSC mappings: 12
+UNRESOLVED R25R mappings: 7
+
+BridgeComplete=FALSE
+RowAcceptanceStatus=NOT_READY
+CandidateCensusComplete=FALSE

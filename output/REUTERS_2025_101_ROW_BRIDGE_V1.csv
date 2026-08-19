@@ -1,0 +1,102 @@
+ReutersReconID,CanonicalEventDate,TargetOrEvent,SearchFamily,TransformationClass,SourceComponentID,ExternalPath,MappingStatus,MappingBasis
+R25R-0001,2025-01-24,Ryazan oil refinery,R1,1:1,R25S-Q1-R1-03,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0002,2025-01-29,Sibur-Kstovo petrochemical plant,R1,1:1,R25S-Q1-R1-10,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0003,2025-01-29,Andreapol oil pumping station,R3,1:1,R25S-Q1-R3-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0004,2025-01-29,23rd missile arsenal Tver region,R4,1:1,R25S-Q1-R4-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0005,2025-02-03,Astrakhan gas processing plant,R1,1:1,R25S-Q1-R1-07,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0006,2025-02-03,Volgograd oil refinery,R1,1:1,R25S-Q1-R1-09,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0007,2025-02-11,Saratov oil refinery,R1,1:1,R25S-Q1-R1-05,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0008,2025-02-17,Ilsky oil refinery,R1,1:1,R25S-Q1-R1-08,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0009,2025-02-17,Kropotkinskaya CPC pumping station,R3,Split,R25S-Q1-R3-02,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0010,2025-02-19,Syzran oil refinery,R1,1:1,R25S-Q1-R1-06,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0011,2025-02-24,Ryazan oil refinery,R1,1:1,R25S-Q1-R1-04,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0012,2025-03-02,Ilsky oil refinery,R1,1:1,R25S-Q1-R1-11,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0013,2025-03-04,Chertkovsky district oil pipeline,R3,1:1,R25S-Q1-R3-03,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0014,2025-03-08,Kirishi oil refinery,R1,1:1,R25S-Q1-R1-02,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0015,2025-03-11,Steel Horse Druzhba station Oryol,R3,1:1,,,UNRESOLVED,
+R25R-0016,2025-03-14,Tuapse oil refinery,R1,1:1,R25S-Q1-R1-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0017,2025-03-19,Kavkazskaya oil depot,R2,1:1,R25S-Q1-R2-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0018,2025-03-20,Engels strategic bomber airfield,R5,1:1,R25S-Q1-R5-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0019,2025-04-30,Murom Instrument-Building Plant,R4,1:1,R25S-Q2-R4-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0020,2025-04-23,Alabuga drone-production site,R4,1:1,R25S-Q2-R4-02,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0021,2025-04-23,Kazan aviation-related defence plant,R4,1:1,R25S-Q2-R4-03,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0022,2025-05-05,Rylsk electricity substation,R6,1:1,R25S-Q2-R6-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0023,2025-05-28,Kronstadt drone plant Dubna,R4,1:1,R25S-Q2-R4-04,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0024,2025-05-28,Raduga missile plant Dubna,R4,1:1,R25S-Q2-R4-05,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0025,2025-06-01,Belaya military air base,R5,1:1,R25S-Q2-R5-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0026,2025-06-01,Olenya military air base,R5,1:1,R25S-Q2-R5-02,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0027,2025-06-01,Ivanovo Severny air base,R5,1:1,,,UNRESOLVED,
+R25R-0028,2025-06-01,Dyagilevo air base,R5,1:1,,,UNRESOLVED,
+R25R-0029,2025-06-06,Engels airfield plus fuel reservoirs,R5,1:1,R25S-Q2-R5-03,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0030,2025-06-06,Dyagilevo airfield,R5,1:1,R25S-Q2-R5-04,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0031,2025-07-07,Ilsky oil refinery,R1,1:1,R25S-Q3-R1-06,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0032,2025-08-02,Novokuibyshevsk oil refinery,R1,1:1,R25S-Q3-R1-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0033,2025-08-02,Ryazan oil refinery,R1,1:1,R25S-Q3-R1-09,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0034,2025-08-03,Sochi oil depot,R2,1:1,R25S-Q3-R2-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0035,2025-08-07,Afipsky oil refinery,R1,1:1,R25S-Q3-R1-05,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0036,2025-08-10,Saratov oil refinery,R1,1:1,R25S-Q3-R1-07,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0037,2025-08-13,Unecha Druzhba pumping station,R3,1:1,R25S-Q3-R3-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0038,2025-08-13,Slavyansk oil refinery,R1,1:1,R25S-Q3-R1-04,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0039,2025-08-14,Volgograd oil refinery,R1,1:1,R25S-Q3-R1-03,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0040,2025-08-14,Port Olya export/logistics node,R2,VIINA-Zusatz,,VIINA_RECONCILIATION,EXTERNAL,Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.
+R25R-0041,2025-08-15,Syzran oil refinery,R1,1:1,R25S-Q3-R1-02,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0042,2025-08-18,Nikolskoye Druzhba pumping station,R3,1:1,R25S-Q3-R3-02,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0043,2025-08-21,Unecha Druzhba pumping station,R3,1:1,R25S-Q3-R3-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0044,2025-08-21,Novoshakhtinsk oil refinery,R1,1:1,R25S-Q3-R1-08,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0045,2025-08-24,Ust-Luga processing/export terminal,R2,1:1,R25S-Q3-R2-02,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0046,2025-08-28,Afipsky oil refinery,R1,1:1,R25S-Q3-R1-05,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0047,2025-08-28,Kuibyshev/Samara refinery complex,R1,1:1,R25S-Q3-R1-10,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0048,2025-08-30,Syzran oil refinery,R1,1:1,R25S-Q3-R1-02,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0049,2025-09-07,Naytopovichi LPDS 8-N,R3,1:1,R25S-Q3-R3-03,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0050,2025-09-12,Primorsk Baltic oil port,R2,1:1,R25S-Q3-R2-03,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0051,2025-09-14,Kirishi oil refinery,R1,1:1,R25S-Q3-R1-11,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0052,2025-09-16,Saratov oil refinery,R1,1:1,R25S-Q3-R1-07,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0053,2025-09-16,Novokuibyshevsk oil refinery,R1,1:1,R25S-Q3-R1-12,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0054,2025-09-18,Salavat petrochemical/refinery complex,R1,1:1,R25S-Q3-R1-13,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0055,2025-09-20,Saratov oil refinery,R1,1:1,R25S-Q3-R1-07,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0056,2025-09-20,Samara refinery target,R1,1:1,R25S-Q3-R1-14,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0057,2025-09-24,Salavat petrochemical/refinery complex,R1,1:1,R25S-Q3-R1-15,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0058,2025-09-26,Afipsky oil refinery,R1,1:1,R25S-Q3-R1-05,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0059,2025-09-28,Luch electricity substation Belgorod,R6,1:1,R25S-Q3-R6-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0060,2025-09-20,Zenzevatka oil pumping station,R3,OSC-Routing,,DG_OSINT_SPECIALIST,EXTERNAL,Open Source Centre data embedded/used by Reuters; external DG_OSINT_SPECIALIST path.
+R25R-0061,2025-09-24,Zenzevatka oil pumping station,R3,OSC-Routing,,DG_OSINT_SPECIALIST,EXTERNAL,Open Source Centre data embedded/used by Reuters; external DG_OSINT_SPECIALIST path.
+R25R-0062,2025-09-20,Samara oil pumping station,R3,OSC-Routing,,DG_OSINT_SPECIALIST,EXTERNAL,Open Source Centre data embedded/used by Reuters; external DG_OSINT_SPECIALIST path.
+R25R-0063,2025-09-23,Samara oil pumping station,R3,OSC-Routing,,DG_OSINT_SPECIALIST,EXTERNAL,Open Source Centre data embedded/used by Reuters; external DG_OSINT_SPECIALIST path.
+R25R-0064,2025-09-27,Chuvashia oil pumping station,R3,OSC-Routing,,DG_OSINT_SPECIALIST,EXTERNAL,Open Source Centre data embedded/used by Reuters; external DG_OSINT_SPECIALIST path.
+R25R-0065,2025-10-05,Luch electricity substation Belgorod,R6,VIINA-Zusatz,,VIINA_RECONCILIATION,EXTERNAL,Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.
+R25R-0066,2025-10-06,Dzerzhinsk explosives/defence plant,R4,1:1,,,UNRESOLVED,
+R25R-0067,2025-10-13,Kirishi oil refinery,R1,Korrektur,R25S-Q4-R1-02,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0068,2025-10-19,Orenburg gas processing plant,R1,1:1,R25S-Q4-R1-03,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0069,2025-10-30,Novospassky oil refinery,R1,1:1,R25S-Q4-R1-04,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0070,2025-10-30,Mari oil refinery,R1,1:1,R25S-Q4-R1-05,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0071,2025-10-30,Budyonnovsk gas processing plant,R1,1:1,R25S-Q4-R1-06,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0072,2025-11-02,Tuapse port/oil terminal infrastructure,R2,1:1,R25S-Q4-R2-03,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0073,2025-11-06,Volgograd oil refinery,R1,1:1,R25S-Q4-R1-07,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0074,2025-11-11,Saratov oil refinery,R1,1:1,R25S-Q4-R1-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0075,2025-11-14,Sheskharis oil terminal Novorossiysk,R2,1:1,R25S-Q4-R2-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0076,2025-11-14,Saratov oil refinery,R1,1:1,R25S-Q4-R1-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0077,2025-11-14,Engels fuel storage facility,R2,1:1,R25S-Q4-R2-02,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0078,2025-11-15,Ryazan oil refinery,R1,1:1,R25S-Q4-R1-08,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0079,2025-11-15,Novokuibyshevsk oil refinery,R1,1:1,R25S-Q4-R1-09,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0080,2025-11-23,Shatura power plant,R6,1:1,R25S-Q4-R6-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0081,2025-11-25,Beriev TANTK aircraft repair plant,R4,VIINA-Zusatz,,VIINA_RECONCILIATION,EXTERNAL,Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.
+R25R-0082,2025-11-25,Atlant Aero Molniya UAV plant,R4,VIINA-Zusatz,,VIINA_RECONCILIATION,EXTERNAL,Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.
+R25R-0083,2025-11-25,Sheskharis oil terminal,R2,Split,R25S-Q4-R2-01,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0084,2025-11-25,Tuapse oil refinery,R1,Split,R25S-Q4-R1-10,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0085,2025-11-29,Afipsky oil refinery,R1,1:1,R25S-Q4-R1-11,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0086,2025-11-29,CPC Black Sea terminal SPM-2,R2,1:1,R25S-Q4-R2-04,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0087,2025-11-30,Slavyansk-EKO refinery,R1,VIINA-Zusatz,,VIINA_RECONCILIATION,EXTERNAL,Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.
+R25R-0088,2025-11-30,Gukovo district heating boiler,R6,VIINA-Zusatz,,VIINA_RECONCILIATION,EXTERNAL,Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.
+R25R-0089,2025-11-30,Unidentified industrial enterprise Novoshakhtinsk,R7,VIINA-Zusatz,,VIINA_RECONCILIATION,EXTERNAL,Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.
+R25R-0090,2025-12-04,Druzhba pumping infrastructure Tambov region,R3,1:1,R25S-Q4-R3-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0091,2025-12-17,Slavyansk oil refinery,R1,1:1,R25S-Q4-R1-12,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0092,2025-12-25,Novoshakhtinsk oil refinery,R1,1:1,R25S-Q4-R1-13,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0093,2025-12-25,Temryuk port oil-storage terminal,R2,1:1,R25S-Q4-R2-05,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0094,2025-12-25,Orenburg gas processing plant,R1,1:1,,,UNRESOLVED,
+R25R-0095,2025-10-24,Belgorod reservoir dam,R7,1:1,R25S-Q4-R7-01,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0096,2025-09-03,Ryazan oil refinery,R1,Korrektur,R25S-Q3-R1-09,,EXACT,Exact frozen raw-hit date/target match.
+R25R-0097,2025-09-13,Ufa/Bashneft refinery complex,R1,Korrektur,R25S-Q3-R1-16,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0098,2025-09-20,Samara-region refinery,R1,Korrektur,R25S-Q3-R1-17,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0099,2025-08-28,Krasnodar-region refinery target,R1,Korrektur,R25S-Q3-R1-18,,ANCHORED_ONLY,Assigned within frozen search-cell quota; not row-level source-proven.
+R25R-0100,2025-09-20,Saratov-region oil infrastructure,R2,Follow-up,,,UNRESOLVED,
+R25R-0101,2025-09-20,Samara-region oil infrastructure,R2,Follow-up,,,UNRESOLVED,
