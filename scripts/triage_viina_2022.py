@@ -58,20 +58,21 @@ def classify_event(text: str):
 
 
 def load_matrix(path: Path):
-    """Read matrix conservatively and canonicalize only empty overflow cells."""
+    """Read matrix and repair only CSV overflow that belongs to final Notes field."""
     repaired_rows = 0
     with path.open(encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f, restkey="__EXTRA__", restval="")
         fields = list(reader.fieldnames or [])
+        if not fields or fields[-1] != "Notes":
+            raise RuntimeError("Matrix schema changed: Notes is not the final column")
         rows = []
         for line_no, row in enumerate(reader, start=2):
             extra = row.pop("__EXTRA__", None)
             if extra:
-                nonempty = [v for v in extra if (v or "").strip()]
-                if nonempty:
-                    raise RuntimeError(
-                        f"Matrix line {line_no} has non-empty overflow fields: {nonempty!r}"
-                    )
+                # The matrix was originally written manually; unquoted commas in the
+                # final Notes field are parsed as overflow columns. Since Notes is
+                # schema-verified as the last field, rejoin them losslessly here.
+                row["Notes"] = (row.get("Notes") or "") + "," + ",".join(v or "" for v in extra)
                 repaired_rows += 1
             for key in fields:
                 if row.get(key) is None:
@@ -94,7 +95,6 @@ def main():
         review = [r for r in reader if (r.get("TriageStatus") or "").startswith("REVIEW_")]
         in_fields = list(reader.fieldnames or [])
 
-    # Exact-report duplicate clusters are diagnostic only; later event-level dedupe is still required.
     groups = defaultdict(list)
     for r in review:
         k = (norm(r.get("source_urls", "")), norm(r.get("representative_text", "")))
@@ -168,7 +168,6 @@ def main():
 
     unique_clusters = len(set(dup_id.values()))
 
-    # Update only the SRC-2022-VIINA progress row in the frozen work matrix.
     mfields, mrows, repaired_matrix_rows = load_matrix(args.matrix)
     found = False
     for r in mrows:
@@ -205,8 +204,8 @@ def main():
             f.write(f"{key}={counts[key]}\n")
         f.write(f"exact_report_duplicate_clusters={unique_clusters}\n")
         f.write(f"rows_in_exact_report_duplicate_clusters={counts['ROWS_IN_EXACT_REPORT_DUP_CLUSTERS']}\n")
-        f.write(f"matrix_rows_with_empty_overflow_canonicalized={repaired_matrix_rows}\n")
-        f.write("matrix_nonempty_overflow_policy=HARD_FAIL\n")
+        f.write(f"matrix_rows_with_notes_overflow_repaired={repaired_matrix_rows}\n")
+        f.write("matrix_overflow_repair_policy=REJOIN_TO_FINAL_NOTES_ONLY\n")
         f.write("manual_review_required_for_all_triage_rows=TRUE\n")
         f.write("candidate_census_complete=FALSE\n")
 
