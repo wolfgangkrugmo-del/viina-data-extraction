@@ -1,0 +1,47 @@
+name: Reuters 2025 Candidate Closure
+
+on:
+  push:
+    paths:
+      - 'scripts/build_reuters_2025_closure.py'
+      - 'output/REUTERS_2025_FINAL_DISPOSITION_9_V1.csv'
+      - 'output/REUTERS_2025_PROVENANCE_LINKAGE_5_V1.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build mandatory-schema ledger and audit
+        run: python scripts/build_reuters_2025_closure.py
+      - name: Verify generated files
+        run: |
+          test -s output/REUTERS_2025_CANDIDATE_DEDUPE_LEDGER_V1.csv
+          test -s output/REUTERS_2025_CLOSURE_FORMAL_AUDIT_V3.txt
+          test -s output/REUTERS_2025_CANDIDATE_LEDGER_CLOSURE_STATUS_V3.txt
+          python - <<'PY'
+          import csv
+          p='output/REUTERS_2025_CANDIDATE_DEDUPE_LEDGER_V1.csv'
+          with open(p,encoding='utf-8',newline='') as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)==105, len(rows)
+          assert all(r['ReviewStatus']=='COMPLETE' for r in rows)
+          assert all(r['InclusionStatus'] for r in rows)
+          assert all(r['DedupeDecision'] for r in rows)
+          print('verified rows=',len(rows))
+          PY
+      - name: Commit generated closure artifacts
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add output/REUTERS_2025_CANDIDATE_DEDUPE_LEDGER_V1.csv output/REUTERS_2025_CLOSURE_FORMAL_AUDIT_V3.txt output/REUTERS_2025_CANDIDATE_LEDGER_CLOSURE_STATUS_V3.txt
+          if git diff --cached --quiet; then
+            echo 'No generated changes'
+          else
+            git commit -m 'Generate Reuters 2025 candidate closure ledger and audit'
+            git push
+          fi
