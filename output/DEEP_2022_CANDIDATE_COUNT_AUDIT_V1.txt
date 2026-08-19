@@ -1,0 +1,76 @@
+DEEP 2022 CANDIDATE COUNT AUDIT V1
+
+Scope
+Cross-lane reconciliation of the completed 2022 VIINA core lane and completed Reuters 2022 core lane under DEEP-COMP-V1.
+
+CORE LANE COUNTS
+VIINA 2022 retained Russia-proper candidates = 2:
+- Belgorod oil depot 2022-04-01 (VIINA 147220-RU1)
+- Engels strategic airbase 2022-12-26 (VIINA 291978)
+VIINA 2022 OutcomeRelevantUnresolved = 0.
+
+Reuters 2022 Russia-proper candidate rows = 17.
+Reuters audit-only Crimea/Sevastopol rows = 5 after split and are excluded from Russia-proper count.
+
+CROSS-LANE OVERLAPS
+Exactly two VIINA retained Russia-proper candidates match Reuters candidate rows:
+- VIINA 147220-RU1 == Reuters R22C-003 Belgorod oil depot 2022-04-01.
+- VIINA 291978 == Reuters R22C-014 Engels strategic airbase 2022-12-26.
+No additional VIINA Russia-proper candidate exists outside the Reuters 17-row Russia-proper set.
+
+UNIQUE CORE CANDIDATE COUNT
+Lane-row arithmetic = 17 Reuters + 2 VIINA = 19 source-lane candidate representations.
+Cross-lane duplicates = 2.
+Unique 2022 Russia-proper core candidate universe = 17.
+
+C5 RECONCILIATION
+Final C5 status after targeted resolution:
+- Resolved / not outcome-relevant unresolved = 12 of 17.
+- FORMALLY_UNDECIDABLE / OutcomeRelevantUnresolved=TRUE = 5 of 17.
+The five blocking canonical candidates are:
+1. DEEP22-004 / R22C-004 Bryansk Transneft-Druzhba oil storage 2022-04-25: actor attribution unresolved.
+2. DEEP22-005 / R22C-005 Staraya Nelidovka ammunition depot 2022-04-27: actor/cause unresolved.
+3. DEEP22-006 / R22C-006 Timonovo/Soloti ammunition depot 2022-08-18: actor/cause unresolved.
+4. DEEP22-008 / R22C-008 Surazh/Kombinat Slava fuel storage 2022-11-30: drone operator unresolved.
+5. DEEP22-017 / R22C-017 Sudzha district energy-supply object 2022-11-29: exact TargetID/NodeID unresolved.
+
+COUNT BALANCE CHECK
+17 unique candidates = 12 resolved + 5 C5-blocking unresolved.
+Residual-count mismatch = 0.
+Unreconciled VIINA Russia-proper candidates = 0.
+Unreconciled Reuters Russia-proper source components = 0 at source-to-ledger bridge level.
+Crimea/Sevastopol audit-only rows are explicitly excluded from the Russia-proper count and do not create a count discrepancy.
+
+POST-C5 LEDGER DIFFERENCES STILL TO PROPAGATE
+The frozen/discovery Reuters candidate ledger V1 predates later C5 adjudications. The following fields are stale there and must be updated in a versioned post-C5 ledger rather than silently overwritten:
+- R22C-001: canonical date 2022-03-30 -> 2022-03-29; target identity and attribution resolved; OutcomeRelevantUnresolved TRUE -> FALSE.
+- R22C-002: attribution resolved; OutcomeRelevantUnresolved TRUE -> FALSE.
+- R22C-008: generic Surazh oil-storage target -> Kombinat Slava Rosrezerv; OutcomeRelevantUnresolved remains TRUE because actor unresolved.
+- R22C-009: target -> Razumnoye-71 and attribution resolved; OutcomeRelevantUnresolved TRUE -> FALSE.
+- R22C-010: target locality -> Oktyabrsky and attribution resolved; OutcomeRelevantUnresolved TRUE -> FALSE.
+- R22C-013: Ukrainian attribution resolved by event-specific senior Ukrainian official background confirmation; OutcomeRelevantUnresolved TRUE -> FALSE.
+- R22C-016: target/node -> Popovo-Lezhachi transformer substation and attribution resolved; OutcomeRelevantUnresolved TRUE -> FALSE.
+- R22C-017: canonical date 2022-11-30 -> 2022-11-29; target remains unresolved at stable NodeID level; OutcomeRelevantUnresolved remains TRUE.
+These are version-propagation differences, not hidden count discrepancies.
+
+FORMAL GATE DECISION
+C3_AllCandidatesCoded at merged core-candidate level = TRUE for the currently discovered core candidates.
+C4_DedupeComplete at cross-lane core level = TRUE for the two known VIINA/Reuters overlaps; no additional cross-lane duplicate is currently unresolved.
+C5_NoOutcomeRelevantUnresolved = FALSE because five canonical candidates remain OutcomeRelevantUnresolved=TRUE.
+
+CandidateCensusComplete = FALSE.
+This decision is mandatory even if all current core-candidate counts balance, because DEEP-COMP-V1 permits CandidateCensusComplete=TRUE only on the GLOBAL_SUMMARY row after C1-C7 are all TRUE and all YEAR rows PASS. For 2022 specifically, C5 is FALSE and C2/C6/C7 are not yet demonstrated.
+YearAcceptanceStatus = NOT_READY.
+
+IMPORTANT INTERPRETATION
+The 2022 candidate count is internally reconciled for the two completed core lanes. It is NOT yet a completeness-certified 2022 census. Additional validation/supplemental lanes required by C2/C6 can still discover new valid Russia-proper events and therefore can change the final 2022 unique candidate count.
+
+Authoritative supporting artifacts:
+- output/VIINA_2022_LANE_CLOSURE_V1.txt
+- output/VIINA_2022_RUSSIA_PRIORITY_MANUAL_REVIEW_V2.csv
+- output/VIINA_2022_R5_HIGH_PRIORITY_MANUAL_REVIEW_V3.csv
+- output/REUTERS_2022_LANE_CLOSURE_V1.txt
+- output/REUTERS_2022_SOURCE_TO_LEDGER_BRIDGE_V1.csv
+- output/REUTERS_2022_CANDIDATE_DEDUPE_LEDGER_V1.csv
+- output/REUTERS_2022_C5_STATUS_V2.txt
+- output/DEEP_2022_CORE_CANDIDATE_RECONCILIATION_V1.csv
