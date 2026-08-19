@@ -1,0 +1,65 @@
+RU_OFFICIAL 2022 COMPLETION STATUS V1
+
+Track = FROZEN_COMPLETENESS / DEEP-COMP-V1
+StudyWindow = 2022-02-24..2022-12-31
+Protocol = docs/RU_OFFICIAL_2022_DEEP_SEARCH_PROTOCOL_V1.md
+
+SEARCH-CELL EXECUTION
+SearchCellsTotal = 77
+SearchCellsExecuted = 77
+SearchStatus = COMPLETED
+CoverageStatus = PARTIAL
+SourceDependenceGroup = DG_RU_OFFICIAL
+DependencyAuditStatus = INDEPENDENT
+
+Reason CoverageStatus remains PARTIAL:
+All frozen month x family cells have been searched and zero-yield cells are explicit, but the lane does not yet satisfy FULL_PROTOCOL acceptance because several retained official aggregate or unnamed-target components cannot yet be reduced to stable TargetID/NodeID-level records and the lane-wide source-class/archive completeness acceptance has not been demonstrated.
+
+CROSS-LANE RECONCILIATION
+Retained/source components reviewed = 86
+Cross-lane links to already known Reuters/VIINA canonical candidates = 17
+Components with no Reuters/VIINA match found = 69
+Event-level UNIQUE decisions = 61
+Target-level NOT_ASSESSABLE_UNRESOLVED_TARGET = 8
+InclusionStatus INCLUDE_RUSSIA_PROPER = 44
+InclusionStatus UNRESOLVED = 17
+EXCLUDE_NOT_EVENT = 7
+EXCLUDE_OTHER_SCOPE = 1
+OutcomeRelevantUnresolved = 29
+
+Interpretation:
+- Cross-lane matches are linked rather than counted again.
+- Repeat attacks on the same node in a later attack wave remain separate events under DEEP-COMP-V1.
+- The eight target-level not-assessable components are explicit blockers and are not silently declared unique.
+- The five previously known core C5 blockers remain unresolved unless genuinely new qualifying evidence resolves their blocking field; the RU_OFFICIAL pass did not justify closing Staraya Nelidovka or Timonovo merely by repeating the original official statements.
+
+SOURCE-LANE ACCEPTANCE
+ReviewStatus = IN_PROGRESS
+DedupeReviewStatus = IN_PROGRESS
+RowAcceptanceStatus = NOT_READY
+Reason = unresolved target/node components plus CoverageStatus=PARTIAL.
+
+2022 GATE CONSEQUENCES
+C4_DedupeComplete = FALSE for the expanded 2022 register while NOT_ASSESSABLE_UNRESOLVED_TARGET records remain.
+C5_NoOutcomeRelevantUnresolved = FALSE because OutcomeRelevantUnresolved rows remain.
+C6_SourceConvergence = FALSE / NOT DEMONSTRATED because RU_OFFICIAL produced substantial new candidate yield and is not an accepted FULL_PROTOCOL lane yet.
+C7_VersionFrozen = FALSE.
+YearAcceptanceStatus = NOT_READY.
+
+CANDIDATE CENSUS STATUS
+CandidateCensusComplete = FALSE
+
+This is mandatory under DEEP-COMP-V1. CandidateCensusComplete may become TRUE only on GLOBAL_SUMMARY after every annual C1-C7 gate is TRUE and every YEAR_SUMMARY has YearAcceptanceStatus=PASS. The RU_OFFICIAL 2022 pass therefore advances discovery and exposes additional 2022 candidate gaps, but it does not close the 2022 census.
+
+Authoritative artifacts:
+- docs/RU_OFFICIAL_2022_DEEP_SEARCH_PROTOCOL_V1.md
+- docs/DEEP_COMPLETENESS_REBUILD_SPEC_V1.md
+- output/RU_OFFICIAL_2022_SEARCH_CELL_LOG_V1.csv
+- output/RU_OFFICIAL_2022_SOURCE_COMPONENT_MANIFEST_V1.csv
+- output/REUTERS_2022_SOURCE_COMPONENT_MANIFEST_V2.csv
+- output/REUTERS_2022_LANE_CLOSURE_V1.txt
+- output/DEEP_2022_CORE_CANDIDATE_RECONCILIATION_V1.csv
+- output/DEEP_2022_CANDIDATE_COUNT_AUDIT_V1.txt
+- output/VIINA_2022_REBUILD.csv
+
+Note: the detailed expanded reconciliation ledger was prepared during this pass, but a direct connector write of that row-level artifact was rejected. The aggregate status above therefore records the verified reconciliation counts without falsely marking unresolved components as closed.
