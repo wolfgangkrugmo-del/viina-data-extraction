@@ -1,0 +1,71 @@
+REUTERS 2022 DEEP LANE CLOSURE V1
+
+Track = FROZEN_COMPLETENESS
+Protocol = docs/REUTERS_2022_DEEP_SEARCH_PROTOCOL_V1.md
+StudyWindow = 2022-02-24..2022-12-31
+SearchCellsTotal = 28
+SearchCellsComplete = 28
+SearchStatus = COMPLETED
+CoverageStatus = FULL_PROTOCOL
+DependencyAuditStatus = PARTLY_DERIVATIVE
+
+SOURCE INVENTORY
+Frozen discovery manifest V1 rows = 20
+Transferred manifest V2 rows = 20
+Russia-proper source components = 17
+Crimea/Sevastopol audit-only source components = 3
+All 20 source components have LedgerTransferStatus=TRANSFERRED in V2.
+
+SOURCE-TO-LEDGER BRIDGE
+Bridge file = output/REUTERS_2022_SOURCE_TO_LEDGER_BRIDGE_V1.csv
+Source components reconciled = 20/20
+BridgeStatus = CLOSED
+Transformations:
+- 19 source components map 1:1 or to an explicit split component.
+- Dzhankoi Crimea composite source component is split into 3 physical audit-only nodes: ammunition depot, grid/substation, railway infrastructure.
+Candidate rows represented after split = 22 total:
+- 17 Russia-proper rows in output/REUTERS_2022_CANDIDATE_DEDUPE_LEDGER_V1.csv
+- 5 Crimea/Sevastopol audit-only rows in output/REUTERS_2022_AUDIT_ONLY_SPLIT_LEDGER_V1.csv
+
+VIINA RECONCILIATION
+Known same-event overlaps with completed VIINA 2022 lane:
+- Belgorod oil depot 2022-04-01 -> VIINA 147220-RU1
+- Engels strategic airbase 2022-12-26 -> VIINA 291978
+All other Reuters rows are retained as additional discovery candidates or unresolved candidates pending annual merge/confirmation review.
+
+CANDIDATE CODING / DEDUPE
+ReviewStatus = COMPLETE
+DedupeReviewStatus = COMPLETE
+Every candidate row has controlled InclusionStatus and DedupeDecision.
+No unresolved duplicate cluster without a documented decision remains within the Reuters lane.
+Records with unresolved target identity use NOT_ASSESSABLE_UNRESOLVED_TARGET and remain explicit C4/C5 inputs rather than being silently deduplicated.
+
+OUTCOME-RELEVANT UNRESOLVED
+Reuters Russia-proper OutcomeRelevantUnresolved rows = 11.
+Principal causes:
+- Ukrainian attribution/cause unresolved for several early depot/refinery/ammunition incidents.
+- exact TargetID/NodeID unresolved for Surazh 30-Nov, Belgorod oil-depot 15-Oct, Belgorod ammunition-depot 13-Oct, Kursk substation 13-Oct and Kursk-region power plant 30-Nov.
+These rows are preserved and block annual C5 until resolved. They do not invalidate completion of the Reuters discovery-source lane itself.
+
+SOURCE-ROW ACCEPTANCE CHECK
+- SearchStatus=COMPLETED: PASS
+- CoverageStatus=FULL_PROTOCOL: PASS
+- DependencyAuditStatus completed: PASS (PARTLY_DERIVATIVE)
+- source-component to ledger reconciliation: PASS (20/20 CLOSED)
+- ReviewStatus=COMPLETE: PASS
+- DedupeReviewStatus=COMPLETE: PASS
+- evidence/query/archive references present: PASS
+
+RowAcceptanceStatus = PASS
+CandidateCensusComplete = FALSE
+YearAcceptanceStatus remains NOT_READY because 2022 C1-C7 are not yet all satisfied and 11 Reuters outcome-relevant unresolved rows currently block C5.
+
+Authoritative artifacts:
+- docs/REUTERS_2022_DEEP_SEARCH_PROTOCOL_V1.md
+- output/REUTERS_2022_DEEP_SEARCH_LOG_V1.csv
+- output/REUTERS_2022_SOURCE_COMPONENT_MANIFEST_V1.csv
+- output/REUTERS_2022_SOURCE_COMPONENT_MANIFEST_V2.csv
+- output/REUTERS_2022_SOURCE_TO_LEDGER_BRIDGE_V1.csv
+- output/REUTERS_2022_CANDIDATE_DEDUPE_LEDGER_V1.csv
+- output/REUTERS_2022_AUDIT_ONLY_SPLIT_LEDGER_V1.csv
+- output/REUTERS_2022_DEPENDENCY_AUDIT_V1.txt
