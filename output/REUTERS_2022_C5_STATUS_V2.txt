@@ -1,0 +1,37 @@
+REUTERS 2022 C5 STATUS V2
+
+Initial Reuters outcome-relevant unresolved rows: 11.
+Closed in targeted resolution V1: 4.
+Bryansk/Transneft final review: FORMALLY_UNDECIDABLE.
+Remaining-six review: 2 CLOSED, 4 FORMALLY_UNDECIDABLE.
+
+TOTAL CLOSED FROM INITIAL 11 = 6.
+TOTAL REMAINING OutcomeRelevantUnresolved = 5.
+
+CLOSED:
+- R22C-001 Krasny Oktyabr/Belgorod ammunition depot 2022-03-29.
+- R22C-002 Novoshakhtinsk refinery 2022-06-22.
+- R22C-009 Razumnoye-71 fuel depot 2022-10-15.
+- R22C-010 Oktyabrsky ammunition depot 2022-10-13.
+- R22C-013 Kursk airfield fuel-storage strike 2022-12-06.
+- R22C-016 Popovo-Lezhachi substation 2022-10-13.
+
+FORMALLY_UNDECIDABLE / C5 BLOCKING:
+- R22C-004 Bryansk Transneft-Druzhba oil storage 2022-04-25: actor attribution unresolved.
+- R22C-005 Staraya Nelidovka ammunition depot 2022-04-27: actor/cause unresolved.
+- R22C-006 Timonovo/Soloti ammunition depot 2022-08-18: actor/cause unresolved.
+- R22C-008 Surazh/Kombinat Slava fuel storage 2022-11-30: target/mechanism substantially resolved, drone operator unresolved.
+- R22C-017 Sudzha district energy-supply object 2022-11-29: Ukrainian attribution resolved, exact TargetID/NodeID unresolved.
+
+FORMAL GATES
+C5_NoOutcomeRelevantUnresolved = FALSE.
+YearAcceptanceStatus = NOT_READY.
+CandidateCensusComplete = FALSE.
+Reuters source-row RowAcceptanceStatus remains PASS.
+
+Do not reopen FORMALLY_UNDECIDABLE rows on the same evidence set. Reopen only if new qualifying primary/official evidence resolves the specific blocking dimension.
+
+Supporting artifacts:
+- output/REUTERS_2022_C5_TARGETED_RESOLUTION_V1.csv
+- output/REUTERS_2022_C5_BRYANSK_TRANSNEFT_FINAL_V1.txt
+- output/REUTERS_2022_C5_REMAINING6_RESOLUTION_V1.csv
