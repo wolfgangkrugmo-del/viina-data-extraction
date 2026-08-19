@@ -1,0 +1,22 @@
+REUTERS 2025 FORMAL DEPENDENCY AUDIT V1
+
+Scope: Reuters 2025 DEEP discovery lane under DEEP-COMP-V1.
+Protocol: REUTERS_2025_DEEP_SEARCH_PROTOCOL_V1.
+
+DEPENDENCY AUDIT DECISION
+DependencyAuditStatus = PARTLY_DERIVATIVE.
+
+BASIS
+1. Reuters-original reporting, Reuters visual verification, Reuters industry-source reporting and Reuters-developed event chronologies remain assigned to DG_REUTERS for discovery provenance.
+2. Reuters records that merely relay Ukrainian military/SBU/General Staff target or damage claims are dependent confirmations for the claimed effect. They are not allowed to create independent confirmation and have been conservatively held/excluded unless additional non-Ukrainian or Reuters-verification evidence resolves the physical effect.
+3. Four target-resolved September pipeline events found through Open Source Centre data embedded/used by Reuters are not Reuters-independent yield. They remain routed to DG_OSINT_SPECIALIST and excluded from DG_REUTERS confirmed-new yield.
+4. Reuters reports that quote Russian regional authorities/operators may support physical-effect coding, but the audit does not treat a quoted upstream official statement as an additional independent source group merely because Reuters republishes it.
+5. Later Reuters retrospectives may strengthen evidence but do not create an independent 2025 Reuters discovery hit unless a 2025 Reuters source record was located under the frozen protocol.
+
+C2/C6 IMPLICATION
+PARTLY_DERIVATIVE is an allowed completed dependency-audit state. The Reuters lane may not be treated as fully independent at record level for derivative claim-only or OSC-routed records. Any C2/C6 use must respect the record-level routing and may not pair derivative records as independent evidence from their upstream source group.
+
+AUDIT STATUS
+Formal dependency review: COMPLETE.
+Matrix DependencyAuditStatus: PARTLY_DERIVATIVE.
+This audit does not by itself make the Reuters SOURCE row PASS; candidate-ledger transfer and formal candidate/dedupe closure are evaluated separately.
