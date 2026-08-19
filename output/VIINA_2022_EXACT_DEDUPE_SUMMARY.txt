@@ -1,0 +1,17 @@
+protocol=VIINA_2022_EXACT_REPORT_DEDUPE_V1
+input_rows=639
+exact_duplicate_clusters=91
+rows_in_clusters=223
+canonical_cluster_rows=91
+duplicate_rows_linked=132
+unique_noncluster_rows=416
+post_exact_dedupe_review_rows=507
+priority_russia_rows_before=32
+priority_russia_rows_after=24
+p1_before=29
+p1_after=21
+p2_before=3
+p2_after=3
+event_level_dedupe_status=PENDING
+dedupe_review_status=IN_PROGRESS
+candidate_census_complete=FALSE
