@@ -16,7 +16,7 @@ RUSSIA_PLACES = re.compile(
     r"белгород|брянск|курск|ростов|краснодар|воронеж|ор[её]л|калуг|тул[аеы]?|липецк|тамбов|рязан|смоленск|псков|ленинград|новгород|саратов|самар|татарстан|башк|нижн.{0,8}новгород|волгоград|астрахан|ставропол|дагестан|коми|мурманск|архангельск|ярослав|твер|москв",
     re.I,
 )
-FRESH = re.compile(r"\b(attacked|attack on|struck|hit|drone strike|missile strike|sabotage)\b|атаковал|атакували|атакували|ударил|ударили|уразил|уразили|вдарил|вдарили|влуч|поразил|поразили", re.I)
+FRESH = re.compile(r"\b(attacked|attack on|struck|hit|drone strike|missile strike|sabotage)\b|атаковал|атакували|ударил|ударили|уразил|уразили|вдарил|вдарили|влуч|поразил|поразили", re.I)
 FOLLOWUP = re.compile(r"\b(after (?:the )?(?:strike|attack)|still burning|continues? to burn|satellite (?:image|images)|aftermath|repair|repairs)\b|після (?:удару|атаки)|после (?:удара|атаки)|продовжує.{0,12}гор|продолжа.{0,12}гор|супутников|спутников|наслідк|последств|ремонт", re.I)
 
 
@@ -55,6 +55,29 @@ def classify_event(text: str):
     if follow:
         return "FOLLOWUP_OR_AFTERMATH", "FOLLOWUP_CUE_NO_FRESH_VERB"
     return "EVENT_FORM_UNRESOLVED", "NO_DECISIVE_EVENT_FORM_CUE"
+
+
+def load_matrix(path: Path):
+    """Read matrix conservatively and canonicalize only empty overflow cells."""
+    repaired_rows = 0
+    with path.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f, restkey="__EXTRA__", restval="")
+        fields = list(reader.fieldnames or [])
+        rows = []
+        for line_no, row in enumerate(reader, start=2):
+            extra = row.pop("__EXTRA__", None)
+            if extra:
+                nonempty = [v for v in extra if (v or "").strip()]
+                if nonempty:
+                    raise RuntimeError(
+                        f"Matrix line {line_no} has non-empty overflow fields: {nonempty!r}"
+                    )
+                repaired_rows += 1
+            for key in fields:
+                if row.get(key) is None:
+                    row[key] = ""
+            rows.append(row)
+    return fields, rows, repaired_rows
 
 
 def main():
@@ -133,33 +156,20 @@ def main():
         "ScopeAuto", "ScopeReason", "EventFormAuto", "EventFormReason",
         "ExactReportDuplicateCluster", "TriagePriority", "ManualReviewRequired"
     ]
-    # Avoid duplicate CandidateCensusComplete field in DictWriter.
-    seen = set(); out_fields = [c for c in out_fields if not (c in seen or seen.add(c))]
+    seen = set()
+    out_fields = [c for c in out_fields if not (c in seen or seen.add(c))]
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     for path, rows in [(args.output, enriched), (args.priority_output, priority)]:
         with path.open("w", encoding="utf-8", newline="") as f:
             w = csv.DictWriter(f, fieldnames=out_fields, extrasaction="ignore")
-            w.writeheader(); w.writerows(rows)
+            w.writeheader()
+            w.writerows(rows)
 
     unique_clusters = len(set(dup_id.values()))
-    with args.summary.open("w", encoding="utf-8") as f:
-        f.write("protocol=VIINA_2022_REVIEW_TRIAGE_V1\n")
-        f.write(f"input_review_rows={len(review)}\n")
-        f.write(f"priority_russia_rows={len(priority)}\n")
-        for key in [
-            "P1_RUSSIA_UA_ACTOR", "P2_RUSSIA_FROM_AMBIGUOUS", "P3_SCOPE_CONFLICT_COMPOSITE",
-            "P4_CRIMEA", "P5_OCCUPIED_UA_OTHER", "P6_SCOPE_UNKNOWN"
-        ]:
-            f.write(f"{key}={counts[key]}\n")
-        f.write(f"exact_report_duplicate_clusters={unique_clusters}\n")
-        f.write(f"rows_in_exact_report_duplicate_clusters={counts['ROWS_IN_EXACT_REPORT_DUP_CLUSTERS']}\n")
-        f.write("manual_review_required_for_all_triage_rows=TRUE\n")
-        f.write("candidate_census_complete=FALSE\n")
 
     # Update only the SRC-2022-VIINA progress row in the frozen work matrix.
-    with args.matrix.open(encoding="utf-8", newline="") as f:
-        mr = csv.DictReader(f); mfields = list(mr.fieldnames or []); mrows = list(mr)
+    mfields, mrows, repaired_matrix_rows = load_matrix(args.matrix)
     found = False
     for r in mrows:
         if r.get("MatrixRowID") == "SRC-2022-VIINA":
@@ -180,10 +190,30 @@ def main():
     if not found:
         raise RuntimeError("SRC-2022-VIINA row not found in matrix")
     with args.matrix.open("w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=mfields); w.writeheader(); w.writerows(mrows)
+        w = csv.DictWriter(f, fieldnames=mfields, extrasaction="raise")
+        w.writeheader()
+        w.writerows(mrows)
 
-    # machine-readable integrity footer to stdout
-    print(f"review_rows={len(review)} priority_russia={len(priority)} exact_dup_clusters={unique_clusters}")
+    with args.summary.open("w", encoding="utf-8") as f:
+        f.write("protocol=VIINA_2022_REVIEW_TRIAGE_V1\n")
+        f.write(f"input_review_rows={len(review)}\n")
+        f.write(f"priority_russia_rows={len(priority)}\n")
+        for key in [
+            "P1_RUSSIA_UA_ACTOR", "P2_RUSSIA_FROM_AMBIGUOUS", "P3_SCOPE_CONFLICT_COMPOSITE",
+            "P4_CRIMEA", "P5_OCCUPIED_UA_OTHER", "P6_SCOPE_UNKNOWN"
+        ]:
+            f.write(f"{key}={counts[key]}\n")
+        f.write(f"exact_report_duplicate_clusters={unique_clusters}\n")
+        f.write(f"rows_in_exact_report_duplicate_clusters={counts['ROWS_IN_EXACT_REPORT_DUP_CLUSTERS']}\n")
+        f.write(f"matrix_rows_with_empty_overflow_canonicalized={repaired_matrix_rows}\n")
+        f.write("matrix_nonempty_overflow_policy=HARD_FAIL\n")
+        f.write("manual_review_required_for_all_triage_rows=TRUE\n")
+        f.write("candidate_census_complete=FALSE\n")
+
+    print(
+        f"review_rows={len(review)} priority_russia={len(priority)} "
+        f"exact_dup_clusters={unique_clusters} repaired_matrix_rows={repaired_matrix_rows}"
+    )
     for p in [args.output, args.priority_output, args.summary, args.matrix]:
         print(hashlib.sha256(p.read_bytes()).hexdigest(), p)
 
