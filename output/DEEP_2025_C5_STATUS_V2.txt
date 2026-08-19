@@ -1,0 +1,26 @@
+DEEP 2025 C5 STATUS V2
+
+Supersedes DEEP_2025_C5_STATUS_V1.txt.
+
+C5 rule: YEAR TRUE iff zero records have OutcomeRelevantUnresolved=TRUE.
+
+Final targeted residual pass decisions:
+- Dyagilevo airfield 2025-06-06: EXCLUDE; OutcomeRelevantUnresolved=FALSE.
+- Syzran refinery 2025-08-30: EXCLUDE; OutcomeRelevantUnresolved=FALSE.
+- Engels Kombinat Kristall fuel storage 2025-11-14: HOLD_OPEN; OutcomeRelevantUnresolved=TRUE.
+- Unidentified industrial enterprise Novoshakhtinsk 2025-11-30: HOLD_OPEN; OutcomeRelevantUnresolved=TRUE.
+
+Residual outcome-relevant unresolved count: 2.
+C5_NoOutcomeRelevantUnresolved: FALSE.
+C5 status: BLOCKED.
+
+Register consequence:
+Current conservative confirmed Reuters↔VIINA delta remains +43.
+No new confirmed event was added by this pass; two attempted/unconfirmed Reuters cases were cleared as exclusions.
+
+Remaining blockers capable of changing target/node/repeat logic:
+1. Engels Kombinat Kristall fuel storage 2025-11-14 — target resolved, physical target effect unresolved.
+2. Novoshakhtinsk industrial enterprise 2025-11-30 — physical fire confirmed, facility/TargetID/NodeID/sector/criticality unresolved.
+
+CandidateCensusComplete remains FALSE.
+Authoritative event-level review: output/DEEP_2025_C5_FINAL_RESIDUAL_REVIEW_V2.csv
