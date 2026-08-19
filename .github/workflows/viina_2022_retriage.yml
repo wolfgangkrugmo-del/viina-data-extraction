@@ -1,0 +1,41 @@
+name: VIINA 2022 post-dedupe retriage
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/retriage_viina_2022_post_dedupe.py"
+      - ".github/workflows/viina_2022_retriage.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  retriage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Run corrected retriage
+        run: |
+          set -euo pipefail
+          python scripts/retriage_viina_2022_post_dedupe.py \
+            --input output/VIINA_2022_POST_EXACT_DEDUPE_REVIEW.csv \
+            --output output/VIINA_2022_POST_DEDUPE_RETRIAGE_V2.csv \
+            --russia-output output/VIINA_2022_RUSSIA_PRIORITY_V2.csv \
+            --summary output/VIINA_2022_POST_DEDUPE_RETRIAGE_V2_SUMMARY.txt
+          cat output/VIINA_2022_POST_DEDUPE_RETRIAGE_V2_SUMMARY.txt
+      - name: Commit retriage outputs
+        run: |
+          set -euo pipefail
+          git add output/VIINA_2022_POST_DEDUPE_RETRIAGE_V2.csv output/VIINA_2022_RUSSIA_PRIORITY_V2.csv output/VIINA_2022_POST_DEDUPE_RETRIAGE_V2_SUMMARY.txt
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record corrected VIINA 2022 post-dedupe retriage"
+          git push origin HEAD:main
