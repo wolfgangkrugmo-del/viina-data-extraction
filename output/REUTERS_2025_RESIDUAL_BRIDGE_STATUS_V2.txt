@@ -1,0 +1,39 @@
+REUTERS 2025 RESIDUAL BRIDGE STATUS V2
+
+Authoritative residual adjudication:
+output/REUTERS_2025_RESIDUAL_SOURCE_BRIDGE_EVIDENCE_MATRIX_V2.csv
+
+FINAL COUNTS
+Total residual rows reviewed: 20.
+CLOSED: 7.
+FORMALLY_UNDECIDABLE: 13.
+
+SOURCE RESIDUALS (13)
+CLOSED: 1.
+FORMALLY_UNDECIDABLE: 12.
+- Q2-R4: two retained source identities cannot be recovered at target/date level.
+- Q3-R1: four residual source identities balance at set level but stable ordinal-to-event mapping is not preserved.
+- Q3-R6: Sergiyev Posad and Kursk NPP identities are recoverable at set/anchor level, but stable ordinal/ledger-transfer proof is incomplete.
+- Q4-R7: four mobile-asset components are provably Non-Candidate but exact source identities/order are not recoverable.
+- Q3-R3-04 closes uniquely as Unecha 2025-08-13.
+
+R25R RESIDUALS (7)
+CLOSED: 6.
+FORMALLY_UNDECIDABLE: 1.
+- CLOSED: R25R-0015 Steel Horse -> Reuters-direct Q1-R3; Chertkovsky R25R-0013 is VIINA-side source-inventory addition.
+- CLOSED: R25R-0027 Ivanovo Severny -> Non-Candidate reconciliation expansion.
+- CLOSED: R25R-0028 Dyagilevo 2025-06-01 -> Non-Candidate reconciliation expansion.
+- CLOSED: R25R-0066 Dzerzhinsk -> Non-Candidate; frozen Q4-R4 direct count is zero.
+- FORMALLY_UNDECIDABLE: R25R-0094 Orenburg 2025-12-25 is Reuters-direct and confirmed, but exact stable R25S-Q4-R1-xx identity is not preserved by frozen row-level provenance.
+- CLOSED: R25R-0100 -> Follow-up to Saratov 2025-09-20.
+- CLOSED: R25R-0101 -> Follow-up to Samara/Novokuibyshevsk 2025-09-20.
+
+FORMAL DECISION
+BridgeComplete = FALSE.
+Reason: at least one residual row remains FORMALLY_UNDECIDABLE; in fact 13 of 20 remain formally undecidable under the DEEP-COMP-V1 stable row-level provenance requirement.
+
+RowAcceptanceStatus = NOT_READY.
+CandidateCensusComplete = FALSE.
+Master-matrix SRC-2025-REUTERS MUST NOT be promoted to PASS on the basis of frozen Reuters artifacts alone.
+
+Missing evidence needed for full closure consists of original row-level Reuters source-component identities/order for the unresolved slots or an equivalent frozen artifact that deterministically links those components to stable R25S identities and ledger transformations.
