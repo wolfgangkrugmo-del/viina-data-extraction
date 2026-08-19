@@ -50,6 +50,16 @@ jobs:
           curl --fail --location --retry 3 https://download.geonames.org/export/dump/RU.zip -o tmp/RU.zip
           unzip -t tmp/RU.zip >/dev/null
 
+      - name: Diagnose pipeline stages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/diagnose_viina_pipeline.py \
+            --viina-data-dir viina/Data \
+            --ru-geonames tmp/RU.zip \
+            --output output/PIPELINE_DIAGNOSTIC.txt
+          test -s output/PIPELINE_DIAGNOSTIC.txt
+
       - name: Build strict and review candidate CSVs
         shell: bash
         run: |
@@ -77,21 +87,21 @@ jobs:
             echo "study_start=2022-02-24"
             echo "study_end=2026-06-30"
             echo "source_repo=https://github.com/zhukovyuri/VIINA"
-            echo "strict_rule=ukrainian_initiator AND onepd_geonameid_in_geonames_RU"
-            echo "review_rule=ukrainian_initiator AND raw_RU_location_match BUT onepd_location_not_confirmed_RU"
-            sha256sum output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv
+            echo "strict_rule=ukrainian_initiator AND hierarchical_RU_location_gate; Crimea review-only"
+            echo "review_rule=ukrainian_initiator AND unresolved/disputed location"
+            sha256sum output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt
           } > output/PROVENANCE.txt
 
-      - name: Commit derived output
+      - name: Commit derived output and diagnostics
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PROVENANCE.txt
+          git add output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt output/PROVENANCE.txt
           if git diff --cached --quiet; then
             echo "No output changes."
           else
-            git commit -m "Update strict VIINA deep-strike candidate extract"
+            git commit -m "Record VIINA pipeline diagnostics and candidate extract"
             git push
           fi
