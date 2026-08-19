@@ -1,4 +1,4 @@
-generated_at_utc=2026-08-19T08:34:25Z
+generated_at_utc=2026-08-19T08:42:51Z
 viina_commit=2ae123195ee75bec587fa06a1dcd9ab726a5d889
 study_start=2022-02-24
 study_end=2026-06-30
@@ -6,4 +6,4 @@ source_repo=https://github.com/zhukovyuri/VIINA
 strict_rule=ukrainian_initiator AND onepd_geonameid_in_geonames_RU
 review_rule=ukrainian_initiator AND raw_RU_location_match BUT onepd_location_not_confirmed_RU
 607ecae54ffd8e64a1ddbc962af05e3b4982d3a148169dafd9da9eac03e3c03a  output/viina_deep_strike_candidates.csv
-92aee9de86816dfe50a4940fe0c6cd03b2d68c387497d292153b22e1422c6b87  output/viina_deep_strike_location_review.csv
+607ecae54ffd8e64a1ddbc962af05e3b4982d3a148169dafd9da9eac03e3c03a  output/viina_deep_strike_location_review.csv
