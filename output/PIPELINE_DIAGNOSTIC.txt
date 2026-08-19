@@ -1,0 +1,57 @@
+gazetteer_ids=0
+gazetteer_names=0
+gazetteer_grid_cells=0
+INFO_2022_FIELDS=viina_version|event_id|event_id_1pd|date|time|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|GEO_API|location|address|report_id|source|url|text|lang
+INFO_2022_COUNTS total=259851 date_ok=259851 gid_nonempty=258665 gid_ru=0 text_match=2335 key_nonempty=259851 raw_keys=0
+ONEPD_2022_FIELDS=viina_version|event_id_1pd|date|n_reports|event_ids|sources|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|t_mil_b|a_rus_b|a_ukr_b|a_rus_init_b|a_ukr_init_b|a_civ_b|a_other_b|t_aad_b|t_airstrike_b|t_airalert_b|t_uav_b|t_armor_b|t_arrest_b|t_artillery_b|t_control_b|t_firefight_b|t_ied_b|t_raid_b|t_occupy_b|t_property_b|t_cyber_b|t_hospital_b|t_milcas_b|t_civcas_b|t_retreat_b|t_loc_b|t_san_b
+ONEPD_2022_COUNTS total=172491 raw_join=0 ukr_init_after_raw_join=0
+INFO_2023_FIELDS=viina_version|event_id|event_id_1pd|date|time|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|GEO_API|location|address|report_id|source|url|text|lang
+INFO_2023_COUNTS total=141593 date_ok=141593 gid_nonempty=140645 gid_ru=0 text_match=691 key_nonempty=141593 raw_keys=0
+ONEPD_2023_FIELDS=viina_version|event_id_1pd|date|n_reports|event_ids|sources|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|t_mil_b|a_rus_b|a_ukr_b|a_rus_init_b|a_ukr_init_b|a_civ_b|a_other_b|t_aad_b|t_airstrike_b|t_airalert_b|t_uav_b|t_armor_b|t_arrest_b|t_artillery_b|t_control_b|t_firefight_b|t_ied_b|t_raid_b|t_occupy_b|t_property_b|t_cyber_b|t_hospital_b|t_milcas_b|t_civcas_b|t_retreat_b|t_loc_b|t_san_b
+ONEPD_2023_COUNTS total=90743 raw_join=0 ukr_init_after_raw_join=0
+INFO_2024_FIELDS=viina_version|event_id|event_id_1pd|date|time|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|GEO_API|location|address|report_id|source|url|text|lang
+INFO_2024_COUNTS total=97885 date_ok=97885 gid_nonempty=97287 gid_ru=0 text_match=560 key_nonempty=97885 raw_keys=0
+ONEPD_2024_FIELDS=viina_version|event_id_1pd|date|n_reports|event_ids|sources|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|t_mil_b|a_rus_b|a_ukr_b|a_rus_init_b|a_ukr_init_b|a_civ_b|a_other_b|t_aad_b|t_airstrike_b|t_airalert_b|t_uav_b|t_armor_b|t_arrest_b|t_artillery_b|t_control_b|t_firefight_b|t_ied_b|t_raid_b|t_occupy_b|t_property_b|t_cyber_b|t_hospital_b|t_milcas_b|t_civcas_b|t_retreat_b|t_loc_b|t_san_b
+ONEPD_2024_COUNTS total=74124 raw_join=0 ukr_init_after_raw_join=0
+INFO_2025_FIELDS=viina_version|event_id|event_id_1pd|date|time|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|GEO_API|location|address|report_id|source|url|text|lang
+INFO_2025_COUNTS total=50490 date_ok=50490 gid_nonempty=50304 gid_ru=0 text_match=332 key_nonempty=50490 raw_keys=0
+ONEPD_2025_FIELDS=viina_version|event_id_1pd|date|n_reports|event_ids|sources|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|t_mil_b|a_rus_b|a_ukr_b|a_rus_init_b|a_ukr_init_b|a_civ_b|a_other_b|t_aad_b|t_airstrike_b|t_airalert_b|t_uav_b|t_armor_b|t_arrest_b|t_artillery_b|t_control_b|t_firefight_b|t_ied_b|t_raid_b|t_occupy_b|t_property_b|t_cyber_b|t_hospital_b|t_milcas_b|t_civcas_b|t_retreat_b|t_loc_b|t_san_b|tid
+ONEPD_2025_COUNTS total=45204 raw_join=0 ukr_init_after_raw_join=0
+INFO_2026_FIELDS=viina_version|event_id|event_id_1pd|date|time|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|GEO_API|location|address|report_id|source|url|text|lang
+INFO_2026_COUNTS total=32108 date_ok=26106 gid_nonempty=25938 gid_ru=0 text_match=329 key_nonempty=26106 raw_keys=0
+ONEPD_2026_FIELDS=viina_version|event_id_1pd|date|n_reports|event_ids|sources|geonameid|feature_code|asciiname|ADM1_NAME|ADM1_CODE|ADM2_NAME|ADM2_CODE|longitude|latitude|GEO_PRECISION|t_mil_b|a_rus_b|a_ukr_b|a_rus_init_b|a_ukr_init_b|a_civ_b|a_other_b|t_aad_b|t_airstrike_b|t_airalert_b|t_uav_b|t_armor_b|t_arrest_b|t_artillery_b|t_control_b|t_firefight_b|t_ied_b|t_raid_b|t_occupy_b|t_property_b|t_cyber_b|t_hospital_b|t_milcas_b|t_civcas_b|t_retreat_b|t_loc_b|t_san_b|tid
+ONEPD_2026_COUNTS total=27691 raw_join=0 ukr_init_after_raw_join=0
+=== KNOWN_EVENT_DIAGNOSTICS ===
+KNOWN 399662 Feodosia 2025-10-08
+  INFO=[{'year': 2025, 'gid': '', 'gid_ru': False, 'date': '20251008', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'target_attack_match': True, 'text': 'Пожежа на нафтобазі в Феодосії після влучання БПЛА вирує третій день, окупаційна влада мовчить, люди виїжджають'}]
+  ONEPD=[{'year': 2025, 'gid': '', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_DISPUTED_CRIMEA', '', '', ''), 'in_raw': False}]
+KNOWN 399666 Feodosia 2025-10-13
+  INFO=[{'year': 2025, 'gid': '', 'gid_ru': False, 'date': '20251013', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'target_attack_match': True, 'text': 'Вдруге за тиждень: у Феодосії потужно палає нафтобаза після атаки дронів (фото, відео)'}]
+  ONEPD=[{'year': 2025, 'gid': '', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_DISPUTED_CRIMEA', '', '', ''), 'in_raw': False}]
+KNOWN 399670 Feodosia 2025-10-15
+  INFO=[{'year': 2025, 'gid': '', 'gid_ru': False, 'date': '20251015', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'target_attack_match': True, 'text': 'Подтвержден удар по нефтебазе в Феодосии: повреждены 16 резервуаров, пожар продолжается'}]
+  ONEPD=[{'year': 2025, 'gid': '', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_DISPUTED_CRIMEA', '', '', ''), 'in_raw': False}]
+KNOWN 399674 Feodosia 2025-10-18
+  INFO=[{'year': 2025, 'gid': '', 'gid_ru': False, 'date': '20251018', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'target_attack_match': True, 'text': 'Появился спутниковый снимок нефтяного терминала в оккупированной Феодосии после ударов'}]
+  ONEPD=[{'year': 2025, 'gid': '', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_DISPUTED_CRIMEA', '', '', ''), 'in_raw': False}]
+KNOWN 431493 Feodosia 2026-01-28
+  INFO=[{'year': 2026, 'gid': '', 'gid_ru': False, 'date': '20260128', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'target_attack_match': True, 'text': 'Фото У Феодосії дрони атакували місцевий порт та нафтобазу – ЗМІ.'}]
+  ONEPD=[{'year': 2026, 'gid': '', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_DISPUTED_CRIMEA', '', '', ''), 'in_raw': False}]
+KNOWN 431536 Feodosia 2026-04-08
+  INFO=[{'year': 2026, 'gid': '', 'gid_ru': False, 'date': '20260408', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'target_attack_match': True, 'text': 'У Феодосії загорілася нафтобаза після удару дронів. У Феодосії, що у тимчасово окупованому Криму, вночі 8 квітня загорілася нафтобаза, яка забезпечує російську армію паливом. Про ц'}]
+  ONEPD=[{'year': 2026, 'gid': '', 'asciiname': '', 'lat': '45.02665', 'lon': '35.38391', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_DISPUTED_CRIMEA', '', '', ''), 'in_raw': False}]
+KNOWN 431539 Belgorod 2026-04-16
+  INFO=[{'year': 2026, 'gid': '', 'gid_ru': False, 'date': '20260416', 'asciiname': '', 'lat': '50.59556', 'lon': '36.58734', 'target_attack_match': True, 'text': 'Дрони завдали удару по електропідстанції у Бєлгороді. Вранці у четвер, 16 квітня, дрони завдали удару по електропідстанції у російському місті Бєлгород. Про це повідомив місцевий T'}]
+  ONEPD=[{'year': 2026, 'gid': '', 'asciiname': '', 'lat': '50.59556', 'lon': '36.58734', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_LOCATION_UNRESOLVED', '', '', ''), 'in_raw': False}]
+KNOWN 431557 Samara 2026-04-21
+  INFO=[{'year': 2026, 'gid': '', 'gid_ru': False, 'date': '20260421', 'asciiname': '', 'lat': '53.21946', 'lon': '50.20393', 'target_attack_match': True, 'text': 'Дрони СБУ уразили російську станцію Самара нафтопроводу Дружба, яка формує експортний сорт нафти Urals — джерела NV'}]
+  ONEPD=[{'year': 2026, 'gid': '', 'asciiname': '', 'lat': '53.21946', 'lon': '50.20393', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_LOCATION_UNRESOLVED', '', '', ''), 'in_raw': False}]
+KNOWN 431572 Yaroslavl/Rostov 2026-05-08
+  INFO=[{'year': 2026, 'gid': '', 'gid_ru': False, 'date': '20260508', 'asciiname': '', 'lat': '47.22165', 'lon': '39.70961', 'target_attack_match': True, 'text': 'Оновлено, відео Дрони атакували Москву, НПЗ у Ярославлі та Ростов: спалахнули пожежі.'}]
+  ONEPD=[{'year': 2026, 'gid': '', 'asciiname': '', 'lat': '47.22165', 'lon': '39.70961', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_LOCATION_UNRESOLVED', '', '', ''), 'in_raw': False}]
+KNOWN 431597 Taganrog 2026-05-30
+  INFO=[{'year': 2026, 'gid': '', 'gid_ru': False, 'date': '20260530', 'asciiname': '', 'lat': '47.21537', 'lon': '38.92852', 'target_attack_match': True, 'text': 'СБС уразили два протичовнові літаки Ту-142 в Таганрозі. У ніч на 30 травня Сили безпілотних систем уразили два протичовнові літаки Ту-142 на військовому аеродромі в Таганрозі. Про '}]
+  ONEPD=[{'year': 2026, 'gid': '', 'asciiname': '', 'lat': '47.21537', 'lon': '38.92852', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_LOCATION_UNRESOLVED', '', '', ''), 'in_raw': False}]
+KNOWN 431608 Taganrog 2026-06-20
+  INFO=[{'year': 2026, 'gid': '', 'gid_ru': False, 'date': '20260620', 'asciiname': '', 'lat': '47.21537', 'lon': '38.92852', 'target_attack_match': True, 'text': 'Партизани заявили про пошкодження електропідстанції в Таганрозі, яка живила завод із виробництва дронів — відео'}]
+  ONEPD=[{'year': 2026, 'gid': '', 'asciiname': '', 'lat': '47.21537', 'lon': '38.92852', 'a_ukr_init': '1', 'loc_decision': (False, 'REVIEW_LOCATION_UNRESOLVED', '', '', ''), 'in_raw': False}]

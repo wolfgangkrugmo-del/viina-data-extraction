@@ -1,9 +1,10 @@
-generated_at_utc=2026-08-19T08:42:51Z
+generated_at_utc=2026-08-19T08:51:54Z
 viina_commit=2ae123195ee75bec587fa06a1dcd9ab726a5d889
 study_start=2022-02-24
 study_end=2026-06-30
 source_repo=https://github.com/zhukovyuri/VIINA
-strict_rule=ukrainian_initiator AND onepd_geonameid_in_geonames_RU
-review_rule=ukrainian_initiator AND raw_RU_location_match BUT onepd_location_not_confirmed_RU
+strict_rule=ukrainian_initiator AND hierarchical_RU_location_gate; Crimea review-only
+review_rule=ukrainian_initiator AND unresolved/disputed location
 607ecae54ffd8e64a1ddbc962af05e3b4982d3a148169dafd9da9eac03e3c03a  output/viina_deep_strike_candidates.csv
 607ecae54ffd8e64a1ddbc962af05e3b4982d3a148169dafd9da9eac03e3c03a  output/viina_deep_strike_location_review.csv
+0b4485759f3344879e2ed13fd140c8890e2c1a154c81c8f184a4fa8fcd66ec5a  output/PIPELINE_DIAGNOSTIC.txt
