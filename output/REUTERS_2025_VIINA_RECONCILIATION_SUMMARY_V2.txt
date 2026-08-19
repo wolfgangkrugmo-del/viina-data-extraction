@@ -1,0 +1,54 @@
+REUTERS 2025 ↔ VIINA 2025 RECONCILIATION SUMMARY V2
+
+SUPERSEDES: REUTERS_2025_VIINA_RECONCILIATION_SUMMARY_V1.txt for register-delta counting.
+Reason for supersession: post-search consistency audit applied a stricter confirmation standard and removed claim-only / insufficiently resolved cases from the confirmed-new count.
+
+Protocol: REUTERS_2025_DEEP_SEARCH_PROTOCOL_V1
+Study window: 2025-01-01 through 2025-12-31
+Search grid: 4 quarters x 7 search families = 28 cells
+Executed cells: 28/28
+Search-cell status: COMPLETE for all 28 cells
+CandidateCensusComplete: FALSE
+
+STRICT REGISTER-DELTA RULE
+A Reuters event increments the confirmed merged candidate register only when all are true:
+1. Russia proper.
+2. A target/node and attack wave can be separated from other events.
+3. The same target/node + attack wave is not already canonicalised in the reviewed VIINA 2025 lane.
+4. A physical target effect is supported by Russian/regional/operator/industry reporting or Reuters verification/imagery/industry sources.
+5. Reuters merely relaying a Ukrainian claim is not sufficient for CONFIRMED_NEW.
+6. Targets whose inclusion in the DEEP target universe remains uncertain are held separately even if the physical effect is confirmed.
+
+RESULT
+Strict confirmed Reuters-new events absent from VIINA canonicals: 34.
+Confirmed register delta relative to the reviewed VIINA-only 2025 candidate register: +34.
+This +34 is a conservative lower-bound addition to the candidate register; it is NOT a frozen final scoring-register count.
+
+The authoritative event-level list for this count is:
+output/REUTERS_2025_CONFIRMED_NEW_EVENTS_V2.csv
+
+IMPORTANT EXCLUSIONS FROM +34
+- Known VIINA overlaps are not incremented, including Ilsky (17 Feb and 2 Mar), Kropotkinskaya CPC (17 Feb), Chertkovsky pipeline (4 Mar), Steel Horse/Druzhba cluster (11 Mar probable match), Unecha (13 Aug and 21 Aug repeat), Nikolskoye (18 Aug), Port Olya probable match (14 Aug), Naytopovichi (7 Sep), Primorsk (12 Sep), Kirishi (14 Sep), Volgograd (6 Nov), Saratov (11 Nov), Beriev/Atlant Aero/Sheskharis/Tuapse (25 Nov), Afipsky and CPC SPM-2 (29 Nov), and the 30 Nov Slavyansk/Gukovo/Novoshakhtinsk composite.
+- Claim-only or independently unverified target effects remain PROVISIONAL and do not increment +34.
+- Target/node-unresolved records remain UNRESOLVED and do not increment +34.
+- Confirmed physical events whose DEEP target-universe eligibility is still unresolved (notably Shatura power station and Belgorod reservoir dam) are held outside +34 pending explicit eligibility coding.
+- Four target-resolved September pipeline events found only through the Open Source Centre dataset used/embedded by Reuters are routed to DG_OSINT_SPECIALIST and are not counted as independent DG_REUTERS yield.
+- Later Reuters retrospectives may strengthen evidence for a 2025 event but do not create a Reuters-2025 discovery hit unless a 2025 Reuters source record was located under the frozen protocol.
+
+NOTABLE CLASSIFICATION CORRECTIONS FROM V1
+- Syzran early-Q1 was not treated as a confirmed 19-Feb event; Reuters' 19-Mar chronology identifies a 4-Mar targeting without an independently established qualifying effect, so it does not enter strict +34.
+- Saratov 10-Aug and Saratov/Samara 20-Sep were downgraded from confirmed to provisional because the Reuters records reviewed principally relay Ukrainian claims and do not supply sufficient independent target-effect confirmation.
+- Temryuk 25-Dec is provisional under the strict rule because the reviewed Reuters article relies on SBU target-effect reporting without independent effect confirmation.
+- Shatura 23-Nov is physically confirmed but remains outside +34 pending DEEP target-universe eligibility.
+- Sergiyev Posad substation 4-Jul, Afipsky 28-Aug, Kuibyshev 28-Aug, Krasnodar refinery 30-Aug, YANOS 12-Dec and Slavyansk 17-Dec are included in +34 because physical effects are supported by regional/industry/Reuters evidence.
+
+REGISTER CONSEQUENCE
+The Reuters lane materially changes the 2025 candidate universe: the reviewed VIINA lane alone is not close to a saturated 2025 event census. At minimum 34 additional physically confirmed Russia-proper target events are added before resolving Reuters provisional/unresolved cases or adding the other independent discovery/validation lanes.
+
+GATE CONSEQUENCES
+- Reuters search execution: COMPLETE (28/28 frozen search cells).
+- Reuters discovery coverage under this protocol: FULL_PROTOCOL for the 2025 search grid.
+- Formal dependency audit is still required before Reuters can count unconditionally toward C2; individual derivative/claim-only records have already been flagged conservatively.
+- C5 remains blocked: VIINA still has the 2025-11-30 unidentified Novoshakhtinsk industrial-enterprise residual, and Reuters also contains unresolved/provisional records capable of changing counts.
+- C6 remains NOT_EVALUATED/FALSE until additional independent validation/supplemental lanes are merged and saturation criteria are tested.
+- CandidateCensusComplete remains FALSE.
