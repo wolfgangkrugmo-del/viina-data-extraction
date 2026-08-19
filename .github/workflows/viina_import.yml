@@ -30,8 +30,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add output/RUNNER_STARTED.txt
-          git commit -m "Record VIINA runner start"
-          git push
+          if git diff --cached --quiet; then
+            echo "Runner marker unchanged."
+          else
+            git commit -m "Record VIINA runner start"
+            git push
+          fi
 
       - name: Download GeoNames Russia gazetteer
         shell: bash
@@ -56,8 +60,12 @@ jobs:
         run: |
           set -euo pipefail
           git add output/GEONAMES_PREFLIGHT.txt
-          git commit -m "Record GeoNames location preflight"
-          git push
+          if git diff --cached --quiet; then
+            echo "Preflight unchanged."
+          else
+            git commit -m "Record GeoNames location preflight"
+            git push
+          fi
 
       - name: Clone VIINA
         shell: bash
@@ -105,6 +113,18 @@ jobs:
           wc -l output/viina_deep_strike_candidates.csv
           wc -l output/viina_deep_strike_location_review.csv
 
+      - name: Classify review cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/classify_review.py \
+            --input output/viina_deep_strike_location_review.csv \
+            --output output/viina_review_classified.csv \
+            --summary output/VIINA_REVIEW_SUMMARY.txt
+          test -s output/viina_review_classified.csv
+          test -s output/VIINA_REVIEW_SUMMARY.txt
+          cat output/VIINA_REVIEW_SUMMARY.txt
+
       - name: Write provenance
         shell: bash
         run: |
@@ -116,14 +136,31 @@ jobs:
             echo "study_end=2026-06-30"
             echo "source_repo=https://github.com/zhukovyuri/VIINA"
             echo "strict_rule=ukrainian_initiator AND hierarchical_RU_location_gate; Crimea review-only"
-            echo "review_rule=ukrainian_initiator AND unresolved/disputed location"
-            sha256sum output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt output/GEONAMES_PREFLIGHT.txt
+            echo "review_rule=EVENT_GATE>PROMOTE_RUSSIA>CRIMEA>UNRESOLVED; PROMOTE_RUSSIA remains census-candidate only"
+            sha256sum \
+              output/viina_deep_strike_candidates.csv \
+              output/viina_deep_strike_location_review.csv \
+              output/viina_review_classified.csv \
+              output/VIINA_REVIEW_SUMMARY.txt \
+              output/PIPELINE_DIAGNOSTIC.txt \
+              output/GEONAMES_PREFLIGHT.txt
           } > output/PROVENANCE.txt
 
       - name: Commit derived output and diagnostics
         shell: bash
         run: |
           set -euo pipefail
-          git add output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt output/GEONAMES_PREFLIGHT.txt output/PROVENANCE.txt
-          git commit -m "Record VIINA pipeline diagnostics and candidate extract"
-          git push
+          git add \
+            output/viina_deep_strike_candidates.csv \
+            output/viina_deep_strike_location_review.csv \
+            output/viina_review_classified.csv \
+            output/VIINA_REVIEW_SUMMARY.txt \
+            output/PIPELINE_DIAGNOSTIC.txt \
+            output/GEONAMES_PREFLIGHT.txt \
+            output/PROVENANCE.txt
+          if git diff --cached --quiet; then
+            echo "No output changes."
+          else
+            git commit -m "Classify VIINA review candidates"
+            git push
+          fi
