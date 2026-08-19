@@ -1,0 +1,5 @@
+SourceEventID,VIINADate,ManualDecision,CountryScope,TargetOrEvent,DecisionReason,CandidateCensusComplete
+348719,20230430,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Sevastopol oil depot,Report concerns drone attack on Sevastopol oil depot in occupied Crimea; outside Russia-proper census,FALSE
+348757,20230523,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Dnipro military airfield,Russian MoD statement explicitly concerns attack on Dnipro airfield in Ukraine; VIINA Moscow coordinate is a geocoding artefact,FALSE
+348894,20230805,EXCLUDE_NOT_EVENT_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Feodosia oil depot,Expert commentary on why Feodosia oil depot should be destroyed; no fresh realized attack and Crimea outside Russia-proper scope,FALSE
+349068,20231110,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Feodosia oil depot,Drone attack report concerns Feodosia in occupied Crimea; outside Russia-proper census,FALSE
