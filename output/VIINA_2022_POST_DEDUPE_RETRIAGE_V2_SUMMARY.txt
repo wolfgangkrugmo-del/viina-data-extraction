@@ -1,0 +1,12 @@
+protocol=VIINA_2022_POST_DEDUPE_RETRIAGE_V2
+input_rows=507
+russia_priority_rows_v2=9
+R1_RUSSIA_PROPER_TEXT=9
+R2_SCOPE_CONFLICT_COMPOSITE=0
+R3_CRIMEA=59
+R4_OCCUPIED_UA_OTHER=95
+R5_SCOPE_UNKNOWN=344
+manual_review_required_for_all_rows=TRUE
+event_level_dedupe_status=PENDING
+candidate_census_complete=FALSE
+note=V2 uses bounded Russia place regexes to prevent substring false positives such as твер within утверждается.
