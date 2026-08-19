@@ -1,0 +1,35 @@
+name: Close VIINA 2022 matrix row
+on:
+  push:
+    paths:
+      - 'scripts/close_viina_2022_matrix_row.py'
+      - '.github/workflows/close_viina_2022_matrix.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: viina-import-main
+  cancel-in-progress: false
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Update matrix row
+        run: python scripts/close_viina_2022_matrix_row.py
+      - name: Commit closure
+        run: |
+          git add output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          git diff --cached --quiet && exit 0
+          git commit -m 'Close VIINA 2022 completeness lane'
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 2
+          done
+          exit 1
