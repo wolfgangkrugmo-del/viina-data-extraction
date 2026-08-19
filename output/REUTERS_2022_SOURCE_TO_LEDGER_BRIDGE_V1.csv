@@ -1,0 +1,21 @@
+SourceComponentID,SearchCellID,SourceRecordID,TransformationClass,LedgerRecordIDs,CountryScopeDisposition,BridgeStatus,BridgeNote
+R22S-Q1-R4-01,Q1-R4,R22-REU-20220402-BELGOROD-AMMO-MAR30,1:1,R22C-001,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q2-R1-01,Q2-R1,R22-REU-20220622-NOVOSHAKHTINSK,1:1,R22C-002,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q2-R2-01,Q2-R2,R22-REU-20220401-BELGOROD,1:1,R22C-003,RUSSIA_PROPER,CLOSED,Matches VIINA 147220-RU1 but remains one Reuters candidate row.
+R22S-Q2-R2-02,Q2-R2,R22-REU-20220425-BRYANSK,1:1,R22C-004,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q2-R4-01,Q2-R4,R22-REU-20220427-STARAYA-NELIDOVKA,1:1,R22C-005,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q3-R4-01,Q3-R4,R22-REU-20220818-TIMONOVO,1:1,R22C-006,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q3-R4-02,Q3-R4,R22-REU-20220817-DZHANKOI,Split,R22A-001|R22A-002|R22A-003,CRIMEA_SEVASTOPOL_AUDIT_ONLY,CLOSED,Composite Reuters component split into ammunition depot grid and railway physical nodes.
+R22S-Q3-R5-01,Q3-R5,R22-REU-20220811-SAKI,1:1,R22A-004,CRIMEA_SEVASTOPOL_AUDIT_ONLY,CLOSED,Audit-only strategic-air candidate outside Russia-proper census.
+R22S-Q3-R6-01,Q3-R6,R22-REU-20220916-VALUYKI,1:1,R22C-007,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q4-R2-01,Q4-R2,R22-REU-20221130-SURAZH,1:1,R22C-008,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q4-R2-02,Q4-R2,R22-REU-20221015-BELGOROD-OIL-DEPOT,1:1,R22C-009,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q4-R4-01,Q4-R4,R22-REU-20221014-BELGOROD-AMMO,1:1,R22C-010,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q4-R5-01,Q4-R5,R22-REU-20221205-ENGELS,1:1,R22C-011,RUSSIA_PROPER,CLOSED,Distinct Engels 5-Dec wave.
+R22S-Q4-R5-02,Q4-R5,R22-REU-20221205-DYAGILEVO,Split,R22C-012,RUSSIA_PROPER,CLOSED,Second physical component from shared 5-Dec Reuters report.
+R22S-Q4-R5-03,Q4-R5,R22-REU-20221206-KURSK,1:1,R22C-013,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q4-R5-04,Q4-R5,R22-REU-20221226-ENGELS,1:1,R22C-014,RUSSIA_PROPER,CLOSED,Distinct repeat wave matching VIINA 291978.
+R22S-Q4-R6-01,Q4-R6,R22-REU-20221012-SHEBEKINO,1:1,R22C-015,RUSSIA_PROPER,CLOSED,One source component to one candidate row.
+R22S-Q4-R6-02,Q4-R6,R22-REU-20221013-KURSK-SUBSTATION,1:1,R22C-016,RUSSIA_PROPER,CLOSED,Target facility unresolved but source-to-ledger transfer is closed.
+R22S-Q4-R6-03,Q4-R6,R22-REU-20221130-KURSK-POWER,1:1,R22C-017,RUSSIA_PROPER,CLOSED,Target facility unresolved but source-to-ledger transfer is closed.
+R22S-Q4-R7-01,Q4-R7,R22-REU-20221008-KERCH-BRIDGE,1:1,R22A-005,CRIMEA_SEVASTOPOL_AUDIT_ONLY,CLOSED,Audit-only logistics candidate outside Russia-proper census.
