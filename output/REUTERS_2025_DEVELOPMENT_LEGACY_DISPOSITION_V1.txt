@@ -1,0 +1,43 @@
+REUTERS 2025 DEVELOPMENT LEGACY DISPOSITION V1
+
+Track separation
+- Frozen evaluation/completeness track: DEEP-COMP-V1.
+- Development usability track: separate non-frozen disposition; MUST NOT overwrite the frozen result.
+
+FROZEN TRACK RESULT
+FrozenTrackStatus = NOT_READY.
+FrozenTrackRowAcceptanceStatus = NOT_READY.
+FrozenTrackCandidateCensusComplete = FALSE.
+FrozenTrackBridgeComplete = FALSE.
+Reason: the historical Reuters search log records 86 direct source components, but a complete item-level 86-component raw/source manifest was never persisted. The 101-row reconciliation therefore cannot be proven against the original source inventory at stable row-level provenance under DEEP-COMP-V1.
+
+DEVELOPMENT TRACK DISPOSITION
+DevelopmentTrackStatus = ACCEPTED_WITH_LEGACY_PROVENANCE_GAP.
+DevelopmentUseAllowed = TRUE_WITH_DISCLOSURE.
+DevelopmentUseRestriction = Do not represent this status as DEEP-COMP-V1 PASS and do not use it to set CandidateCensusComplete=TRUE.
+
+VERIFIED CANDIDATE-LEVEL STATE
+- Search protocol: COMPLETED, 28/28 cells, FULL_PROTOCOL.
+- Dependency audit: PARTLY_DERIVATIVE, formally complete.
+- Candidate ledger rows: 105 total = 100 DG_REUTERS + 5 DG_OSINT_SPECIALIST routed records.
+- Candidate ReviewStatus: COMPLETE.
+- DedupeReviewStatus: COMPLETE.
+- Current conservative confirmed Reuters-new vs reviewed VIINA register: +47.
+- Reuters OutcomeRelevantUnresolved: 3 (Engels/Kombinat Kristall physical-effect confirmation; Shatura DEEP eligibility; Belgorod reservoir dam DEEP eligibility).
+
+LEGACY GAP SCOPE
+The legacy exception applies only to source-component provenance/reconciliation history. It does not waive candidate-level event coding, dedupe rules, source-dependence rules, C5 unresolved-event rules, or frozen target-universe definitions.
+
+RECOVERY POLICY
+A separate REUTERS_2025_SOURCE_COMPONENT_MANIFEST_RECOVERED_V1 may be built from newly recovered Reuters article identities and URLs. It is a development artifact and must be labeled RECOVERED, not FROZEN. Recovered evidence may improve auditability and future model-development use but cannot retroactively prove which exact item-level components constituted the original frozen count of 86 unless contemporaneous item-level provenance is recovered.
+
+EXIT RULE
+Reuters 2025 no longer blocks ordinary Development Track analysis solely because of the legacy source-provenance defect. It continues to block a DEEP-COMP-V1 source-row PASS and any global CandidateCensusComplete=TRUE decision until the frozen standard itself is satisfied or a new versioned completeness standard is prospectively adopted.
+
+Authoritative supporting artifacts:
+- output/REUTERS_2025_CLOSURE_FORMAL_AUDIT_V3.txt
+- output/REUTERS_2025_PROVENANCE_RECOVERY_STATUS_V1.txt
+- output/REUTERS_2025_RESIDUAL_SOURCE_BRIDGE_EVIDENCE_MATRIX_V2.csv
+- output/REUTERS_2025_RESIDUAL_BRIDGE_STATUS_V2.txt
+- output/REUTERS_2025_CONFIRMED_NEW_EVENTS_V4.csv
+- output/REUTERS_2025_CANDIDATE_DEDUPE_LEDGER_V1.csv
