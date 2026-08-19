@@ -1,0 +1,50 @@
+REUTERS 2025 CANDIDATE / DEDUPE CLOSURE STATUS V2
+
+Current conservative confirmed register:
+output/REUTERS_2025_CONFIRMED_NEW_EVENTS_V3.csv
+confirmed Reuters-new vs reviewed VIINA canon = 43
+
+SOURCE INVENTORY
+Frozen search cells: 28/28 COMPLETE.
+Named Reuters-direct components reported by search log: 86.
+Reconciliation rows in REUTERS_2025_VIINA_RECONCILIATION_V1.csv: 101 (R25R-0001 through R25R-0101).
+Early raw-hits artifact REUTERS_2025_DEEP_RAW_HITS_V1.csv: 29 rows and not authoritative for full-protocol closure.
+Mandatory-schema Reuters 2025 candidate ledger: NOT YET COMPLETE.
+
+DEPENDENCY
+Formal dependency audit COMPLETE.
+DependencyAuditStatus = PARTLY_DERIVATIVE.
+
+V1 -> V3 SET-DIFFERENCE AUDIT
+Audit file: output/REUTERS_2025_V1_V3_SET_DIFFERENCE_AUDIT_V1.csv
+Differences reviewed: 22.
+Fully explained/traceable differences: 8.
+Unresolved V1 final-disposition gaps: 9.
+SourceRecord/provenance-mapping gaps: 5.
+Total remaining closure blockers represented in set-difference audit: 14.
+
+UNRESOLVED FINAL-DISPOSITION ITEMS
+- 2025-01-29 Andreapol oil pumping station.
+- 2025-02-03 Volgograd oil refinery.
+- 2025-05-05 Rylsk electricity substation.
+- 2025-09-16 Saratov oil refinery.
+- 2025-09-26 Afipsky oil refinery.
+- 2025-10-13 Kirishi oil refinery.
+- 2025-11-15 Novokuibyshevsk oil refinery.
+- 2025-12-04 Druzhba pumping infrastructure Tambov region.
+- 2025-12-25 Novoshakhtinsk oil refinery.
+
+PROVENANCE-MAPPING ITEMS
+- 2025-09-20 V1 Samara-region refinery/processing event -> later Novokuibyshevsk resolution requires explicit source-component mapping.
+- 2025-07-04 Sergiyev Posad electricity substation: V3 confirmed; no corresponding R25R row located.
+- 2025-08-30 Krasnodar refinery: V3 confirmed; no exact corresponding R25R row located.
+- 2025-10-04 Kirishi oil refinery: V3 confirmed; no exact corresponding R25R row located.
+- 2025-12-12 Slavneft-YANOS Yaroslavl refinery: V3 confirmed; no corresponding R25R row located.
+
+FORMAL STATUS
+ReviewStatus = IN_PROGRESS.
+DedupeReviewStatus = IN_PROGRESS.
+RowAcceptanceStatus = NOT_READY.
+CandidateCensusComplete = FALSE.
+
+Reason: DEEP-COMP-V1 requires all discovered candidates to be present in the candidate ledger and all dedupe/final dispositions to be machine-reconcilable. The current 86 direct-component -> 101 reconciliation-row -> V3 register transformation is not yet completely documented. No status may be promoted to COMPLETE solely because the +43 register is internally enumerated.
