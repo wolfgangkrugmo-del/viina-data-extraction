@@ -1,0 +1,8 @@
+generated_at_utc=2026-08-19T10:51:35Z
+viina_commit=d580e89279b5555fbb742ca45e1c7e02df96ddc1
+protocol=VIINA_2022_ACTOR_INDEPENDENT_V1
+study_start=2022-02-24
+study_end=2022-12-31
+candidate_census_complete=FALSE
+36fb187b19aecc3986ea8fc9ee7ebf03bdbebdce5cd2dce369a506430a89ff3a  output/VIINA_2022_REBUILD.csv
+a81d255ebdd181dd06ad2e7d5db4650b98fc7ec933a54189079b6047df31aa35  output/VIINA_2022_REBUILD_SUMMARY.txt

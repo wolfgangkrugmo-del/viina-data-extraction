@@ -1,0 +1,15 @@
+protocol=VIINA_2022_ACTOR_INDEPENDENT_V1
+study_start=20220224
+study_end=20221231
+raw_text_match_groups=2060
+joined_onepd_groups=2060
+raw_without_onepd_join=0
+review_total=639
+REVIEW_LOCATION_AMBIGUOUS=573
+REVIEW_TEXT_RUSSIA_UA_ACTOR=66
+machine_noncandidate=1421
+a_ukr_init_true=0
+a_ukr_true=254
+a_rus_init_true=2
+candidate_census_complete=FALSE
+note=2022 a_ukr_init is diagnostic evidence only and is not used as an exclusion gate.
