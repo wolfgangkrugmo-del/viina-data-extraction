@@ -1,0 +1,90 @@
+name: Build VIINA deep-strike candidates
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/viina_import.yml"
+      - "README.md"
+      - "LICENSE-DATA.md"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone VIINA
+        shell: bash
+        run: |
+          set -euo pipefail
+          GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/zhukovyuri/VIINA.git viina
+          git -C viina lfs install --local
+
+      - name: Pull required VIINA archives only
+        shell: bash
+        run: |
+          set -euo pipefail
+          include=""
+          for y in 2022 2023 2024 2025 2026; do
+            [ -z "$include" ] || include="${include},"
+            include="${include}Data/event_info_latest_${y}.zip,Data/event_1pd_latest_${y}.zip"
+          done
+          git -C viina lfs pull --include="$include" --exclude=""
+          for y in 2022 2023 2024 2025 2026; do
+            unzip -t "viina/Data/event_info_latest_${y}.zip" >/dev/null
+            unzip -t "viina/Data/event_1pd_latest_${y}.zip" >/dev/null
+          done
+
+      - name: Download GeoNames Russia gazetteer
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tmp
+          curl --fail --location --retry 3 https://download.geonames.org/export/dump/RU.zip -o tmp/RU.zip
+          unzip -t tmp/RU.zip >/dev/null
+
+      - name: Build cleaned candidate CSV
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/filter_viina.py \
+            --viina-data-dir viina/Data \
+            --ru-geonames tmp/RU.zip \
+            --output output/viina_deep_strike_candidates.csv
+          test -s output/viina_deep_strike_candidates.csv
+          wc -l output/viina_deep_strike_candidates.csv
+          sha256sum output/viina_deep_strike_candidates.csv
+
+      - name: Write provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "generated_at_utc=$(date -u +%FT%TZ)"
+            echo "viina_commit=$(git -C viina rev-parse HEAD)"
+            echo "study_start=2022-02-24"
+            echo "study_end=2026-06-30"
+            echo "source_repo=https://github.com/zhukovyuri/VIINA"
+            sha256sum output/viina_deep_strike_candidates.csv
+          } > output/PROVENANCE.txt
+
+      - name: Commit derived output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/viina_deep_strike_candidates.csv output/PROVENANCE.txt
+          if git diff --cached --quiet; then
+            echo "No output changes."
+          else
+            git commit -m "Update VIINA deep-strike candidate extract"
+            git push
+          fi
