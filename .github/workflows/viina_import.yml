@@ -20,6 +20,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Download GeoNames Russia gazetteer
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tmp output
+          curl --fail --location --retry 3 https://download.geonames.org/export/dump/RU.zip -o tmp/RU.zip
+          unzip -t tmp/RU.zip >/dev/null
+
+      - name: Preflight Russia location gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/preflight_geonames.py \
+            --ru-geonames tmp/RU.zip \
+            --output output/GEONAMES_PREFLIGHT.txt
+          test -s output/GEONAMES_PREFLIGHT.txt
+          cat output/GEONAMES_PREFLIGHT.txt
+
+      - name: Persist preflight result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add output/GEONAMES_PREFLIGHT.txt
+          if git diff --cached --quiet; then
+            echo "Preflight unchanged."
+          else
+            git commit -m "Record GeoNames location preflight"
+            git push
+          fi
+
       - name: Clone VIINA
         shell: bash
         run: |
@@ -41,14 +73,6 @@ jobs:
             unzip -t "viina/Data/event_info_latest_${y}.zip" >/dev/null
             unzip -t "viina/Data/event_1pd_latest_${y}.zip" >/dev/null
           done
-
-      - name: Download GeoNames Russia gazetteer
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p tmp
-          curl --fail --location --retry 3 https://download.geonames.org/export/dump/RU.zip -o tmp/RU.zip
-          unzip -t tmp/RU.zip >/dev/null
 
       - name: Diagnose pipeline stages
         shell: bash
@@ -89,7 +113,7 @@ jobs:
             echo "source_repo=https://github.com/zhukovyuri/VIINA"
             echo "strict_rule=ukrainian_initiator AND hierarchical_RU_location_gate; Crimea review-only"
             echo "review_rule=ukrainian_initiator AND unresolved/disputed location"
-            sha256sum output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt
+            sha256sum output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt output/GEONAMES_PREFLIGHT.txt
           } > output/PROVENANCE.txt
 
       - name: Commit derived output and diagnostics
@@ -98,7 +122,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt output/PROVENANCE.txt
+          git add output/viina_deep_strike_candidates.csv output/viina_deep_strike_location_review.csv output/PIPELINE_DIAGNOSTIC.txt output/GEONAMES_PREFLIGHT.txt output/PROVENANCE.txt
           if git diff --cached --quiet; then
             echo "No output changes."
           else
