@@ -1,0 +1,35 @@
+EventNo,CanonicalEventDate,Target,SearchFamily,Sector,ConfirmationBasis,RegisterEffect
+1,2025-01-24,Ryazan oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters industry sources reported fire damaged equipment and suspended loadings,ADD_CONFIRMED
+2,2025-01-29,Sibur-Kstovo petrochemical plant,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Sibur said product shipments were suspended after Ukrainian drone attack,ADD_CONFIRMED
+3,2025-02-03,Astrakhan gas processing plant,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters chronology records fuel production suspension after attack,ADD_CONFIRMED
+4,2025-02-11,Saratov oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters chronology records fuel-production suspension after attack,ADD_CONFIRMED
+5,2025-02-24,Ryazan oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters chronology records distinct repeat attack and renewed suspension,ADD_CONFIRMED
+6,2025-03-08,Kirishi oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Tank physically damaged by drone debris; Reuters industry-source cross-check,ADD_CONFIRMED
+7,2025-03-14,Tuapse oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Fire after Ukrainian drone attack confirmed in Reuters chronology,ADD_CONFIRMED
+8,2025-03-19,Kavkazskaya oil depot,R2_ENERGY_STORAGE_EXPORT,FUEL_STORAGE_TERMINAL,Regional authorities reported oil-depot fire after Ukrainian drone attack,ADD_CONFIRMED
+9,2025-03-20,Engels strategic bomber airfield,R5_STRATEGIC_AIR,STRATEGIC_AIRBASE,Governor reported airfield fire and Reuters verified videos of blast/fire,ADD_CONFIRMED
+10,2025-04-30,Murom Instrument-Building Plant,R4_DEFENSE_INDUSTRY,DEFENSE_INDUSTRY,Reuters reported 720-square-metre fire and damage to two buildings,ADD_CONFIRMED
+11,2025-06-01,Belaya military air base,R5_STRATEGIC_AIR,STRATEGIC_AIRBASE,Reuters satellite imagery and verified footage showed destroyed/badly damaged strategic bombers,ADD_CONFIRMED
+12,2025-06-01,Olenya military air base,R5_STRATEGIC_AIR,STRATEGIC_AIRBASE,Reuters-verified footage showed burning strategic bombers/explosion,ADD_CONFIRMED
+13,2025-07-04,Sergiyev Posad electricity substation,R6_GRID_SUPPORT,ENERGY_GRID_SUPPORT,District head reported substation damage and outages; Reuters report,ADD_CONFIRMED
+14,2025-08-02,Novokuibyshevsk oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Two Reuters industry sources reported CDU-11 damage and halted primary processing,ADD_CONFIRMED
+15,2025-08-02,Ryazan oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters industry sources reported roughly half refining capacity halted after fresh attack,ADD_CONFIRMED
+16,2025-08-03,Sochi oil depot,R2_ENERGY_STORAGE_EXPORT,FUEL_STORAGE_TERMINAL,Local authorities reported two oil tanks burned after Ukrainian drone attack,ADD_CONFIRMED
+17,2025-08-07,Afipsky oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters chronology records refinery fire from drone debris,ADD_CONFIRMED
+18,2025-08-13,Slavyansk oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters chronology records small fire from drone debris,ADD_CONFIRMED
+19,2025-08-14,Volgograd oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters industry reporting records refinery shutdown after attack,ADD_CONFIRMED
+20,2025-08-15,Syzran oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters industry reporting records production/crude-intake suspension,ADD_CONFIRMED
+21,2025-08-21,Novoshakhtinsk oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters identified the refinery and reported a sustained fire after Ukrainian drone strike,ADD_CONFIRMED
+22,2025-08-24,Ust-Luga processing/export terminal,R2_ENERGY_STORAGE_EXPORT,PORT_EXPORT_LOGISTICS,Reuters sources reported drone damage and operation at about half capacity,ADD_CONFIRMED
+23,2025-08-28,Afipsky oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters later reported refinery fire following Ukrainian drone attack,ADD_CONFIRMED
+24,2025-08-28,Kuibyshev refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters industry sources reported operations halted after attack,ADD_CONFIRMED
+25,2025-08-30,Krasnodar refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Russian authorities reported unit damage and roughly 300-square-metre fire after drone attack,ADD_CONFIRMED
+26,2025-09-18,Salavat petrochemical/refinery complex,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Regional governor confirmed attack/fire; Reuters reported processing-unit damage,ADD_CONFIRMED
+27,2025-09-24,Salavat petrochemical/refinery complex,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Second distinct attack; regional reporting/Reuters documented renewed fire and damage assessment,ADD_CONFIRMED
+28,2025-10-04,Kirishi oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters industry reporting said CDU-6 halted after fire from fresh attack,ADD_CONFIRMED
+29,2025-10-19,Orenburg gas processing plant,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Governor reported partial damage/workshop fire; intake from Kazakhstan suspended,ADD_CONFIRMED
+30,2025-11-02,Tuapse port/oil-terminal infrastructure,R2_ENERGY_STORAGE_EXPORT,PORT_EXPORT_LOGISTICS,Reuters reported port infrastructure damage/fire and export suspension,ADD_CONFIRMED
+31,2025-11-14,Sheskharis oil terminal Novorossiysk,R2_ENERGY_STORAGE_EXPORT,PORT_EXPORT_LOGISTICS,Reuters sources reported two berths damaged and oil exports temporarily halted,ADD_CONFIRMED
+32,2025-11-15,Ryazan oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters industry reporting said processing/CDU operations suspended after fresh attack/fire,ADD_CONFIRMED
+33,2025-12-12,Slavneft-YANOS Yaroslavl refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Reuters sources reported CDU-4/loading-rack damage and output suspension,ADD_CONFIRMED
+34,2025-12-17,Slavyansk oil refinery,R1_ENERGY_REFINING,REFINING_PETROCHEM_GAS,Regional authorities reported drone debris ignited processing equipment and pipeline,ADD_CONFIRMED
