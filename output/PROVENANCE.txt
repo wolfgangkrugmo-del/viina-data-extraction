@@ -1,0 +1,6 @@
+generated_at_utc=2026-08-19T08:28:47Z
+viina_commit=2ae123195ee75bec587fa06a1dcd9ab726a5d889
+study_start=2022-02-24
+study_end=2026-06-30
+source_repo=https://github.com/zhukovyuri/VIINA
+4888b2c9b51b663f3842a65cf1f7b32246bb036aa2c62a99a7a24586feaf090d  output/viina_deep_strike_candidates.csv
