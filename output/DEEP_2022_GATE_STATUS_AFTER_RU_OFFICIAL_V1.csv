@@ -1,0 +1,3 @@
+Scope,C4_DedupeComplete,C5_NoOutcomeRelevantUnresolved,C6_SourceConvergence,C7_VersionFrozen,YearAcceptanceStatus,CandidateCensusComplete,Reason
+2022,FALSE,FALSE,FALSE,FALSE,NOT_READY,FALSE,"RU_OFFICIAL search execution is 77/77, but CoverageStatus remains PARTIAL; 8 target-level records remain NOT_ASSESSABLE_UNRESOLVED_TARGET, 29 RU_OFFICIAL rows are OutcomeRelevantUnresolved, and source convergence/freeze are not demonstrated."
+GLOBAL,FALSE,FALSE,FALSE,FALSE,NA,FALSE,"DEEP-COMP-V1 permits CandidateCensusComplete=TRUE only when every annual C1-C7 gate is TRUE, every YEAR_SUMMARY is PASS, and the global freeze/gap-search conditions are satisfied."
