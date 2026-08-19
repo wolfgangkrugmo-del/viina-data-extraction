@@ -1,0 +1,34 @@
+SourceEventID,VIINADate,Priority,ManualDecision,CountryScope,TargetOrEvent,DecisionReason,CandidateCensusComplete
+120320,20230111,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Pervomaisk Luhansk electrical substation,Target explicitly in Luhansk Oblast; Russia-support geocode is false positive,FALSE
+35554,20230125,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Novovodiane ammunition depot,VIINA geocode and context place target in Luhansk Oblast,FALSE
+200424,20230207,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OCCUPIED_OTHER,Kherson-direction Ukrainian ammunition depot,Russian forces reported attacking Ukrainian target; no Russia-proper target,FALSE
+292845,20230302,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Bakhmut-direction ammunition depot,Operational target in Donetsk Oblast,FALSE
+292895,20230304,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Bakhmut-direction air-defence and ammunition targets,Operational target in Donetsk Oblast,FALSE
+293579,20230408,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Bakhmut-area Russian ammunition depot,Physical target explicitly near Bakhmut,FALSE
+301886,20230503,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Sumy Oblast Ukrainian ammunition depot,Russian forces reported destroying Ukrainian depot; near-Russia coordinate caused review,FALSE
+294743,20230616,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Bakhmut-direction ammunition depot,Target on Bakhmut front,FALSE
+81644,20230622,H2,EXCLUDE_NOT_RUSSIA_PROPER_EVENT,UKRAINE_OTHER,Planned Russian strikes on Ukrainian substations,SBU arrest/preparation report rather than Ukrainian physical strike in Russia,FALSE
+221933,20230623,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Khmelnytskyi military airfield,Russian missile attack on Ukrainian airfield,FALSE
+294793,20230624,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Bakhmut-direction ammunition depots,Targets on Ukrainian battlefield,FALSE
+178550,20230628,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Kyslivka/Kharkiv ammunition depot,Text describes artillery strike on Ukrainian army depot near Kupiansk,FALSE
+219091,20230720,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OCCUPIED_OTHER,Stepanivka/Donetsk Ukrainian ammunition depot,Russian cluster-munition strike on Ukrainian target,FALSE
+311371,20230720,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Lysychansk-direction field ammunition depot,Target in Luhansk operational area,FALSE
+61189,20230726,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OCCUPIED_OTHER,Dyliivka/Donetsk Ukrainian artillery position and ammunition,Russian Lancet strike in Bakhmut rear area,FALSE
+38072,20230803,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Tokmak ammunition depot,Target explicitly Tokmak Zaporizhzhia Oblast,FALSE
+32883,20230810,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Verbove/Orikhiv-direction Russian ammunition depot,Physical target in Zaporizhzhia Oblast,FALSE
+295343,20230907,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Bakhmut-direction ammunition depot,Target on Donetsk battlefield,FALSE
+219140,20230918,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Klynove/Bakhmut ammunition depot,Target in Bakhmut rear area Donetsk Oblast,FALSE
+173333,20230918,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Sorokyne ammunition depot,Target explicitly Luhansk Oblast; coordinate proximity to Russia caused review,FALSE
+222603,20230929,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Dolhyntseve airfield Kryvyi Rih,Russian Lancet strike on Ukrainian aircraft at Ukrainian airfield,FALSE
+205064,20231013,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Khatnie/Kharkiv ammunition depot,Russian artillery strike on Ukrainian depot; border proximity caused review,FALSE
+178870,20231027,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Korsunka/Krynky Russian vehicles and ammunition depot,Ukrainian drone strikes on left bank of Dnipro in Kherson Oblast,FALSE
+82509,20231101,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Myrhorod military airfield,Explosions under Russian missile threat at Ukrainian airfield,FALSE
+256970,20231104,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Chernihiv Oblast missile arsenal,Russian forces reported striking Ukrainian arsenal,FALSE
+349067,20231110,H3,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Feodosia oil depot,Physical target in occupied Crimea; outside Russia-proper census,FALSE
+302445,20231111,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OTHER,Sumy Oblast electrical substation,Physical infrastructure explicitly in Sumy Oblast,FALSE
+222604,20231120,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Dolhyntseve airfield Kryvyi Rih,Russian Lancet strike on probable Ukrainian decoy at Ukrainian airfield,FALSE
+332273,20231120,H2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Luhansk oil depot,Target explicitly Luhansk; alleged Ukrainian drone strike remains outside Russia-proper scope,FALSE
+231113,20231120,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Hatyshche Kharkiv building/ammunition-depot claim,Geoconfirmed Ukrainian location; Russian artillery strike,FALSE
+222114,20231123,H2,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Khmelnytskyi airfield,Russian military strike on Ukrainian airfield,FALSE
+349125,20231205,H3,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Feodosia oil depot,Target in occupied Crimea,FALSE
+349123,20231205,H3,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Feodosia oil depot,Target in occupied Crimea,FALSE
