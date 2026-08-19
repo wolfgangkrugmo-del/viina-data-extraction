@@ -1,0 +1,49 @@
+name: VIINA 2025 unknown reduction
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/reduce_viina_2025_unknown.py'
+      - '.github/workflows/viina_2025_unknown_reduction.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viina-2025-unknown-main
+  cancel-in-progress: true
+
+jobs:
+  reduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Prioritize unknown rows
+        run: |
+          set -euo pipefail
+          python scripts/reduce_viina_2025_unknown.py \
+            --input output/VIINA_2025_POST_EXACT_DEDUPE_REVIEW.csv \
+            --output output/VIINA_2025_UNKNOWN_REDUCTION_V2.csv \
+            --high-output output/VIINA_2025_UNKNOWN_HIGH_PRIORITY_V2.csv \
+            --summary output/VIINA_2025_UNKNOWN_REDUCTION_V2_SUMMARY.txt
+          cat output/VIINA_2025_UNKNOWN_REDUCTION_V2_SUMMARY.txt
+      - name: Commit outputs
+        run: |
+          set -euo pipefail
+          git add output/VIINA_2025_UNKNOWN_REDUCTION_V2.csv output/VIINA_2025_UNKNOWN_HIGH_PRIORITY_V2.csv output/VIINA_2025_UNKNOWN_REDUCTION_V2_SUMMARY.txt
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record VIINA 2025 unknown prioritization'
+          for i in 1 2 3; do
+            git pull --rebase origin main
+            git push origin HEAD:main && exit 0
+            sleep 2
+          done
+          exit 1
