@@ -1,0 +1,30 @@
+ReutersHitID,PublishedDate,CanonicalEventDate,SearchFamily,Location,TargetOrCluster,PhysicalEffectEvidence,ReutersStatus,ReconciliationStatus,Notes
+R25-0001,2025-03-19,2025-03-19,R2_ENERGY_STORAGE_EXPORT,Krasnodar Krai,Kavkazskaya oil depot,Fire after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Chronology anchor; split event
+R25-0002,2025-03-19,2025-03-14,R1_ENERGY_REFINING,Tuapse Krasnodar Krai,Tuapse oil refinery,Fire after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0003,2025-03-19,2025-03-08,R1_ENERGY_REFINING,Kirishi Leningrad Oblast,Kirishi oil refinery,Tank damaged by drone debris,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0004,2025-03-19,2025-01-24,R1_ENERGY_REFINING,Ryazan Oblast,Ryazan oil refinery,Operations suspended; storage tanks burned and equipment damaged,RETAIN,NOT_RECONCILED,Chronology anchor; repeat node later in 2025
+R25-0005,2025-03-19,2025-02-24,R1_ENERGY_REFINING,Ryazan Oblast,Ryazan oil refinery,Operations suspended again after fresh attack,RETAIN,NOT_RECONCILED,Distinct repeat
+R25-0006,2025-03-19,2025-02-11,R1_ENERGY_REFINING,Saratov Oblast,Saratov oil refinery,Fuel production suspended after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0007,2025-03-19,2025-03-04,R1_ENERGY_REFINING,Syzran Samara Oblast,Syzran oil refinery,Targeted in attack,RETAIN,NOT_RECONCILED,Effect level requires later coding
+R25-0008,2025-03-19,2025-02-03,R1_ENERGY_REFINING,Astrakhan Oblast,Astrakhan gas processing plant,Fuel production suspended after attack,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0009,2025-03-19,2025-03-17,R1_ENERGY_REFINING,Astrakhan Oblast,Astrakhan gas processing plant,Fresh attack reported,RETAIN,NOT_RECONCILED,Distinct repeat; effect level requires coding
+R25-0010,2025-03-19,2025-02-03,R1_ENERGY_REFINING,Volgograd Oblast,Volgograd oil refinery,Drone strike; later operational halt context,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0011,2025-03-19,2025-01-29,R1_ENERGY_REFINING,Kstovo Nizhny Novgorod Oblast,Sibur-Kstovo petrochemical plant,Product shipments suspended after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0012,2025-06-03,2025-06-01,R5_STRATEGIC_AIR,Belaya Irkutsk Oblast,Belaya military air base,Satellite imagery and Reuters-verified footage show multiple strategic bombers destroyed or badly damaged,RETAIN,NOT_RECONCILED,Operation Spiderweb component
+R25-0013,2025-06-03,2025-06-01,R5_STRATEGIC_AIR,Olenya Murmansk Oblast,Olenya military air base,Reuters-verified drone footage showed burning Tu-95 bombers and explosion,RETAIN,NOT_RECONCILED,Operation Spiderweb component
+R25-0014,2025-06-06,2025-06-06,R5_STRATEGIC_AIR,Engels Saratov Oblast,Engels airfield plus fuel reservoirs,Ukrainian military reported pre-emptive strike and fuel-reservoir hits,RETAIN_CLAIMED,NOT_RECONCILED,Requires target-level effect confirmation
+R25-0015,2025-06-06,2025-06-06,R5_STRATEGIC_AIR,Dyagilevo Ryazan Oblast,Dyagilevo airfield,Ukrainian military reported strike,RETAIN_CLAIMED,NOT_RECONCILED,Requires target-level effect confirmation
+R25-0016,2025-08-22,2025-08-21,R3_PIPELINE_PUMPING,Unecha Bryansk Oblast,Unecha Druzhba pumping station,Fire after combined missile/drone attack; Hungary reported deliveries halted,RETAIN,NOT_RECONCILED,Repeat node; chronology plus standalone Reuters report
+R25-0017,2025-08-22,2025-08-21,R1_ENERGY_REFINING,Novoshakhtinsk Rostov Oblast,Industrial site in refinery city,Fire after drone strike,RETAIN_UNRESOLVED_IDENTITY,NOT_RECONCILED,Do not infer refinery identity without target-level evidence
+R25-0018,2025-08-22,2025-08-15,R1_ENERGY_REFINING,Syzran Samara Oblast,Syzran oil refinery,Production and crude intake suspended after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0019,2025-08-22,2025-08-14,R1_ENERGY_REFINING,Volgograd Oblast,Volgograd oil refinery,Refinery shut down after drone attacks,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0020,2025-08-22,2025-08-13,R1_ENERGY_REFINING,Slavyansk-on-Kuban Krasnodar Krai,Slavyansk oil refinery,Small fire from drone debris,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0021,2025-08-22,2025-08-07,R1_ENERGY_REFINING,Afipsky Krasnodar Krai,Afipsky oil refinery,Fire from drone debris,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0022,2025-08-22,2025-07-07,R1_ENERGY_REFINING,Ilsky Krasnodar Krai,Ilsky oil refinery,Drone debris fell on refinery,RETAIN,NOT_RECONCILED,Effect level requires coding
+R25-0023,2025-08-22,2025-08-10,R1_ENERGY_REFINING,Saratov Oblast,Saratov oil refinery,Explosion and fire reported after Ukrainian strike,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0024,2025-08-22,2025-08-03,R2_ENERGY_STORAGE_EXPORT,Sochi Krasnodar Krai,Sochi oil depot,Two oil tanks burned after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0025,2025-08-22,2025-08-02,R1_ENERGY_REFINING,Novokuibyshevsk Samara Oblast,Novokuibyshevsk refinery,Primary processing halted after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Chronology anchor
+R25-0026,2025-08-22,2025-08-02,R1_ENERGY_REFINING,Ryazan Oblast,Ryazan oil refinery,About half refining capacity halted after Ukrainian drone attack,RETAIN,NOT_RECONCILED,Distinct repeat
+R25-0027,2025-11-14,2025-11-14,R2_ENERGY_STORAGE_EXPORT,Novorossiysk Krasnodar Krai,Sheskharis oil terminal berths 1 and 1A,Two oil berths damaged and oil exports temporarily halted after Ukrainian missile/drone attack,RETAIN,NOT_RECONCILED,High-confidence Reuters industry-source confirmation
+R25-0028,2025-11-14,2025-11-14,R1_ENERGY_REFINING,Saratov Oblast,Saratov oil refinery,Ukrainian General Staff reported strike,RETAIN_CLAIMED,NOT_RECONCILED,Physical effect needs target-level Reuters confirmation
+R25-0029,2025-11-14,2025-11-14,R2_ENERGY_STORAGE_EXPORT,Engels Saratov Oblast,Engels fuel storage facility,Ukrainian General Staff reported strike,RETAIN_CLAIMED,NOT_RECONCILED,Physical effect needs target-level Reuters confirmation
