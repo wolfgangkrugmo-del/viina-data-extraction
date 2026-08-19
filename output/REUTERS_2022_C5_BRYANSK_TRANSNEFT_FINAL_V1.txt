@@ -1,0 +1,37 @@
+REUTERS 2022 C5 BRYANSK / TRANSNEFT FINAL REVIEW V1
+
+CandidateRecordID = R22C-004
+EventDate = 2022-04-25
+Target = Transneft-Druzhba oil storage facility, Bryansk
+
+QUESTION
+Can the event be formally closed for C5 by a reliable primary attribution source or a later official responsibility finding?
+
+PRIMARY / OFFICIAL EVIDENCE REVIEWED
+1. Reuters 25-Apr-2022: Russia announced an investigation into the cause. Reuters explicitly reported no immediate indication that the fire was related to Ukraine and no immediate Ukrainian comment.
+2. Russian Ministry of Emergency Situations / TASS 25-26 Apr 2022: confirmed the Transneft-Druzhba depot fire, no casualties, and extinguishment. No attribution to Ukraine was made in those public statements.
+3. Russian Investigative Committee / TASS: Alexander Bastrykin ordered an investigation into the circumstances of the depot fire. No publicly retrievable later Investigative Committee conclusion assigning responsibility for this specific 25-Apr Transneft-Druzhba fire was found in the targeted search.
+4. Interfax / Russian Investigative Committee 26-Apr-2022: the Investigative Committee explicitly attributed separate 25-Apr mortar attacks on the Troyebortnoye checkpoint and other border incidents to Ukrainian forces. This is not evidence for attribution of the Transneft depot fire and must not be conflated with it.
+5. Ukrainian official-source search (Defence Ministry, General Staff, military intelligence / presidential sources): no explicit responsibility claim for the 25-Apr Bryansk Transneft-Druzhba fire was found.
+6. Contemporary secondary and OSINT reporting discussed Ukrainian drone/sabotage hypotheses, but these are not an admissible substitute for a primary attribution finding under the frozen C5 rule.
+
+FORMAL DECISION
+FinalStatus = FORMALLY_UNDECIDABLE
+OutcomeRelevantUnresolved = TRUE
+InclusionStatus remains = UNRESOLVED
+AttributionStatus = UNRESOLVED
+C5 effect = BLOCKING
+
+RATIONALE
+The physical fire and target identity are established, but Ukrainian responsibility is not established by a reliable primary source or a later official public responsibility finding. Because the DEEP target universe concerns Ukrainian deep-strike events, actor attribution can change whether this record belongs in the Russia-proper event count. The uncertainty is therefore outcome-relevant under DEEP-COMP-V1 C5.
+
+NEGATIVE-EVIDENCE LIMIT
+This finding does not claim that no classified, unpublished, deleted or inaccessible investigation result ever existed. It states that no publicly retrievable qualifying primary attribution evidence was found after targeted searches of Russian emergency/investigative reporting and Ukrainian official sources. Speculation, geographic proximity, contemporaneous explosions, later Ukrainian cross-border strike practice, or analyst inference are insufficient to close the record.
+
+EXIT RULE
+Do not re-open this case using the same public evidence set. Re-open only if a new qualifying primary source appears, such as:
+- a published Russian Investigative Committee / court / security-service finding specifically linking the 25-Apr Transneft-Druzhba fire to Ukrainian forces;
+- an official Ukrainian military/intelligence responsibility claim for this exact event;
+- authenticated operational evidence establishing the attacker to the project standard.
+
+FrozenTrackC5Status remains FALSE while this record remains OutcomeRelevantUnresolved=TRUE.
