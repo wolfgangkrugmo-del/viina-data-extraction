@@ -27,16 +27,13 @@ for r in rec:
     key=(qtr(r['CanonicalEventDate']),fam_map[r['SearchFamily']])
     by[key].append(r)
 
-# Known non-direct reconciliation rows established by artifact text/status.
+# Known non-direct reconciliation rows established by frozen artifact text/status.
 known_extra={
  'R25R-0060':'OSC_ROUTED','R25R-0061':'OSC_ROUTED','R25R-0062':'OSC_ROUTED','R25R-0063':'OSC_ROUTED','R25R-0064':'OSC_ROUTED',
  'R25R-0087':'VIINA_ONLY_RECON_COMPONENT','R25R-0088':'VIINA_ONLY_RECON_COMPONENT','R25R-0089':'VIINA_ONLY_RECON_COMPONENT',
  'R25R-0096':'LATE_RECON_CORRECTION','R25R-0097':'LATE_RECON_CORRECTION','R25R-0098':'LATE_RECON_CORRECTION','R25R-0099':'LATE_RECON_CORRECTION','R25R-0100':'LATE_RECON_CORRECTION','R25R-0101':'LATE_RECON_CORRECTION',
 }
 
-# For each cell, direct quota is the frozen search-log count. Known extras never consume quota.
-# Remaining rows are initially DIRECT_CANDIDATE. If their count exceeds the quota, mark the tail as UNRESOLVED_EXTRA
-# so the exact residual cells are visible for manual bridge reconstruction.
 rows=[]
 cell_rows=[]
 for key in sorted(expected):
