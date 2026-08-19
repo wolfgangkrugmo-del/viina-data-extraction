@@ -1,0 +1,19 @@
+SourceEventID,VIINADate,ManualDecision,CountryScope,TargetOrEvent,RelatedCanonicalEvent,DecisionReason,CandidateCensusComplete
+62937,20230429,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Sevastopol oil depot,,Both merged reports concern the same Sevastopol oil-depot event; no Russia-proper component,FALSE
+62940,20230430,EXCLUDE_CRIMEA_SCOPE_FOLLOWUP,CRIMEA_SEVASTOPOL,Sevastopol oil depot,,Follow-up on consequences of Sevastopol oil-depot strike; Crimea outside scope,FALSE
+62959,20230505,LINK_RUSSIA_COMPONENT_TO_EXISTING_CANDIDATE,MIXED,Taman oil-depot aftermath plus Sevastopol aftermath,TGT_RU_VOLNA_TAMAN_OIL_DEPOT_20230503,Composite follow-up contains Taman Russia-proper component but it is evidence for the already retained 2023-05-03 Taman/Volna candidate; no new event count,FALSE
+294229,20230516,EXCLUDE_OUTSIDE_RUSSIA_PROPER,UKRAINE_OCCUPIED_OTHER,Bakhmut and Marinka direction ammunition depots,,Multiple battlefield targets remain in Donetsk Oblast; no Russia-proper component,FALSE
+201188,20230608,EXCLUDE_NOT_ATTACK_OUTSIDE_RUSSIA_PROPER,UKRAINE_OTHER,Kherson transformer substations flood damage,,Report concerns flood-related damage and restoration in Kherson; not a Russia-proper attack event,FALSE
+91930,20230720,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Oktyabrske airbase/ammunition detonation,,All described components are in occupied Crimea,FALSE
+56968,20230722,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Crimea oil depot and ammunition depot,,Multiple targets but all in occupied Crimea,FALSE
+56972,20230722,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Crimea oil depot and military warehouses,,Multiple targets but all in occupied Crimea,FALSE
+56971,20230722,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Crimea oil depot and ammunition depots,,Multiple targets but all in occupied Crimea,FALSE
+56963,20230722,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Crimea military warehouses and oil depot,,Composite of Crimea targets only,FALSE
+314549,20230723,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Oktyabrske oil depot and airfield,,Both reported targets are in occupied Crimea,FALSE
+57003,20230724,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Dzhankoi district ammunition depot,,Single Crimea target plus evacuation consequences,FALSE
+314580,20230725,EXCLUDE_CRIMEA_SCOPE_DUPLICATE_TEXT,CRIMEA_SEVASTOPOL,Dzhankoi district ammunition depot,,Merged identical report text about same Crimea event; not multiple events,FALSE
+57067,20230801,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Balaklava area energy/ammunition facilities,,Possible multiple facilities but all in occupied Crimea,FALSE
+221990,20230810,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,UKRAINE_OTHER,Rivne oil depot plus air-defence activity in Kyiv/Khmelnytskyi,,Composite Ukrainian-location report about Russian attacks; no Russia-proper target,FALSE
+57392,20230908,EXCLUDE_NOT_EVENT_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Starlink/Sevastopol fleet attack controversy,,Article combines unrelated AI business item with retrospective controversy over a Crimea attack attempt; no fresh Russia-proper event,FALSE
+57515,20230921,EXCLUDE_CRIMEA_SCOPE,CRIMEA_SEVASTOPOL,Crimea military airfield attack reports,,Two merged reports describe same Crimea airfield event,FALSE
+57634,20231002,EXCLUDE_NO_IDENTIFIED_RUSSIA_PROPER_TARGET,CRIMEA_SEVASTOPOL,Weekly roundup plus Crimea partisan airfield access,,Composite roundup contains unspecific battlefield equipment losses and Crimea activity but no identified physical Russia-proper target eligible for census,FALSE
