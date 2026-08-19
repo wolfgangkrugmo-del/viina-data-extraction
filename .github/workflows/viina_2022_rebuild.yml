@@ -1,0 +1,92 @@
+name: VIINA 2022 completeness rebuild
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/rebuild_viina_2022.py"
+      - ".github/workflows/viina_2022_rebuild.yml"
+
+concurrency:
+  group: viina-2022-rebuild-main
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Download GeoNames Russia gazetteer
+        run: |
+          set -euo pipefail
+          mkdir -p tmp output
+          curl --fail --location --retry 3 https://download.geonames.org/export/dump/RU.zip -o tmp/RU.zip
+          unzip -t tmp/RU.zip >/dev/null
+
+      - name: Clone VIINA and pull 2022 archives
+        run: |
+          set -euo pipefail
+          GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/zhukovyuri/VIINA.git viina
+          git -C viina lfs install --local
+          git -C viina lfs pull --include="Data/event_info_latest_2022.zip,Data/event_1pd_latest_2022.zip" --exclude=""
+          unzip -t viina/Data/event_info_latest_2022.zip >/dev/null
+          unzip -t viina/Data/event_1pd_latest_2022.zip >/dev/null
+
+      - name: Run actor-independent 2022 rebuild
+        run: |
+          set -euo pipefail
+          PYTHONPATH=scripts python scripts/rebuild_viina_2022.py \
+            --viina-data-dir viina/Data \
+            --ru-geonames tmp/RU.zip \
+            --output output/VIINA_2022_REBUILD.csv \
+            --summary output/VIINA_2022_REBUILD_SUMMARY.txt
+          test -s output/VIINA_2022_REBUILD.csv
+          test -s output/VIINA_2022_REBUILD_SUMMARY.txt
+          cat output/VIINA_2022_REBUILD_SUMMARY.txt
+
+      - name: Write rebuild provenance
+        run: |
+          set -euo pipefail
+          {
+            echo "generated_at_utc=$(date -u +%FT%TZ)"
+            echo "viina_commit=$(git -C viina rev-parse HEAD)"
+            echo "protocol=VIINA_2022_ACTOR_INDEPENDENT_V1"
+            echo "study_start=2022-02-24"
+            echo "study_end=2022-12-31"
+            echo "candidate_census_complete=FALSE"
+            sha256sum output/VIINA_2022_REBUILD.csv output/VIINA_2022_REBUILD_SUMMARY.txt
+          } > output/VIINA_2022_REBUILD_PROVENANCE.txt
+
+      - name: Commit rebuild outputs
+        run: |
+          set -euo pipefail
+          git add output/VIINA_2022_REBUILD.csv output/VIINA_2022_REBUILD_SUMMARY.txt output/VIINA_2022_REBUILD_PROVENANCE.txt
+          if git diff --cached --quiet; then
+            echo "No rebuild output changes."
+            exit 0
+          fi
+          git commit -m "Record VIINA 2022 completeness rebuild"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo "Output push failed after 3 attempts" >&2
+              exit 1
+            fi
+            git fetch origin main
+            git rebase origin/main
+          done
