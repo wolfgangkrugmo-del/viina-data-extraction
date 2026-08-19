@@ -10,7 +10,7 @@ CoverageStatus = FULL_PROTOCOL
 DependencyAuditStatus = NOT_REVIEWED
 SourceManifest = output/REUTERS_2022_SOURCE_COMPONENT_MANIFEST_V1.csv
 SearchLog = output/REUTERS_2022_DEEP_SEARCH_LOG_V1.csv
-ManifestRowsCurrent = 17
+ManifestRowsCurrent = 20
 ReviewStatus = NOT_STARTED
 DedupeReviewStatus = NOT_STARTED
 RowAcceptanceStatus = NOT_READY
@@ -20,11 +20,16 @@ Current retained source-component count by family:
 - R1_ENERGY_REFINING = 1
 - R2_ENERGY_STORAGE_EXPORT = 4
 - R3_PIPELINE_PUMPING = 0
-- R4_DEFENSE_INDUSTRY = 3
-- R5_STRATEGIC_AIR = 4
+- R4_DEFENSE_INDUSTRY = 4
+- R5_STRATEGIC_AIR = 5
 - R6_GRID_SUPPORT = 5
-- R7_LOGISTICS_OTHER = 0
-Total = 17
+- R7_LOGISTICS_OTHER = 1
+Total = 20
+
+Scope split:
+- Russia-proper/direct census candidates: 17 source components before candidate-level eligibility/dedupe decisions.
+- CRIMEA_SEVASTOPOL audit-only source components: 3 (Saki air base 09-Aug; Dzhankoi ammunition-depot/connected infrastructure 16-Aug; Kerch bridge 08-Oct).
+- Dzhankoi is a composite source component and must split into physical candidate nodes before dedupe.
 
 Outcome/identity issues already visible for candidate coding:
 - 2022-03-30 Belgorod-region ammunition depot: physical fire established; cause/actor unresolved.
@@ -38,10 +43,11 @@ Outcome/identity issues already visible for candidate coding:
 - 2022-12-26 Engels repeat: attack wave distinct, but Russia reported no aircraft damage; qualifying fixed-target effect requires candidate-level coding.
 
 Provenance safeguard:
-- All 17 retained Reuters-direct components have stable R22S IDs in the source manifest.
+- All 20 retained Reuters-direct components have stable R22S IDs in the source manifest.
 - Every one of the 28 search-cell counts equals the corresponding manifest count.
 - Zero-result cells are recorded as executed zero findings, not skipped cells.
 - No aggregate-only source count is used.
+- Crimea/Sevastopol discoveries are retained audit-only and cannot contribute to Russia-proper census counts.
 
 Track separation:
 - Frozen Reuters 2022 source inventory is authoritative for DEEP-COMP-V1 search completeness.
@@ -49,4 +55,4 @@ Track separation:
 - Any future recovered-source manifest remains separate and cannot substitute for missing frozen provenance.
 
 Next execution step:
-Transfer all 17 manifest components to the mandatory DEEP-COMP-V1 candidate ledger (or explicit machine-level non-candidate/derivative disposition), perform record-level dependency audit, reconcile against the completed VIINA 2022 lane, and finish candidate review/dedupe before any RowAcceptanceStatus PASS decision.
+Transfer all 20 manifest components to the mandatory DEEP-COMP-V1 candidate ledger (including required Dzhankoi split rows or explicit machine-level disposition), perform record-level dependency audit, reconcile against the completed VIINA 2022 lane, and finish candidate review/dedupe before any RowAcceptanceStatus PASS decision.
