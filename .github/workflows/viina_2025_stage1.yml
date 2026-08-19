@@ -1,0 +1,106 @@
+name: VIINA 2025 stable stage 1
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/viina_year_stage1.py"
+      - ".github/workflows/viina_2025_stage1.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viina-2025-stage1-main
+  cancel-in-progress: true
+
+jobs:
+  stage1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Persist runner start marker
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B main origin/main
+          mkdir -p output
+          {
+            echo "runner_started_utc=$(date -u +%FT%TZ)"
+            echo "trigger_head_sha=${GITHUB_SHA}"
+            echo "run_id=${GITHUB_RUN_ID}"
+          } > output/VIINA_2025_RUNNER_STARTED.txt
+          git add output/VIINA_2025_RUNNER_STARTED.txt
+          git diff --cached --quiet || git commit -m "Record VIINA 2025 runner start"
+          for attempt in 1 2 3; do
+            git push origin HEAD:main && break
+            [ "$attempt" -eq 3 ] && exit 1
+            git fetch origin main
+            git rebase origin/main
+          done
+
+      - name: Download GeoNames Russia gazetteer
+        run: |
+          set -euo pipefail
+          mkdir -p tmp output
+          curl --fail --location --retry 3 https://download.geonames.org/export/dump/RU.zip -o tmp/RU.zip
+          unzip -t tmp/RU.zip >/dev/null
+
+      - name: Clone VIINA and pull 2025 archives
+        run: |
+          set -euo pipefail
+          GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 https://github.com/zhukovyuri/VIINA.git viina
+          git -C viina lfs install --local
+          git -C viina lfs pull --include="Data/event_info_latest_2025.zip,Data/event_1pd_latest_2025.zip" --exclude=""
+          unzip -t viina/Data/event_info_latest_2025.zip >/dev/null
+          unzip -t viina/Data/event_1pd_latest_2025.zip >/dev/null
+
+      - name: Run stable 2025 stage 1
+        run: |
+          set -euo pipefail
+          PYTHONPATH=scripts python scripts/viina_year_stage1.py \
+            --year 2025 \
+            --viina-data-dir viina/Data \
+            --ru-geonames tmp/RU.zip \
+            --outdir output \
+            --matrix output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          test -s output/VIINA_2025_REBUILD.csv
+          test -s output/VIINA_2025_POST_EXACT_DEDUPE_REVIEW.csv
+          test -s output/VIINA_2025_RUSSIA_PRIORITY.csv
+          test -s output/VIINA_2025_STAGE1_SUMMARY.txt
+          cat output/VIINA_2025_STAGE1_SUMMARY.txt
+
+      - name: Write provenance
+        run: |
+          set -euo pipefail
+          {
+            echo "generated_at_utc=$(date -u +%FT%TZ)"
+            echo "viina_commit=$(git -C viina rev-parse HEAD)"
+            echo "protocol=VIINA_2025_STAGE1_STABLE_V1"
+            echo "candidate_census_complete=FALSE"
+            sha256sum output/VIINA_2025_REBUILD.csv output/VIINA_2025_POST_EXACT_DEDUPE_REVIEW.csv output/VIINA_2025_RUSSIA_PRIORITY.csv output/VIINA_2025_STAGE1_SUMMARY.txt output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          } > output/VIINA_2025_STAGE1_PROVENANCE.txt
+
+      - name: Commit outputs
+        run: |
+          set -euo pipefail
+          git add output/VIINA_2025_REBUILD.csv output/VIINA_2025_POST_EXACT_DEDUPE_REVIEW.csv output/VIINA_2025_RUSSIA_PRIORITY.csv output/VIINA_2025_STAGE1_SUMMARY.txt output/VIINA_2025_STAGE1_PROVENANCE.txt output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record VIINA 2025 stable stage-1 outputs"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            git push origin HEAD:main && exit 0
+            [ "$attempt" -eq 3 ] && exit 1
+            sleep 2
+          done
+          exit 1
