@@ -1,0 +1,15 @@
+protocol=VIINA_2022_REVIEW_TRIAGE_V1
+input_review_rows=639
+priority_russia_rows=32
+P1_RUSSIA_UA_ACTOR=29
+P2_RUSSIA_FROM_AMBIGUOUS=3
+P3_SCOPE_CONFLICT_COMPOSITE=65
+P4_CRIMEA=257
+P5_OCCUPIED_UA_OTHER=154
+P6_SCOPE_UNKNOWN=131
+exact_report_duplicate_clusters=91
+rows_in_exact_report_duplicate_clusters=223
+matrix_rows_with_notes_overflow_repaired=5
+matrix_overflow_repair_policy=REJOIN_TO_FINAL_NOTES_ONLY
+manual_review_required_for_all_triage_rows=TRUE
+candidate_census_complete=FALSE
