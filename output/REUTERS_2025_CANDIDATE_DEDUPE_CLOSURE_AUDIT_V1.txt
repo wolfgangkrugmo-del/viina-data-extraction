@@ -1,0 +1,31 @@
+REUTERS 2025 CANDIDATE / DEDUPE CLOSURE AUDIT V1
+
+SPECIFICATION BASIS
+DEEP-COMP-V1 source-row acceptance requires all discovered raw hits to be transferred to the candidate ledger or documented as machine-level non-candidates; ReviewStatus=COMPLETE; DedupeReviewStatus=COMPLETE; and archived evidence/query logs.
+
+OBSERVED COUNTS / ARTIFACTS
+- Frozen search grid: 28/28 cells COMPLETE.
+- Search-log named Reuters-direct components: 86 total across the 28 cells.
+- REUTERS_2025_DEEP_RAW_HITS_V1.csv contains 29 rows and all retain ReconciliationStatus=NOT_RECONCILED; this is an early partial working file, not a complete final candidate ledger.
+- REUTERS_2025_VIINA_RECONCILIATION_V1.csv contains 99 reconciliation rows. It includes direct Reuters discoveries, auxiliary reconciliation rows, probable/known VIINA matches, four OSC-routed pipeline records, provisional/unresolved cases and eligibility-pending cases. Therefore 99 is not the same counting unit as the 86 direct search-cell components.
+- Search log states that all named direct components from each cell were transferred to REUTERS_2025_VIINA_RECONCILIATION_V1.csv.
+- No Reuters-2025 candidate ledger conforming to the mandatory DEEP candidate-ledger schema was found in the repository; only DEEP_COMPLETENESS_CANDIDATE_LEDGER_TEMPLATE.csv exists.
+- Subsequent resolution artifacts establish a conservative confirmed register delta of +43 and identify three Reuters outcome-relevant unresolved cases (Engels, Shatura eligibility, Belgorod dam eligibility), but these resolution artifacts do not substitute for the mandatory candidate ledger.
+
+DEDUPE STATUS
+Event-level reconciliation/dedupe decisions exist for the reviewed cases and known VIINA overlaps, but formal DedupeReviewStatus=COMPLETE cannot be asserted until every Reuters candidate is represented in the mandatory ledger with DedupeDecision/CanonicalCandidateRecordID where applicable and the 86-direct-component to reconciliation/ledger accounting is machine-checkable.
+
+CLOSURE DECISION
+Candidate transfer closure = INCOMPLETE.
+ReviewStatus = IN_PROGRESS.
+DedupeReviewStatus = IN_PROGRESS.
+RowAcceptanceStatus = NOT_READY.
+
+REQUIRED TO CLOSE
+1. Build a Reuters-2025 candidate ledger using the mandatory DEEP-COMP-V1 fields for every retained candidate, exclusion, duplicate/probable match, unresolved and eligibility-pending case.
+2. Reconcile the 86 named Reuters-direct search components to ledger rows and explicitly document any split/merge expansion responsible for the larger reconciliation-row count.
+3. Preserve the four OSC-derived pipeline events under DG_OSINT_SPECIALIST rather than DG_REUTERS.
+4. Ensure every duplicate cluster has exactly one canonical candidate and all duplicate links are populated.
+5. Verify zero blank mandatory InclusionStatus/ExclusionReason fields and complete ReviewStatus for every ledger row.
+
+This closure audit does not change the confirmed Reuters↔VIINA delta (+43) or C5_2025=FALSE.
