@@ -1,0 +1,6 @@
+input_rows=97
+decision_counts=CRIMEA_REVIEW:57,DROP_NOT_EVENT:10,PROMOTE_RUSSIA:8,UNRESOLVED:22
+priority_counts=1_EVENT_GATE:10,2_PROMOTE_RUSSIA:8,3_CRIMEA:57,4_UNRESOLVED:22
+manual_required_counts=FALSE:67,TRUE:30
+rule_order=EVENT_GATE>PROMOTE_RUSSIA>CRIMEA>UNRESOLVED
+note=PROMOTE_RUSSIA remains a census candidate, not a threshold-trigger confirmation

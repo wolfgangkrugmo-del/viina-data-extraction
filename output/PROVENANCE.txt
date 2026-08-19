@@ -1,11 +1,13 @@
-generated_at_utc=2026-08-19T09:11:50Z
+generated_at_utc=2026-08-19T09:34:16Z
 viina_commit=2ae123195ee75bec587fa06a1dcd9ab726a5d889
 study_start=2022-02-24
 study_end=2026-06-30
 source_repo=https://github.com/zhukovyuri/VIINA
 strict_rule=ukrainian_initiator AND hierarchical_RU_location_gate; Crimea review-only
-review_rule=ukrainian_initiator AND unresolved/disputed location
+review_rule=EVENT_GATE>PROMOTE_RUSSIA>CRIMEA>UNRESOLVED; PROMOTE_RUSSIA remains census-candidate only
 3f75fc0bac350e5f5560118462c3399439b1a2346a772852cf33c597854364cb  output/viina_deep_strike_candidates.csv
 4b43e61c4ec0d418b1b3ec24a09363dec0ccdc6e439c3caa77ca9eff4fac8a09  output/viina_deep_strike_location_review.csv
+f3a03f05fbe6220fe5f5178f482406c413a6e1ed044eddc31456d359f4434299  output/viina_review_classified.csv
+236ea5e5aa49374c7c4ffa04f30b9f8b645bd39defeef6eda392cdbf1b56a374  output/VIINA_REVIEW_SUMMARY.txt
 4a42645aa3d9931db866fc479c2f2269f26f22d8b98535bc0603dc844bff1509  output/PIPELINE_DIAGNOSTIC.txt
 b0cac84320cd1afcf2a4bc62743e4871d58be225d98a4c7f04162dd8ea50c115  output/GEONAMES_PREFLIGHT.txt
