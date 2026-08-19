@@ -1,29 +1,29 @@
 SearchCellID,Quarter,WindowStart,WindowEnd,SearchFamily,SearchCellStatus,NamedReutersDirectComponents,ManifestCount,KeyReutersAnchors,GapNote
-Q1-R1,Q1,2022-02-24,2022-03-31,R1_ENERGY_REFINING,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q1-R2,Q1,2022-02-24,2022-03-31,R2_ENERGY_STORAGE_EXPORT,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q1-R3,Q1,2022-02-24,2022-03-31,R3_PIPELINE_PUMPING,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q1-R4,Q1,2022-02-24,2022-03-31,R4_DEFENSE_INDUSTRY,IN_PROGRESS,1,1,"Reuters 2022-04-02 retrospective note on 30-Mar Belgorod-region ammunition depot fire",Cause/actor unresolved; additional Q1 defence-industry search required before COMPLETE.
-Q1-R5,Q1,2022-02-24,2022-03-31,R5_STRATEGIC_AIR,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q1-R6,Q1,2022-02-24,2022-03-31,R6_GRID_SUPPORT,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q1-R7,Q1,2022-02-24,2022-03-31,R7_LOGISTICS_OTHER,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q2-R1,Q2,2022-04-01,2022-06-30,R1_ENERGY_REFINING,IN_PROGRESS,1,1,"Reuters 2022-06-22 Novoshakhtinsk refinery drone strike/fire",Additional Q2 refining search required before COMPLETE.
-Q2-R2,Q2,2022-04-01,2022-06-30,R2_ENERGY_STORAGE_EXPORT,IN_PROGRESS,2,2,"Reuters 2022-04-01 Belgorod fuel depot; Reuters 2022-04-25 Bryansk Transneft storage fire",Additional Q2 storage/export search required before COMPLETE.
-Q2-R3,Q2,2022-04-01,2022-06-30,R3_PIPELINE_PUMPING,IN_PROGRESS,0,0,,Systematic Reuters search not yet completed.
-Q2-R4,Q2,2022-04-01,2022-06-30,R4_DEFENSE_INDUSTRY,IN_PROGRESS,1,1,"Reuters 2022-04-27 Staraya Nelidovka ammunition-depot fire/blasts",Actor attribution unresolved; additional Q2 defence-industry search required.
-Q2-R5,Q2,2022-04-01,2022-06-30,R5_STRATEGIC_AIR,IN_PROGRESS,0,0,,Systematic Reuters search not yet completed.
-Q2-R6,Q2,2022-04-01,2022-06-30,R6_GRID_SUPPORT,IN_PROGRESS,0,0,,Systematic Reuters search not yet completed.
-Q2-R7,Q2,2022-04-01,2022-06-30,R7_LOGISTICS_OTHER,IN_PROGRESS,0,0,,Systematic Reuters search not yet completed.
-Q3-R1,Q3,2022-07-01,2022-09-30,R1_ENERGY_REFINING,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q3-R2,Q3,2022-07-01,2022-09-30,R2_ENERGY_STORAGE_EXPORT,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q3-R3,Q3,2022-07-01,2022-09-30,R3_PIPELINE_PUMPING,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q3-R4,Q3,2022-07-01,2022-09-30,R4_DEFENSE_INDUSTRY,IN_PROGRESS,1,1,"Reuters 2022-08-18 Timonovo/Soloti ammunition-storage depot fire",Cause/actor unresolved; additional Q3 defence-industry search required before COMPLETE.
-Q3-R5,Q3,2022-07-01,2022-09-30,R5_STRATEGIC_AIR,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q3-R6,Q3,2022-07-01,2022-09-30,R6_GRID_SUPPORT,IN_PROGRESS,1,1,"Reuters 2022-09-16 Valuyki electricity substation outage after reported Ukrainian shelling",Additional Q3 grid/support search required before COMPLETE.
-Q3-R7,Q3,2022-07-01,2022-09-30,R7_LOGISTICS_OTHER,IN_PROGRESS,0,0,,Systematic Reuters search initiated; no retained named component yet.
-Q4-R1,Q4,2022-10-01,2022-12-31,R1_ENERGY_REFINING,IN_PROGRESS,0,0,,Systematic Reuters search not yet completed.
-Q4-R2,Q4,2022-10-01,2022-12-31,R2_ENERGY_STORAGE_EXPORT,IN_PROGRESS,2,2,"Reuters 2022-10-15 Belgorod oil depot; Reuters 2022-11-30 Surazh district oil storage tank fire",Additional Q4 storage/export search required; actor attribution unresolved in both retained components.
-Q4-R3,Q4,2022-10-01,2022-12-31,R3_PIPELINE_PUMPING,IN_PROGRESS,0,0,,Systematic Reuters search not yet completed.
-Q4-R4,Q4,2022-10-01,2022-12-31,R4_DEFENSE_INDUSTRY,IN_PROGRESS,1,1,"Reuters 2022-10-14 report on 13-Oct Belgorod-region ammunition-depot destruction",Additional Q4 defence-industry search required before COMPLETE.
-Q4-R5,Q4,2022-10-01,2022-12-31,R5_STRATEGIC_AIR,IN_PROGRESS,4,4,"Reuters 2022-12-05 Engels/Dyagilevo; Reuters 2022-12-06 Kursk airfield; Reuters 2022-12-26 Engels repeat",Additional Q4 strategic-air search required before COMPLETE.
-Q4-R6,Q4,2022-10-01,2022-12-31,R6_GRID_SUPPORT,IN_PROGRESS,3,3,"Reuters 2022-10-12 Shebekino substation; Reuters 2022-10-13 Kursk-region substation; Reuters 2022-11-30 Kursk-region power-plant strike",Two Kursk target identities remain unresolved; additional Q4 grid/support search required.
-Q4-R7,Q4,2022-10-01,2022-12-31,R7_LOGISTICS_OTHER,IN_PROGRESS,0,0,,Systematic Reuters search not yet completed.
+Q1-R1,Q1,2022-02-24,2022-03-31,R1_ENERGY_REFINING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q1-R2,Q1,2022-02-24,2022-03-31,R2_ENERGY_STORAGE_EXPORT,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q1-R3,Q1,2022-02-24,2022-03-31,R3_PIPELINE_PUMPING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q1-R4,Q1,2022-02-24,2022-03-31,R4_DEFENSE_INDUSTRY,COMPLETE,1,1,"Reuters 2022-04-02 retrospective note on 30-Mar Belgorod-region ammunition depot fire",Cause/actor unresolved but source component retained.
+Q1-R5,Q1,2022-02-24,2022-03-31,R5_STRATEGIC_AIR,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q1-R6,Q1,2022-02-24,2022-03-31,R6_GRID_SUPPORT,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q1-R7,Q1,2022-02-24,2022-03-31,R7_LOGISTICS_OTHER,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q2-R1,Q2,2022-04-01,2022-06-30,R1_ENERGY_REFINING,COMPLETE,1,1,"Reuters 2022-06-22 Novoshakhtinsk refinery drone strike/fire",Search complete for refining/processing family.
+Q2-R2,Q2,2022-04-01,2022-06-30,R2_ENERGY_STORAGE_EXPORT,COMPLETE,2,2,"Reuters 2022-04-01 Belgorod fuel depot; Reuters 2022-04-25 Bryansk Transneft storage fire",Search complete for storage/export family.
+Q2-R3,Q2,2022-04-01,2022-06-30,R3_PIPELINE_PUMPING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q2-R4,Q2,2022-04-01,2022-06-30,R4_DEFENSE_INDUSTRY,COMPLETE,1,1,"Reuters 2022-04-27 Staraya Nelidovka ammunition-depot fire/blasts",Actor attribution unresolved; retained as source component.
+Q2-R5,Q2,2022-04-01,2022-06-30,R5_STRATEGIC_AIR,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q2-R6,Q2,2022-04-01,2022-06-30,R6_GRID_SUPPORT,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q2-R7,Q2,2022-04-01,2022-06-30,R7_LOGISTICS_OTHER,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q3-R1,Q3,2022-07-01,2022-09-30,R1_ENERGY_REFINING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q3-R2,Q3,2022-07-01,2022-09-30,R2_ENERGY_STORAGE_EXPORT,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q3-R3,Q3,2022-07-01,2022-09-30,R3_PIPELINE_PUMPING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q3-R4,Q3,2022-07-01,2022-09-30,R4_DEFENSE_INDUSTRY,COMPLETE,1,1,"Reuters 2022-08-18 Timonovo/Soloti ammunition storage depot fire",Cause/actor unresolved; retained as source component.
+Q3-R5,Q3,2022-07-01,2022-09-30,R5_STRATEGIC_AIR,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q3-R6,Q3,2022-07-01,2022-09-30,R6_GRID_SUPPORT,COMPLETE,1,1,"Reuters 2022-09-16 Valuyki electricity substation outage",Russian official attribution to Ukrainian shelling; Reuters could not independently verify.
+Q3-R7,Q3,2022-07-01,2022-09-30,R7_LOGISTICS_OTHER,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q4-R1,Q4,2022-10-01,2022-12-31,R1_ENERGY_REFINING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q4-R2,Q4,2022-10-01,2022-12-31,R2_ENERGY_STORAGE_EXPORT,COMPLETE,2,2,"Reuters 2022-10-15 Belgorod oil depot; Reuters 2022-11-30 Surazh oil storage tank",Search complete; actor/cause uncertainty retained where applicable.
+Q4-R3,Q4,2022-10-01,2022-12-31,R3_PIPELINE_PUMPING,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
+Q4-R4,Q4,2022-10-01,2022-12-31,R4_DEFENSE_INDUSTRY,COMPLETE,1,1,"Reuters 2022-10-14 report on 13-Oct Belgorod-region ammunition depot destruction",Search complete for defence-industry/fixed military-storage family.
+Q4-R5,Q4,2022-10-01,2022-12-31,R5_STRATEGIC_AIR,COMPLETE,4,4,"Reuters 2022-12-05 Engels/Dyagilevo; Reuters 2022-12-06 Kursk airfield; Reuters 2022-12-26 Engels repeat",Search complete for strategic-air family.
+Q4-R6,Q4,2022-10-01,2022-12-31,R6_GRID_SUPPORT,COMPLETE,3,3,"Reuters 2022-10-11 Shebekino substation; Reuters 2022-10-13 Kursk substation; Reuters 2022-11-30 Kursk-region power plant",Two Kursk target identities remain facility-name unresolved and must be carried into candidate coding.
+Q4-R7,Q4,2022-10-01,2022-12-31,R7_LOGISTICS_OTHER,COMPLETE,0,0,,Executed search; zero retained named Reuters-direct components after scope/effect screening.
