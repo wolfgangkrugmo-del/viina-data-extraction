@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, csv, io, re, zipfile
+import argparse, csv, io, math, re, unicodedata, zipfile
 from collections import defaultdict
 from pathlib import Path
 
 START, END = 20220224, 20260630
+MAX_RU_GAZETTEER_DISTANCE_KM = 20.0
 
 TARGET_PATTERNS = {
     "REFINING_PETROCHEM_GAS": [r"\brefiner", r"oil refinery", r"gas processing", r"нефтеперерабат", r"\bнпз\b", r"нафтоперероб", r"газоперерабат", r"petrochem", r"нефтехим"],
@@ -34,6 +35,12 @@ def ndate(v):
     s=re.sub(r'\D','',str(v or ''))
     return int(s[:8]) if len(s)>=8 else None
 
+def norm_name(v):
+    s=unicodedata.normalize('NFKD', str(v or '')).casefold()
+    s=''.join(ch for ch in s if not unicodedata.combining(ch))
+    s=re.sub(r'[^a-zа-яёіїєґ0-9]+',' ',s,flags=re.I).strip()
+    return s
+
 def hits(text):
     classes=[]; tt=[]; aa=[]
     for cls,pats in CT.items():
@@ -44,32 +51,69 @@ def hits(text):
         if m: aa.append(m.group(0))
     return sorted(set(classes)), sorted(set(tt)), sorted(set(aa))
 
-def load_ru_ids(path):
-    ids=set()
+def haversine_km(lat1, lon1, lat2, lon2):
+    r=6371.0088
+    p1,p2=math.radians(lat1),math.radians(lat2)
+    dp=math.radians(lat2-lat1); dl=math.radians(lon2-lon1)
+    a=math.sin(dp/2)**2 + math.cos(p1)*math.cos(p2)*math.sin(dl/2)**2
+    return 2*r*math.asin(min(1.0, math.sqrt(a)))
+
+def grid_key(lat, lon, cell=0.25):
+    return (int(math.floor(lat/cell)), int(math.floor(lon/cell)))
+
+def load_ru_gazetteer(path):
+    ids=set(); names=set(); grid=defaultdict(list)
     with zipfile.ZipFile(path) as z:
         txt=next(n for n in z.namelist() if n.lower().endswith('.txt'))
         with io.TextIOWrapper(z.open(txt), encoding='utf-8') as f:
-            for line in f: ids.add(line.split('\t',1)[0])
-    return ids
+            for line in f:
+                p=line.rstrip('\n').split('\t')
+                if len(p)<6: continue
+                gid=p[0].strip(); ids.add(gid)
+                for raw in [p[1],p[2]] + (p[3].split(',') if len(p)>3 and p[3] else []):
+                    n=norm_name(raw)
+                    if n: names.add(n)
+                try:
+                    lat=float(p[4]); lon=float(p[5])
+                except ValueError:
+                    continue
+                grid[grid_key(lat,lon)].append((lat,lon,gid,p[2] or p[1]))
+    return {'ids':ids,'names':names,'grid':grid}
+
+def nearest_ru_point(lat, lon, gaz):
+    k0=grid_key(lat,lon); best=None
+    for di in range(-1,2):
+        for dj in range(-1,2):
+            for glat,glon,gid,name in gaz['grid'].get((k0[0]+di,k0[1]+dj),[]):
+                d=haversine_km(lat,lon,glat,glon)
+                if best is None or d<best[0]: best=(d,gid,name,glat,glon)
+    return best
+
+def is_crimea_coordinate(lat, lon):
+    # Conservative review-only gate for internationally disputed/occupied Crimea.
+    # Deliberately broad enough to capture Feodosia/Sevastopol without treating it
+    # as Russian sovereign territory in the strict Russia-proper output.
+    return 44.0 <= lat <= 46.4 and 32.0 <= lon <= 36.8
 
 def is_true(v):
     return str(v or '').strip().lower() in {'1','1.0','true','t','yes'}
 
 def first_existing(row, names):
     for n in names:
-        if n in row:
-            return n, row.get(n)
+        if n in row: return n, row.get(n)
     return None, None
 
 def val(row,k): return str(row.get(k,'') or '').strip()
 
+def ffloat(v):
+    try: return float(str(v).strip())
+    except (TypeError,ValueError): return None
+
 def label_value(row, base):
-    # VIINA currently exposes binary classifier columns with _b in several releases;
-    # keep fallbacks so the workflow fails gracefully across release naming changes.
     name, value = first_existing(row, [base+'_b', base])
     return name or '', str(value or '').strip()
 
-def scan_info(path, ru):
+def scan_info(path, gaz):
     agg=defaultdict(lambda: {
         'ids':set(),'sources':set(),'urls':set(),'texts':[],'classes':set(),'tt':set(),'aa':set(),
         'ru_geonameids':set(),'ru_places':set(),'ru_adm1':set(),'ru_adm2':set()
@@ -81,7 +125,7 @@ def scan_info(path, ru):
             d=ndate(row.get('date'))
             if d is None or not START<=d<=END: continue
             gid=str(row.get('geonameid','')).strip()
-            if gid not in ru: continue
+            if gid not in gaz['ids']: continue
             text=str(row.get('text','') or '')
             c,t,a=hits(text)
             if not c or not a: continue
@@ -101,15 +145,34 @@ def scan_info(path, ru):
         f.close(); z.close()
     return agg
 
-def join_onepd(path, raw, ru):
+def location_decision(row, gaz):
+    gid=val(row,'geonameid')
+    lat=ffloat(row.get('latitude')); lon=ffloat(row.get('longitude'))
+    place=val(row,'asciiname')
+
+    if lat is not None and lon is not None and is_crimea_coordinate(lat,lon):
+        return False, 'REVIEW_DISPUTED_CRIMEA', '', '', ''
+
+    if gid and gid in gaz['ids']:
+        return True, 'GEONAMEID_RU', '0.000', gid, place
+
+    if lat is not None and lon is not None:
+        nearest=nearest_ru_point(lat,lon,gaz)
+        if nearest and nearest[0] <= MAX_RU_GAZETTEER_DISTANCE_KM:
+            return True, 'COORDINATE_NEAR_RU_GAZETTEER', f'{nearest[0]:.3f}', nearest[1], nearest[2]
+
+    if place and norm_name(place) in gaz['names']:
+        # Name-only matches are useful support but are not strict enough on their own.
+        return False, 'REVIEW_NAME_ONLY_RU_SUPPORT', '', '', place
+
+    return False, 'REVIEW_LOCATION_UNRESOLVED', '', '', ''
+
+def join_onepd(path, raw, gaz):
     strict=[]; review=[]; z,f=first_csv(path)
-    actor_field_seen=False
     try:
         r=csv.DictReader(f)
         fields=set(r.fieldnames or [])
-        actor_candidates={'a_ukr_init_b','a_ukr_init'}
-        actor_field_seen=bool(fields & actor_candidates)
-        if not actor_field_seen:
+        if not (fields & {'a_ukr_init_b','a_ukr_init'}):
             raise RuntimeError(f'{path}: neither a_ukr_init_b nor a_ukr_init present; fields={sorted(fields)}')
 
         for row in r:
@@ -117,51 +180,41 @@ def join_onepd(path, raw, ru):
             if key not in raw: continue
             d=ndate(row.get('date'))
             if d is None or not START<=d<=END: continue
-
-            actor_name, actor_val = first_existing(row,['a_ukr_init_b','a_ukr_init'])
-            if not is_true(actor_val):
-                continue
+            _, actor_val = first_existing(row,['a_ukr_init_b','a_ukr_init'])
+            if not is_true(actor_val): continue
 
             x=raw[key]
-            onepd_gid=val(row,'geonameid')
-            onepd_ru = bool(onepd_gid and onepd_gid in ru)
-
+            loc_ok, loc_method, loc_dist, loc_gid, loc_name = location_decision(row,gaz)
             labels={}
             for base in ['a_ukr_init','a_ukr','a_rus_init','a_rus','t_mil','t_uav','t_airstrike','t_artillery','t_property','t_raid']:
-                nm,v=label_value(row,base)
-                labels[base+'_field']=nm
-                labels[base]=v
+                nm,v=label_value(row,base); labels[base+'_field']=nm; labels[base]=v
 
             rec={
                 'event_id_1pd':key,'date':str(d),'n_reports_viina':val(row,'n_reports'),
                 'raw_reports_matching':str(len(x['ids'])),'event_ids_matching':'|'.join(sorted(x['ids'])),
                 'sources_matching':'|'.join(sorted(x['sources'])),'source_urls':'|'.join(sorted(x['urls'])),
-                'geonameid':onepd_gid,'asciiname':val(row,'asciiname'),'ADM1_NAME':val(row,'ADM1_NAME'),'ADM2_NAME':val(row,'ADM2_NAME'),
+                'geonameid':val(row,'geonameid'),'asciiname':val(row,'asciiname'),'ADM1_NAME':val(row,'ADM1_NAME'),'ADM2_NAME':val(row,'ADM2_NAME'),
                 'longitude':val(row,'longitude'),'latitude':val(row,'latitude'),'GEO_PRECISION':val(row,'GEO_PRECISION'),
                 'raw_ru_geonameids':'|'.join(sorted(x['ru_geonameids'])),'raw_ru_places':'|'.join(sorted(x['ru_places'])),
                 'raw_ru_ADM1':'|'.join(sorted(x['ru_adm1'])),'raw_ru_ADM2':'|'.join(sorted(x['ru_adm2'])),
                 **labels,
                 'target_class_auto':'|'.join(sorted(x['classes'])),'matched_target_terms':'|'.join(sorted(x['tt'])),'matched_attack_terms':'|'.join(sorted(x['aa'])),
                 'representative_text':' || '.join(x['texts'])[:12000],
-                'ukrainian_initiator_gate':'TRUE','onepd_russia_geonames_gate':'TRUE' if onepd_ru else 'FALSE',
+                'ukrainian_initiator_gate':'TRUE','russia_location_gate':'TRUE' if loc_ok else 'FALSE',
+                'russia_location_method':loc_method,'nearest_ru_distance_km':loc_dist,'nearest_ru_geonameid':loc_gid,'nearest_ru_name':loc_name,
                 'raw_russia_mention_gate':'TRUE','study_period_gate':'TRUE','manual_review_required':'TRUE'
             }
-            if onepd_ru:
-                rec['candidate_status']='STRICT_RUSSIA_UKR_INIT_DISCOVERY'
-                strict.append(rec)
+            if loc_ok:
+                rec['candidate_status']='STRICT_RUSSIA_UKR_INIT_DISCOVERY'; strict.append(rec)
             else:
-                rec['candidate_status']='REVIEW_LOCATION_NOT_CONFIRMED_BY_1PD'
-                review.append(rec)
+                rec['candidate_status']=loc_method; review.append(rec)
     finally:
         f.close(); z.close()
     return strict, review
 
 def write_csv(path, rows):
     path.parent.mkdir(parents=True,exist_ok=True)
-    if rows:
-        fields=list(rows[0].keys())
-    else:
-        fields=['event_id_1pd','date','candidate_status']
+    fields=list(rows[0].keys()) if rows else ['event_id_1pd','date','candidate_status']
     with path.open('w',encoding='utf-8',newline='') as f:
         w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
 
@@ -171,17 +224,15 @@ def main():
     ap.add_argument('--ru-geonames',type=Path,required=True)
     ap.add_argument('--output',type=Path,required=True)
     ap.add_argument('--review-output',type=Path,required=True)
-    a=ap.parse_args(); ru=load_ru_ids(a.ru_geonames); strict=[]; review=[]
+    a=ap.parse_args(); gaz=load_ru_gazetteer(a.ru_geonames); strict=[]; review=[]
     for y in range(2022,2027):
-        raw=scan_info(a.viina_data_dir/f'event_info_latest_{y}.zip',ru)
-        s,q=join_onepd(a.viina_data_dir/f'event_1pd_latest_{y}.zip',raw,ru)
+        raw=scan_info(a.viina_data_dir/f'event_info_latest_{y}.zip',gaz)
+        s,q=join_onepd(a.viina_data_dir/f'event_1pd_latest_{y}.zip',raw,gaz)
         strict.extend(s); review.extend(q)
-    strict={r['event_id_1pd']:r for r in strict}.values()
-    review={r['event_id_1pd']:r for r in review}.values()
-    strict=sorted(strict,key=lambda r:(r['date'],r['event_id_1pd']))
-    review=sorted(review,key=lambda r:(r['date'],r['event_id_1pd']))
+    strict=sorted({r['event_id_1pd']:r for r in strict}.values(),key=lambda r:(r['date'],r['event_id_1pd']))
+    review=sorted({r['event_id_1pd']:r for r in review}.values(),key=lambda r:(r['date'],r['event_id_1pd']))
     write_csv(a.output,strict); write_csv(a.review_output,review)
     print(f'Wrote {len(strict)} strict candidates to {a.output}')
-    print(f'Wrote {len(review)} location-review candidates to {a.review_output}')
+    print(f'Wrote {len(review)} review candidates to {a.review_output}')
 
 if __name__=='__main__': main()
