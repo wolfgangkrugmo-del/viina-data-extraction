@@ -1,0 +1,29 @@
+REUTERS 2025 PROVENANCE RECOVERY STATUS V1
+
+Purpose
+Recover missing Reuters-2025 source provenance without rewriting the frozen DEEP-COMP-V1 history.
+
+GIT HISTORY FINDING
+- Commit be26c4e9a870eea8f917969c8ede38f8c39028c1 created REUTERS_2025_DEEP_RAW_HITS_V1.csv with 29 data rows from the outset. No earlier 86-row raw-hit register exists in repository history.
+- Commit ef1a0a2d7fe780e8886bdeb4f3b9a4e06677d930 then created the frozen 28-cell search log with 86 NamedReutersDirectComponents.
+- Commit 7875787e5ee51da49c4f4139cf6a0d0d65dbe237 immediately created the 101-row R25R reconciliation.
+- Therefore the missing row-level identities were never persisted in the repository as a complete 86-component raw manifest; they were not lost by a later overwrite.
+
+EXTERNAL REUTERS RECOVERY FINDINGS
+Recovery search can re-identify multiple previously missing/ambiguous Reuters components, including:
+- Q2-R4: Murom Instrument-Building Plant; Alabuga long-range UAV production site; Bolkhovsky Semiconductor Devices Plant; Kronstadt UAV plant Dubna; Raduga cruise-missile plant Dubna; Angstrem microchip factory at Zelenograd; Ivanovo-region chemical/explosives-component factory.
+- Q3-R6: Sergiyev Posad electricity substation; Kursk nuclear power plant; Belgorod/Luch grid component.
+- Q4-R7 mobile/non-census components: tankers Kairos and Virat; MIDVOLGA-2; Novorossiysk missile-carrying submarine.
+
+IMPORTANT RECOVERY LIMIT
+External source recovery does NOT prove that every recovered Reuters article/component was one of the exact historical source components counted in the frozen search-log total. Example: Q2-R4 now has additional plausible Reuters defence-industry reporting (e.g. Strela electrical-equipment factory in Suzemka) beyond the frozen count of seven. Because the original seven item-level source IDs/URLs were never persisted, selecting seven retrospectively would be a new reconstruction rule rather than proof of the original inventory.
+
+FORMAL CONSEQUENCE
+FrozenTrackBridgeComplete = FALSE.
+FrozenTrackRowAcceptanceStatus = NOT_READY.
+FrozenTrackCandidateCensusComplete = FALSE.
+DEEP-COMP-V1 PASS is not recoverable from repository history plus post-hoc web recovery without changing the evidentiary standard.
+
+RECOMMENDED DEVELOPMENT-TRACK EXIT
+Create a separate recovered provenance manifest with content-derived stable IDs and explicit Reuters URLs/article dates, versioned as REUTERS_2025_SOURCE_COMPONENT_MANIFEST_RECOVERED_V1. This recovered manifest may be accepted for development analysis after its own completeness audit, but it must not be represented as the original frozen 86-component manifest.
+If the project requires Reuters 2025 to stop blocking the broader rebuild, classify the frozen lane as ACCEPTED_WITH_LEGACY_PROVENANCE_GAP (or equivalent explicit legacy status) rather than PASS. Preserve the original NOT_READY/PASS result for DEEP-COMP-V1.
