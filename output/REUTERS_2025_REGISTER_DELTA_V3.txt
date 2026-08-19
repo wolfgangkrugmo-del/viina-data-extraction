@@ -1,0 +1,28 @@
+REUTERS 2025 REGISTER DELTA V3
+
+Supersedes register-delta count in REUTERS_2025_VIINA_RECONCILIATION_SUMMARY_V2.txt.
+
+Baseline strict confirmed Reuters-new events vs reviewed VIINA 2025 canon: +34.
+Provisional-20 resolution additional confirmed events: +6.
+Open-8 resolution additional confirmed events: +3.
+
+CURRENT CONSERVATIVE CONFIRMED REUTERS↔VIINA DELTA: +43.
+
+Open-8 decisions:
+- CONFIRM: Raduga cruise-missile plant Dubna 2025-05-28.
+- CONFIRM: Saratov oil refinery 2025-11-14 distinct repeat after 2025-11-11 VIINA event.
+- CONFIRM: Orenburg gas processing plant 2025-12-25 distinct repeat after 2025-10-19 event.
+- EXCLUDE: Alabuga UAV production site 2025-04-23; attempted target / no confirmed physical target hit under strict rule.
+- EXCLUDE: Ilsky refinery 2025-07-07; UAV debris on site but explicit no visible damage/fire/smoke.
+- HOLD_OPEN: Dyagilevo airfield 2025-06-06.
+- HOLD_OPEN: Syzran refinery 2025-08-30.
+- HOLD_OPEN: Engels Kombinat Kristall fuel storage 2025-11-14.
+
+Important:
++43 is a conservative confirmed lower bound and not a frozen final scoring-register count.
+The three remaining open Reuters cases do not increment the register.
+C5 remains blocked by these three Reuters residuals plus the separate VIINA 2025-11-30 unidentified Novoshakhtinsk industrial-enterprise residual unless/until each is resolved or shown not outcome-relevant.
+CandidateCensusComplete remains FALSE.
+
+Authoritative open-8 event-level review:
+output/REUTERS_2025_OPEN8_RESOLUTION_V1.csv
