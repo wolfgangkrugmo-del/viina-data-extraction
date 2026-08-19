@@ -1,0 +1,16 @@
+REUTERS 2025 CANDIDATE / DEDUPE CLOSURE STATUS V3
+
+Named closure gaps from V2: CLOSED (9 final dispositions + 5 provenance links).
+Mandatory-schema ledger: CREATED, 105 rows.
+Confirmed Reuters-new vs reviewed VIINA register: +47.
+Candidate-row ReviewStatus: COMPLETE.
+Candidate-row DedupeReviewStatus: COMPLETE.
+DependencyAuditStatus: PARTLY_DERIVATIVE (unchanged).
+OutcomeRelevantUnresolved in DG_REUTERS: 3.
+
+SOURCE ACCEPTANCE
+RowAcceptanceStatus=NOT_READY.
+Reason: frozen search-log direct-component count (86) is not exactly row-level reconciled to the 101-row historical V1 reconciliation. This is a provenance/accounting invariant, not an event-level coding or dedupe gap.
+
+MASTER MATRIX
+Do not promote SRC-2025-REUTERS to PASS. CandidateCensusComplete remains FALSE.
