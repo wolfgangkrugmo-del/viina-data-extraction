@@ -1,0 +1,63 @@
+name: Correct VIINA 2025 unresolved status
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/correct_viina_2025_unresolved.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Correct matrix row
+        run: |
+          python - <<'PY'
+          import csv
+          p='output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv'
+          with open(p,encoding='utf-8',newline='') as f:
+              rd=csv.DictReader(f); fields=rd.fieldnames; rows=list(rd)
+          r=next(x for x in rows if x['MatrixRowID']=='SRC-2025-VIINA')
+          r['UnresolvedRows']='1'
+          r['ReviewStatus']='COMPLETE'
+          r['DedupeReviewStatus']='COMPLETE'
+          r['CandidateCensusComplete']='FALSE'
+          r['Notes']='VIINA 2025 full review and dedupe complete, but one outcome-relevant identity remains unresolved: 2025-11-30 Novoshakhtinsk industrial enterprise (physical fire after drone attack confirmed; facility identity/sector not established). C5 therefore remains blocked. Reuters and remaining C1-C7 gates are also incomplete.'
+          with open(p,'w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
+          PY
+      - name: Verify correction
+        run: |
+          python - <<'PY'
+          import csv
+          p='output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv'
+          with open(p,encoding='utf-8',newline='') as f:
+              r=next(x for x in csv.DictReader(f) if x['MatrixRowID']=='SRC-2025-VIINA')
+          assert r['UnresolvedRows']=='1',r
+          assert r['ReviewStatus']=='COMPLETE',r
+          assert r['DedupeReviewStatus']=='COMPLETE',r
+          assert r['CandidateCensusComplete']=='FALSE',r
+          print('verified SRC-2025-VIINA unresolved=1; review/dedupe COMPLETE')
+          PY
+      - name: Commit correction
+        run: |
+          git add output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          git diff --cached --quiet && exit 0
+          git commit -m 'Correct VIINA 2025 unresolved status'
+          for i in 1 2 3; do
+            git pull --rebase origin main
+            git push origin HEAD:main && exit 0
+            sleep 2
+          done
+          exit 1
