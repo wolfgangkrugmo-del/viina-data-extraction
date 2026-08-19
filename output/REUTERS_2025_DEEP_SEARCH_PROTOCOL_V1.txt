@@ -1,0 +1,52 @@
+REUTERS 2025 DEEP DISCOVERY — SEARCH PROTOCOL V1
+
+Study window: 2025-01-01 through 2025-12-31
+SourceID: REUTERS
+Dependence group: DG_REUTERS
+Role: CORE_DISCOVERY
+Status at creation: IN_PROGRESS
+CandidateCensusComplete: FALSE
+
+Purpose
+Discover Reuters reporting of Ukrainian physical attacks against infrastructure and military/industrial targets in Russia proper, independently of the VIINA candidate list. The Reuters lane must be discovery-led; VIINA target names may be used only in a later reconciliation pass, not to define the initial Reuters search universe.
+
+Search families
+R1 ENERGY_REFINING: refinery, oil refinery, petrochemical plant, gas processing plant, fuel processing complex.
+R2 ENERGY_STORAGE_EXPORT: oil depot, fuel depot, oil terminal, export terminal, port, loading berth, storage terminal.
+R3 PIPELINE_PUMPING: pipeline, Druzhba, pumping station, compressor/pump infrastructure.
+R4 DEFENSE_INDUSTRY: weapons factory, defence plant, ammunition components, explosives, UAV/drone factory, aircraft repair/manufacturing plant.
+R5 STRATEGIC_AIR: air base, airfield, strategic bomber, military aircraft, fuel reservoirs associated with military air bases.
+R6 GRID_SUPPORT: power plant, substation, electricity/heat infrastructure where the reported event may satisfy the DEEP target rules.
+R7 LOGISTICS_OTHER: military logistics hubs, strategic rail/port nodes, other potentially census-relevant physical infrastructure.
+
+Attack vocabulary
+Ukraine, Ukrainian, SBU, GUR/HUR, General Staff, drone, UAV, missile, Neptune, strike, attack, explosion, fire, damaged, destroyed, shutdown, halted, suspended.
+
+Temporal execution
+Each R1-R7 family is searched across four fixed quarterly windows: Jan-Mar, Apr-Jun, Jul-Sep, Oct-Dec 2025. Reuters chronology/summary articles are retained as discovery anchors, but each physical component is split to event/target level before dedupe. Search-engine results outside 2025 are rejected unless they explicitly provide retrospective evidence about a 2025 event; such retrospective evidence is confirmation only and cannot create a new 2025 Reuters raw hit without a 2025 Reuters source record.
+
+Coding rules
+- Split composite Reuters reports before dedupe.
+- Use event date, not article publication date, as CanonicalEventDate.
+- Follow-ups, repair reports and market-impact pieces link to the underlying physical event and are not additional events.
+- Repeat attacks on the same node are distinct when Reuters establishes a fresh attack wave.
+- Russia-proper only for the DEEP census; Crimea/Sevastopol and occupied Ukrainian territory remain audit exclusions.
+- Reuters statements that merely repeat a Ukrainian claim without target-level physical-effect evidence remain CLAIMED/UNCONFIRMED until reconciled.
+- Reuters reporting based on industry sources, regional authorities, operators, Reuters imagery or independently verified geolocation is retained with the appropriate confirmation status.
+
+Initial independent discovery anchors located
+1. 2025-03-19 Reuters chronology: Russian energy facilities targeted by Ukraine's drones. Provides Q1 events including Kavkazskaya oil depot, Tuapse, Kirishi, Ryazan, Saratov, Syzran, Astrakhan gas plant, Volgograd and Kstovo/Sibur.
+2. 2025-04-30 Reuters: Murom Instrument-Building Plant strike; 720 m2 fire and two buildings damaged.
+3. 2025-06-01 Reuters: Operation Spider's Web against Russian strategic bomber air bases.
+4. 2025-06-04 Reuters follow-up: Reuters independently verified locations of four air bases in SBU footage; satellite imagery showed destroyed/badly damaged bombers at one base.
+5. 2025-06-06 Reuters: Ukrainian military reported strikes on Engels and Dyagilevo airfields plus at least three fuel reservoirs.
+6. 2025-08-22 Reuters chronology: Unecha/Druzhba, Novoshakhtinsk, Syzran, Volgograd, Slavyansk, Afipsky, Ilsky, Saratov, Sochi depot, Novokuibyshevsk and Ryazan.
+7. 2025-08-25 Reuters overview: cross-check of the intensified oil-infrastructure campaign.
+8. 2025-09-20 Reuters: strikes on oil refineries in Saratov and Samara regions.
+9. 2025-10-13 Reuters: September refinery-impact cross-check including Kirishi, Volgograd and Samara group.
+10. 2025-11-14 Reuters: Novorossiysk/Sheskharis attack; two oil berths damaged, exports halted; separate Saratov refinery and Engels fuel-storage claims noted.
+11. 2025-12-04 Reuters: fifth 2025 attack on Druzhba infrastructure, in Tambov region; supplies reported normal.
+12. 2025-12-01 / 2025-12-08 Reuters: follow-up on 29 November CPC terminal attack; SPM-2 seriously damaged and export capacity reduced.
+
+Completion condition for this lane
+Do NOT set COMPLETED/FULL_PROTOCOL until all 28 quarter x search-family cells have been executed and logged, all retained Reuters raw hits have been split/coded, exact and event-level dedupe is complete, and a reconciliation against the VIINA 2025 lane has been performed without using VIINA to seed the initial discovery search.
