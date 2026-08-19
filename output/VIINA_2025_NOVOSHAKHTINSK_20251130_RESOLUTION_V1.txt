@@ -1,0 +1,33 @@
+VIINA 2025 — Novoshakhtinsk 2025-11-30 residual resolution audit V1
+
+SourceEventID: 350258
+ComponentID: RU3
+CanonicalEventDate: 2025-11-30
+CountryScope: RUSSIA_PROPER
+
+Decision: KEEP_UNRESOLVED_TARGET_IDENTITY
+PhysicalAttackStatus: CONFIRMED
+FacilityIdentityStatus: UNRESOLVED
+TargetID:
+NodeID:
+Sector: INDUSTRIAL_UNRESOLVED
+DedupeStatus: NOT_ASSESSABLE_UNRESOLVED_TARGET
+ScoringEligibility: CENSUS_CANDIDATE_ONLY
+OutcomeRelevantUnresolved: TRUE
+UnresolvedRowsEffect: KEEP_2025_VIINA_AT_1
+C5Effect: BLOCKED
+CandidateCensusComplete: FALSE
+
+Evidence review
+1. Rostov Oblast governor Yuriy Slyusar confirmed an overnight UAV attack affecting Novoshakhtinsk and a 50-square-metre fire at one industrial enterprise, but did not identify the facility.
+2. VIINA SourceEventID 350258 is a composite report. Its separately reviewed components are: Slavyansk-EKO refinery, Gukovo district-heating boiler, and an unidentified Novoshakhtinsk industrial enterprise. The refinery classification of the composite source row must not be inherited by the Novoshakhtinsk component.
+3. Interfax, Kommersant and Vedomosti reporting located in the resolution search repeats the governor's unnamed-industrial-enterprise description and supplies no target-level facility identity.
+4. Deutsche Welle explicitly reported that the affected Novoshakhtinsk enterprise was not specified. Contextual references to the Novoshakhtinsk refinery are not evidence that the refinery was the 30 November target.
+5. Later reporting on the Novoshakhtinsk refinery identifies other 2025 strike dates, notably 21 August and 25 December, but does not establish the 30 November fire as a refinery strike.
+6. No source located in this review provided target-level evidence that ties the 30 November fire to the Novoshakhtinsk refinery or to another uniquely identifiable facility.
+
+Decision reason
+A physical attack effect in Russia proper is established, but the unique facility identity, target/node identity, sector and criticality remain unresolved. Assigning the event to the Novoshakhtinsk refinery would be an unsupported inference; excluding it as a non-DEEP facility would likewise be unsupported. Under DEEP-COMP-V1, this uncertainty is outcome-relevant because it could alter target counts, sector counts and repeat-node logic.
+
+Verification
+UnresolvedRows cannot be set to 0 on the available evidence. The correct SRC-2025-VIINA value remains UnresolvedRows=1. C5 remains blocked for VIINA 2025 until the facility identity/sector is established or the record can be excluded under evidence-supported controlled rules.
