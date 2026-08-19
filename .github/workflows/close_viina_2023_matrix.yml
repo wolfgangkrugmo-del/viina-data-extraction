@@ -1,0 +1,57 @@
+name: Close VIINA 2023 matrix row
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/close_viina_2023_matrix.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viina-import-main
+  cancel-in-progress: false
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Update VIINA closure rows
+        run: python scripts/close_viina_2022_matrix_row.py
+      - name: Verify 2023 closure
+        run: |
+          python - <<'PY'
+          import csv
+          p='output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv'
+          with open(p,encoding='utf-8',newline='') as f:
+              rows=list(csv.DictReader(f))
+          r=next(x for x in rows if x['MatrixRowID']=='SRC-2023-VIINA')
+          assert r['UnresolvedRows']=='0', r
+          assert r['ReviewStatus']=='COMPLETE', r
+          assert r['DedupeReviewStatus']=='COMPLETE', r
+          assert r['CandidateCensusComplete']=='FALSE', r
+          print('verified SRC-2023-VIINA COMPLETE/COMPLETE/0; census FALSE')
+          PY
+      - name: Commit matrix closure
+        run: |
+          git add output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          if git diff --cached --quiet; then
+            echo "No matrix changes"
+            exit 0
+          fi
+          git commit -m 'Close VIINA 2023 completeness lane'
+          for i in 1 2 3; do
+            git pull --rebase origin main
+            git push origin HEAD:main && exit 0
+            sleep 2
+          done
+          exit 1
