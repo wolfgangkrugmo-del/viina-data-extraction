@@ -1,0 +1,2 @@
+SourceEventID,ComponentID,VIINADate,ManualDecision,CanonicalEventDate,CountryScope,TargetName,TargetID,NodeID,TargetClass,SplitStatus,AttributionStatus,RelatedEventID,DecisionReason,EvidenceStatus,CandidateCensusComplete
+53220,,20220621,EXCLUDE_WRONG_YEAR,20240621,RUSSIA_PROPER,"Ilsky refinery / Yeysk composite",,,,NOT_APPLICABLE,UKRAINIAN_ATTRIBUTION_REPORTED,,"The source URL and
