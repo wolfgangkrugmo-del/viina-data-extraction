@@ -1,0 +1,48 @@
+REUTERS 2025 — PROVISIONAL / UNRESOLVED 20-CASE RESOLUTION SUMMARY V1
+
+Input basis:
+- REUTERS_2025_VIINA_RECONCILIATION_V1.csv
+- REUTERS_2025_CONFIRMED_NEW_EVENTS_V2.csv
+- VIINA 2025 reviewed canonical/manual-review artifacts
+- external target-level verification reviewed case-by-case
+
+Decision counts
+CONFIRM=6
+EXCLUDE=6
+HOLD_OPEN=8
+TOTAL=20
+
+Confirmed additions
+1. 2025-01-29 23rd GRAU missile arsenal, Tver Oblast
+2. 2025-05-28 Kronstadt UAV plant, Dubna
+3. 2025-06-06 Engels fuel-storage node
+4. 2025-09-20 Novokuibyshevsk oil refinery (merges two provisional reconciliation rows)
+5. 2025-09-05 Ryazan oil refinery (corrects V1 date from 3 September)
+6. 2025-09-13 Bashneft-Novoil refinery, Ufa
+
+Excluded
+- 2025-04-23 Kazan aviation-related defence plant: spurious/misextracted target; contemporaneous Tatarstan target resolves to Alabuga.
+- 2025-06-01 Ivanovo Severny air base: attempted Spiderweb target without confirmed physical aircraft hit.
+- 2025-06-01 Dyagilevo air base: attempted Spiderweb target without confirmed physical aircraft hit.
+- 2025-09-16 Novokuibyshevsk refinery: no reproducible distinct event on this date; September physical event assigned to 20 September.
+- 2025-10-06 Y.M. Sverdlov explosives plant Dzerzhinsk: official regional reporting contradicts industrial damage.
+- 2025-08-28 Krasnodar-region refinery placeholder: resolves to already confirmed Afipsky 28 August event; duplicate, no increment.
+
+Held open
+- Alabuga 23 Apr: conflicting damage evidence.
+- Raduga Dubna 28 May: target resolved, independent effect confirmation insufficient.
+- Dyagilevo 6 Jun: fresh wave claimed, independent physical-effect evidence insufficient.
+- Ilsky 7 Jul: debris inside workshop area confirmed but no visible damage/fire; DEEP minimum physical-effect threshold unresolved.
+- Syzran 30 Aug: attack wave established, target-level refinery damage not independently confirmed.
+- Saratov 14 Nov: possible fresh attack but effect cannot yet be separated cleanly from confirmed 11 Nov same-node damage state.
+- Engels fuel storage 14 Nov: claim only, no independent effect confirmation found.
+- Orenburg gas processing plant 25 Dec: claim only, no independent effect confirmation found.
+
+Register consequence
+Previous strict confirmed Reuters-new delta versus reviewed VIINA 2025: +34.
+Newly confirmed from this 20-case block: +6.
+Revised conservative confirmed Reuters-new delta: +40.
+Excluded cases add 0.
+Open cases add 0 until resolved.
+
+This +40 is still a lower bound, not the frozen final 2025 scoring-register count. C5 remains blocked by open Reuters cases and the separate VIINA 2025-11-30 Novoshakhtinsk unresolved facility identity. CandidateCensusComplete remains FALSE.
