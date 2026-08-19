@@ -43,3 +43,4 @@ if not found: raise SystemExit('SRC-2025-REUTERS not found')
 with p.open('w',encoding='utf-8',newline='') as f:
     w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
 print('updated SRC-2025-REUTERS without promoting RowAcceptanceStatus')
+# Trigger marker: formal audited matrix application, 2026-08-19.
