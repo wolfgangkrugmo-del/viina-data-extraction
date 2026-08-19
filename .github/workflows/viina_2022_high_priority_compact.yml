@@ -1,0 +1,39 @@
+name: VIINA 2022 high priority compact
+on:
+  push:
+    paths:
+      - scripts/compact_viina_2022_high_priority.py
+      - .github/workflows/viina_2022_high_priority_compact.yml
+concurrency:
+  group: viina-2022-high-priority-compact-main
+  cancel-in-progress: true
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Create compact high-priority review file
+        run: |
+          python scripts/compact_viina_2022_high_priority.py \
+            --input output/VIINA_2022_R5_HIGH_PRIORITY_V3.csv \
+            --output output/VIINA_2022_R5_HIGH_PRIORITY_V3_COMPACT.csv
+      - name: Commit compact review file
+        run: |
+          git add output/VIINA_2022_R5_HIGH_PRIORITY_V3_COMPACT.csv
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record compact VIINA 2022 high-priority review view"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main && git push origin HEAD:main && exit 0
+            git rebase --abort || true
+            sleep 2
+          done
+          exit 1
