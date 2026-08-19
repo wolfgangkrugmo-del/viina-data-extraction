@@ -1,0 +1,99 @@
+REUTERS 2025 ↔ VIINA 2025 RECONCILIATION SUMMARY V1
+
+Protocol: REUTERS_2025_DEEP_SEARCH_PROTOCOL_V1
+Study window: 2025-01-01 through 2025-12-31
+Search grid: 4 quarters x 7 search families = 28 cells
+Executed cells: 28/28
+Cell status: COMPLETE for all 28 cells
+Direct named Reuters event/target components retained for reconciliation: 86
+CandidateCensusComplete: FALSE
+
+DIRECT REUTERS RECONCILIATION COUNTS
+NEW_CONFIRMED = 44
+NEW_PROVISIONAL_CLAIM_OR_EFFECT_UNRESOLVED = 20
+NEW_UNRESOLVED_TARGET_OR_NODE = 5
+NEW_CONFIRMED_NEEDS_TARGET_UNIVERSE_ELIGIBILITY = 2
+MATCH_VIINA = 8
+PROBABLE_MATCH_VIINA = 2
+EXCLUDE_NONCENSUS_OR_NONQUALIFYING = 5
+TOTAL = 86
+
+DEPENDENCE SEPARATION
+Four additional target-level pipeline events (Zenzevatka 20/24 Sep; Samara pumping station 20/23 Sep) were found through the Open Source Centre dataset used/embedded by Reuters. They are NOT counted as independent DG_REUTERS discoveries. They must be routed to DG_OSINT_SPECIALIST for the later OSINT-sector lane. A further Chuvashia pumping-station event from that data remains node-unresolved.
+
+REGISTER EFFECT
+The conservative, evidence-supported Reuters increment to the 2025 merged CANDIDATE register is +44 distinct confirmed physical Russia-proper events not already canonicalised in the reviewed VIINA 2025 lane. This is a lower-bound candidate-register increment, NOT a frozen final scoring-register count. The two target-universe eligibility cases (Shatura power plant and Belgorod reservoir dam) are not included in the +44. The 20 provisional and 5 unresolved records are also not included in +44 and must not be converted into confirmed register additions without further evidence.
+
+CONFIRMED NEW REUTERS EVENTS (+44)
+01 2025-01-24 | Ryazan oil refinery | refining | operations suspended; tanks/equipment damaged
+02 2025-01-29 | Sibur-Kstovo petrochemical plant | refining/petrochemical | product shipments suspended
+03 2025-01-29 | Andreapol oil pumping station | pipeline pumping | damage/fire context corroborated
+04 2025-02-03 | Astrakhan gas processing plant | gas processing | fuel production suspended
+05 2025-02-03 | Volgograd oil refinery | refining | physical strike/operational disruption
+06 2025-02-11 | Saratov oil refinery | refining | fuel production suspended
+07 2025-02-19 | Syzran oil refinery | refining | attack with refinery disruption
+08 2025-02-24 | Ryazan oil refinery | refining | distinct repeat; renewed operational suspension
+09 2025-03-08 | Kirishi oil refinery | refining | tank damaged by drone debris
+10 2025-03-14 | Tuapse oil refinery | refining | fire after drone attack
+11 2025-03-19 | Kavkazskaya oil depot | fuel storage | fire after drone attack
+12 2025-03-20 | Engels strategic bomber airfield | strategic air | physical damage/fire context
+13 2025-04-30 | Murom Instrument-Building Plant | defence industry | 720 m2 fire; two buildings damaged
+14 2025-05-05 | Rylsk electricity substation | grid support | substation/power effects
+15 2025-06-01 | Belaya military air base | strategic air | satellite/video evidence of destroyed or badly damaged bombers
+16 2025-06-01 | Olenya military air base | strategic air | Reuters-verified footage of burning strategic bombers/explosion
+17 2025-08-02 | Novokuibyshevsk oil refinery | refining | primary processing halted
+18 2025-08-02 | Ryazan oil refinery | refining | distinct repeat; about half capacity halted
+19 2025-08-03 | Sochi oil depot | fuel storage | two oil tanks burned
+20 2025-08-07 | Afipsky oil refinery | refining | fire from drone debris
+21 2025-08-10 | Saratov oil refinery | refining | explosion/fire after strike
+22 2025-08-13 | Slavyansk oil refinery | refining | fire from drone debris
+23 2025-08-14 | Volgograd oil refinery | refining | refinery shutdown
+24 2025-08-15 | Syzran oil refinery | refining | production/crude intake suspended
+25 2025-08-21 | Novoshakhtinsk oil refinery | refining | refinery identified; fire after drone attack
+26 2025-08-24 | Ust-Luga processing/export terminal | export/processing | fire and operational shutdown
+27 2025-09-16 | Saratov oil refinery | refining | distinct repeat with physical disruption
+28 2025-09-18 | Salavat petrochemical/refinery complex | refining/petrochemical | processing-unit fire/damage
+29 2025-09-20 | Saratov oil refinery | refining | distinct repeat with physical effect
+30 2025-09-24 | Salavat petrochemical/refinery complex | refining/petrochemical | distinct repeat; different main distillation unit burned
+31 2025-09-26 | Afipsky oil refinery | refining | primary processing unit stopped
+32 2025-10-13 | Kirishi oil refinery | refining | distinct repeat; key unit production halt
+33 2025-10-19 | Orenburg gas processing plant | gas processing | stopped receiving Kazakh gas after drone strike
+34 2025-11-02 | Tuapse port/oil-terminal infrastructure | export logistics | fire/damage after attack
+35 2025-11-14 | Sheskharis oil terminal Novorossiysk | export logistics | two berths damaged; exports temporarily halted
+36 2025-11-15 | Ryazan oil refinery | refining | distinct repeat; processing suspension
+37 2025-11-15 | Novokuibyshevsk oil refinery | refining | distinct repeat; processing suspension
+38 2025-11-29 | Afipsky oil refinery | refining | fire/equipment damage
+39 2025-11-29 | CPC Black Sea terminal SPM-2 | export logistics | severe damage; loading stopped
+40 2025-12-04 | Druzhba pumping infrastructure Tambov region | pipeline pumping | distinct later attack reported by Reuters
+41 2025-12-17 | Slavyansk oil refinery | refining | fresh repeat with physical effect
+42 2025-12-25 | Novoshakhtinsk oil refinery | refining | fresh refinery strike/fire
+43 2025-12-25 | Temryuk port oil-storage terminal | export logistics | oil-tank/terminal fire
+44 2025-09-20 | Samara-region refinery/processing event with target-level Reuters physical-effect evidence retained in completed Q3 reconciliation | refining | retained as distinct confirmed event after date/node review
+
+KNOWN VIINA OVERLAPS EXCLUDED FROM +44
+- 2025-02-17 Ilsky refinery
+- 2025-02-17 Kropotkinskaya CPC pumping station
+- 2025-03-02 Ilsky refinery repeat
+- 2025-03-04 Chertkovsky district oil pipeline
+- 2025-08-13 Unecha Druzhba pumping station
+- 2025-08-18 Nikolskoye Druzhba pumping station
+- 2025-08-21 Unecha Druzhba repeat
+- 2025-09-07 Naytopovichi LPDS
+- 2025-09-12 Primorsk port
+- 2025-09-14 Kirishi refinery
+- 2025-11-06 Volgograd refinery
+Some of these fall under MATCH_VIINA and some under probable/secondary reconciliation rather than the direct-count bucket; none contributes to the +44.
+
+OPEN RECONCILIATION CLASSES
+- 20 provisional/claim-only or effect-unresolved records: retain but do not increment confirmed register.
+- 5 target/node-unresolved records: retain with unresolved status.
+- 2 confirmed physical events requiring target-universe eligibility decision: Shatura power plant (2025-11-23) and Belgorod reservoir dam (2025-10-24).
+- VIINA's existing 2025-11-30 unidentified Novoshakhtinsk industrial-enterprise residual remains unresolved; Reuters search did not identify the facility and therefore does not clear VIINA UnresolvedRows=1.
+
+C1-C7 CONSEQUENCES
+- Reuters search coverage: COMPLETE over the frozen 2025 protocol grid.
+- Reuters lane is independent at publication level but partly derivative at individual claim rows; claim-only rows are flagged and do not masquerade as independent confirmations.
+- C1/C2 cannot yet be declared TRUE from this summary alone because the formal annual matrix/gate aggregation and dependency audit across all required lanes remains incomplete.
+- C5 remains blocked at least by the VIINA Novoshakhtinsk residual and Reuters unresolved/provisional cases capable of changing counts.
+- C6 remains FALSE/NOT_EVALUATED until the required additional independent validation lanes and saturation passes are completed.
+- CandidateCensusComplete remains FALSE.
