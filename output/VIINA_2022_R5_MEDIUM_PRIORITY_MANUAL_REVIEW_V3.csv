@@ -1,0 +1,48 @@
+SourceEventID,VIINADate,Priority,ManualDecision,ResolvedYear,CountryScope,TargetOrEvent,CarryForwardYear,CarryForwardPotentialRussiaProper,DecisionReason,CandidateCensusComplete
+62028,20220226,M2,EXCLUDE_WRONG_YEAR,2025,CRIMEA_SEVASTOPOL,Saky/Sevastopol/Belbek explosions,2025,FALSE,Source URL itself identifies 25 Feb 2025; not a 2022 event and Crimea is outside Russia-proper scope,FALSE
+51563,20220322,M2,EXCLUDE_WRONG_YEAR_NOT_EVENT,2023,UKRAINE_OCCUPIED_OTHER,Discussion of future maritime-drone use from Skadovsk/Zaliznyi Port,2023,FALSE,NV page is dated 22 Mar 2023 and is analytical/prospective rather than a realized 2022 strike,FALSE
+62151,20220430,M2,EXCLUDE_WRONG_YEAR,2023,CRIMEA_SEVASTOPOL,Sevastopol oil-depot aftermath,2023,FALSE,NV page is dated 30 Apr 2023; Crimea outside Russia-proper scope,FALSE
+62153,20220502,M2,EXCLUDE_WRONG_YEAR,2023,CRIMEA_SEVASTOPOL,Sevastopol oil-depot satellite aftermath,2023,FALSE,NV page is dated 2 May 2023; follow-up to April 2023 Crimea event,FALSE
+62154,20220502,M2,EXCLUDE_WRONG_YEAR,2023,CRIMEA_SEVASTOPOL,Sevastopol oil-depot fire commentary,2023,FALSE,Page belongs to May 2023 event family and Crimea is outside scope,FALSE
+62157,20220505,M2,EXCLUDE_WRONG_YEAR_COMPOSITE,2023,MIXED,Taman and Sevastopol oil-depot fires,2023,TRUE,Source belongs to May 2023 and combines Taman Russia proper with Sevastopol Crimea; parent cannot enter 2022 and Taman component must be reconsidered in 2023,FALSE
+51609,20220622,M2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Skadovsk seaport strike,,,Physical target is Skadovsk Kherson Oblast Ukraine,FALSE
+51638,20220721,M2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Skadovsk ammunition depots,,,Physical target is Skadovsk Kherson Oblast Ukraine,FALSE
+51659,20220802,M2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Skadovsk ammunition depot strike,,,Physical target is Skadovsk Kherson Oblast Ukraine,FALSE
+230771,20220809,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Henichesk district ammunition depot,,,Target explicitly occupied Henichesk district Kherson Oblast,FALSE
+230773,20220809,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Henichesk ammunition depot,,,Target explicitly Henichesk Kherson Oblast,FALSE
+62361,20220818,M2,EXCLUDE_CRIMEA_SCOPE,2022,CRIMEA_SEVASTOPOL,Sevastopol military-airfield explosions/PVO,,,Target is Sevastopol Crimea; outside Russia-proper census,FALSE
+62461,20220913,M2,EXCLUDE_WRONG_YEAR,2023,CRIMEA_SEVASTOPOL,Sevastopol shipyard / Minsk and Rostov-on-Don,2023,FALSE,The Sevastopol shipyard missile strike occurred 13 Sep 2023; VIINA year is wrong and Crimea is outside scope,FALSE
+62476,20220914,M2,EXCLUDE_WRONG_YEAR_FOLLOWUP,2023,CRIMEA_SEVASTOPOL,Minsk damage follow-up at Sevastopol dry dock,2023,FALSE,Follow-up to 13 Sep 2023 Sevastopol shipyard strike; not 2022,FALSE
+62526,20221001,M2,EXCLUDE_CRIMEA_SCOPE_NOT_ATTACK_CONFIRMED,2022,CRIMEA_SEVASTOPOL,Belbek airfield aircraft fire,,,Report says occupying authorities attributed fire to aircraft ignition; no confirmed external attack and Crimea outside scope,FALSE
+348494,20221008,M2,EXCLUDE_WRONG_YEAR,2024,CRIMEA_SEVASTOPOL,Feodosia marine oil terminal,2024,FALSE,NV page is dated 8 Oct 2024 and follows 7 Oct 2024 attack; not 2022,FALSE
+348499,20221010,M2,EXCLUDE_WRONG_YEAR_FOLLOWUP,2024,CRIMEA_SEVASTOPOL,Feodosia oil-terminal fire continuation,2024,FALSE,NV page is dated 10 Oct 2024; aftermath of 7 Oct 2024 attack,FALSE
+348502,20221012,M2,EXCLUDE_WRONG_YEAR_FOLLOWUP,2024,CRIMEA_SEVASTOPOL,Feodosia oil-terminal damage assessment,2024,FALSE,NV page is dated 12 Oct 2024; aftermath of 7 Oct 2024 attack,FALSE
+62568,20221020,M2,EXCLUDE_CRIMEA_SCOPE,2022,CRIMEA_SEVASTOPOL,Drone intercepted near Belbek airbase,,,Possible attack attempt is in occupied Crimea and therefore outside Russia-proper census,FALSE
+51688,20221030,M2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Skadovsk district ammunition depot,,,Target explicitly Skadovsk district Kherson Oblast,FALSE
+230792,20221102,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Southern Ukraine ammunition depots including Henichesk,,,Named districts are in Ukrainian territory,FALSE
+51698,20221106,M2,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Skadovsk district ammunition depot,,,Target explicitly Kherson Oblast,FALSE
+348550,20221205,M2,EXCLUDE_WRONG_YEAR,2023,CRIMEA_SEVASTOPOL,Feodosia marine oil terminal,2023,FALSE,NV page is dated 5 Dec 2023; Crimea outside Russia-proper scope,FALSE
+145117,20220224,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Hostomel/Kyiv composite invasion reporting,,,Report describes Russian helicopter assault and Russian attacks on Ukrainian targets,FALSE
+228979,20220224,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Hostomel airfield,,,Physical target is Hostomel Kyiv Oblast and attack is Russian,FALSE
+27256,20220224,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Russian invasion briefing / Ukrainian military infrastructure,,,No Russia-proper target; Russian offensive against Ukraine,FALSE
+27259,20220224,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Russian invasion briefing / Ukrainian military infrastructure,,,No Russia-proper target; Russian offensive against Ukraine,FALSE
+342494,20220224,M1,EXCLUDE_NOT_RUSSIA_PROPER_EVENT,2022,UKRAINE_OTHER,Russian MoD aggregate destruction claims in Ukraine,,,Aggregate Russian claims about Ukrainian military losses; no Ukrainian physical strike in Russia proper,FALSE
+65163,20220224,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Russian invasion briefing / Ukrainian targets,,,No Russia-proper physical target,FALSE
+145205,20220225,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Hostomel airfield follow-up,,,Russian MoD claim concerning Hostomel Kyiv Oblast,FALSE
+342498,20220225,M1,EXCLUDE_NOT_RUSSIA_PROPER_EVENT,2022,UKRAINE_OTHER,Russian MoD aggregate destruction claims in Ukraine,,,No Ukrainian strike in Russia proper,FALSE
+145301,20220226,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Vasylkiv oil depot and airfield,,,Russian missile attacks on targets near Kyiv,FALSE
+32209,20220226,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Vasylkiv oil depot and airfield,,,Physical targets in Kyiv Oblast Ukraine,FALSE
+145724,20220303,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER_FOLLOWUP,2022,UKRAINE_OTHER,Hostomel / An-225 aftermath,,,Follow-up to fighting at Hostomel in Ukraine; no Russia-proper target,FALSE
+29408,20220305,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Vinnytsia airfield,,,Russian missile strike on Vinnytsia Ukraine,FALSE
+65918,20220505,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Energomashspetsstal Kramatorsk,,,Physical target Kramatorsk Donetsk Oblast; Russian strike,FALSE
+336556,20220520,M1,EXCLUDE_NOT_EVENT,2022,UKRAINE_OCCUPIED_OTHER,Azovstal POW visit/report,,,No fresh physical attack described,FALSE
+192361,20220610,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Martynivske/Voznesensk airfield,,,Text explicitly describes Russian strike on Ukrainian Su-25/airfield,FALSE
+342727,20220624,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Mykolaiv ammunition position,,,Text explicitly describes Russian artillery destroying Ukrainian position,FALSE
+144069,20220722,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OCCUPIED_OTHER,Lysychansk refinery area,,,Report describes Ukrainian forces repelling Russian attacks from refinery area; no strike in Russia proper,FALSE
+67512,20220825,M1,EXCLUDE_RUSSIAN_OR_PROXY_ATTACK_ON_UKRAINE,2022,UKRAINE_OCCUPIED_OTHER,Pervomaiske ammunition depot/fortification,,,Claim concerns DNR forces destroying Ukrainian targets in Donetsk Oblast,FALSE
+259599,20220828,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Kherson command posts/ammunition depots,,,Targets explicitly Kherson Oblast,FALSE
+73087,20220917,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Rubtsi ammunition depot/equipment,,,Target explicitly Donetsk Oblast Ukraine,FALSE
+228256,20221031,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Velyka Novosilka area ammunition depot/EW,,,Target explicitly Donetsk Oblast Ukraine,FALSE
+331048,20221118,M1,EXCLUDE_OUTSIDE_RUSSIA_PROPER,2022,UKRAINE_OCCUPIED_OTHER,Chapaievka Luhansk substation,,,Target explicitly Luhansk Oblast Ukraine,FALSE
+153152,20221124,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OTHER,Kyiv/Ukraine energy infrastructure,,,Article describes Russian mass strikes on Ukrainian energy targets,FALSE
+36851,20221214,M1,EXCLUDE_RUSSIAN_ATTACK_ON_UKRAINE,2022,UKRAINE_OCCUPIED_OTHER,Torske ammunition depot,,,Text describes destruction of Ukrainian depot in Donetsk Oblast,FALSE
