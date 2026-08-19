@@ -1,0 +1,102 @@
+ReutersReconID,CanonicalEventDate,TargetOrEvent,SearchFamily,ReconciliationStatus,EvidenceNote,CountryScope,RegisterEffect
+R25R-0001,2025-01-24,Ryazan oil refinery,R1,NEW_CONFIRMED,Reuters industry sources; operations suspended tanks burned/equipment damaged,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0002,2025-01-29,Sibur-Kstovo petrochemical plant,R1,NEW_CONFIRMED,Sibur confirmed shipments suspended after drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0003,2025-01-29,Andreapol oil pumping station,R3,NEW_CONFIRMED,SBU target attribution and Transneft corroboration of damage/fire context,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0004,2025-01-29,23rd missile arsenal Tver region,R4,NEW_PROVISIONAL,SBU claim reported by Reuters; no independent target-level verification found,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0005,2025-02-03,Astrakhan gas processing plant,R1,NEW_CONFIRMED,Fuel production suspended after attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0006,2025-02-03,Volgograd oil refinery,R1,NEW_CONFIRMED,Drone strike with operational disruption reported by Reuters,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0007,2025-02-11,Saratov oil refinery,R1,NEW_CONFIRMED,Fuel production suspended after Ukrainian drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0008,2025-02-17,Ilsky oil refinery,R1,MATCH_VIINA,Matches VIINA 222660 RU1 same node and attack date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0009,2025-02-17,Kropotkinskaya CPC pumping station,R3,MATCH_VIINA,Matches VIINA 222660 RU2 same node and attack date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0010,2025-02-19,Syzran oil refinery,R1,NEW_CONFIRMED,Reuters chronology records attack with refinery disruption,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0011,2025-02-24,Ryazan oil refinery,R1,NEW_CONFIRMED,Fresh attack with renewed operational suspension,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0012,2025-03-02,Ilsky oil refinery,R1,MATCH_VIINA,Matches VIINA 73361 RU1 distinct repeat,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0013,2025-03-04,Chertkovsky district oil pipeline,R3,MATCH_VIINA,Matches VIINA 132875 same date and infrastructure effect,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0014,2025-03-08,Kirishi oil refinery,R1,NEW_CONFIRMED,Tank damaged by drone debris,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0015,2025-03-11,Steel Horse Druzhba station Oryol,R3,PROBABLE_MATCH_VIINA,Reuters reporting aligns with VIINA 373640 cluster but target naming differs,RUSSIA_PROPER,NO_INCREMENT_PROBABLE_MATCH
+R25R-0016,2025-03-14,Tuapse oil refinery,R1,NEW_CONFIRMED,Fire after Ukrainian drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0017,2025-03-19,Kavkazskaya oil depot,R2,NEW_CONFIRMED,Fire after Ukrainian drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0018,2025-03-20,Engels strategic bomber airfield,R5,NEW_CONFIRMED,Reuters reported physical damage/fire context at air base,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0019,2025-04-30,Murom Instrument-Building Plant,R4,NEW_CONFIRMED,Reuters reported 720 square metre fire and damage to two buildings,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0020,2025-04-23,Alabuga drone-production site,R4,NEW_PROVISIONAL,Ukrainian strike claim in Reuters coverage; target-level damage not independently verified,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0021,2025-04-23,Kazan aviation-related defence plant,R4,NEW_PROVISIONAL,Ukrainian claim reported by Reuters; physical effect unresolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0022,2025-05-05,Rylsk electricity substation,R6,NEW_CONFIRMED,Regional reporting cited by Reuters described substation damage/power effects,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0023,2025-05-28,Kronstadt drone plant Dubna,R4,NEW_PROVISIONAL,Ukrainian claim reported by Reuters; no independent damage verification found,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0024,2025-05-28,Raduga missile plant Dubna,R4,NEW_PROVISIONAL,Ukrainian claim reported by Reuters; no independent damage verification found,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0025,2025-06-01,Belaya military air base,R5,NEW_CONFIRMED,Reuters satellite imagery and verified video show destroyed/badly damaged strategic bombers,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0026,2025-06-01,Olenya military air base,R5,NEW_CONFIRMED,Reuters verified drone footage showing burning strategic bombers and explosion,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0027,2025-06-01,Ivanovo Severny air base,R5,NEW_PROVISIONAL,Operation Spiderweb target reported but effect not independently established in Reuters evidence reviewed,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0028,2025-06-01,Dyagilevo air base,R5,NEW_PROVISIONAL,Operation Spiderweb target reported; effect unresolved in Reuters evidence reviewed,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0029,2025-06-06,Engels airfield plus fuel reservoirs,R5,NEW_PROVISIONAL,Ukrainian military claim reported by Reuters; target-level effect confirmation incomplete,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0030,2025-06-06,Dyagilevo airfield,R5,NEW_PROVISIONAL,Ukrainian military reported strike; physical effect confirmation incomplete,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0031,2025-07-07,Ilsky oil refinery,R1,NEW_UNRESOLVED,Drone debris reported at refinery but qualifying physical target effect not sufficiently resolved,RUSSIA_PROPER,HOLD_UNRESOLVED
+R25R-0032,2025-08-02,Novokuibyshevsk oil refinery,R1,NEW_CONFIRMED,Primary processing halted after Ukrainian drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0033,2025-08-02,Ryazan oil refinery,R1,NEW_CONFIRMED,About half of refining capacity halted after fresh drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0034,2025-08-03,Sochi oil depot,R2,NEW_CONFIRMED,Two oil tanks burned after Ukrainian drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0035,2025-08-07,Afipsky oil refinery,R1,NEW_CONFIRMED,Fire from drone debris,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0036,2025-08-10,Saratov oil refinery,R1,NEW_CONFIRMED,Explosion and fire after Ukrainian strike,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0037,2025-08-13,Unecha Druzhba pumping station,R3,MATCH_VIINA,Matches VIINA 373663 same node/date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0038,2025-08-13,Slavyansk oil refinery,R1,NEW_CONFIRMED,Small fire from drone debris,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0039,2025-08-14,Volgograd oil refinery,R1,NEW_CONFIRMED,Refinery shut down after drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0040,2025-08-14,Port Olya export/logistics node,R2,PROBABLE_MATCH_VIINA,Likely same component as VIINA 373693 Port Olya disruption,RUSSIA_PROPER,NO_INCREMENT_PROBABLE_MATCH
+R25R-0041,2025-08-15,Syzran oil refinery,R1,NEW_CONFIRMED,Production and crude intake suspended after attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0042,2025-08-18,Nikolskoye Druzhba pumping station,R3,MATCH_VIINA,Matches VIINA 30319 same node/date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0043,2025-08-21,Unecha Druzhba pumping station,R3,MATCH_VIINA,Matches VIINA 373688 distinct repeat same node/date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0044,2025-08-21,Novoshakhtinsk oil refinery,R1,NEW_CONFIRMED,Reuters identifies refinery and reports fire after drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0045,2025-08-24,Ust-Luga processing/export terminal,R2,NEW_CONFIRMED,Fire and operational shutdown after drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0046,2025-08-28,Afipsky oil refinery,R1,NEW_PROVISIONAL,Fresh attack reported but qualifying physical effect requires stronger target-level confirmation,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0047,2025-08-28,Kuibyshev/Samara refinery complex,R1,NEW_PROVISIONAL,Attack reported; exact node/effect unresolved in Reuters evidence reviewed,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0048,2025-08-30,Syzran oil refinery,R1,NEW_PROVISIONAL,Fresh attack reported; effect level unresolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0049,2025-09-07,Naytopovichi LPDS 8-N,R3,MATCH_VIINA,Matches VIINA 373735 same node/date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0050,2025-09-12,Primorsk Baltic oil port,R2,MATCH_VIINA,Matches VIINA 90778 same node/date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0051,2025-09-14,Kirishi oil refinery,R1,MATCH_VIINA,Matches VIINA 193520 same node/date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0052,2025-09-16,Saratov oil refinery,R1,NEW_CONFIRMED,Fresh attack with refinery disruption reported,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0053,2025-09-16,Novokuibyshevsk oil refinery,R1,NEW_PROVISIONAL,Ukrainian strike claim in Reuters reporting; physical effect unresolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0054,2025-09-18,Salavat petrochemical/refinery complex,R1,NEW_CONFIRMED,Reuters reports fire/damage at major processing unit after drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0055,2025-09-20,Saratov oil refinery,R1,NEW_CONFIRMED,Fresh attack reported with physical refinery effect,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0056,2025-09-20,Samara refinery target,R1,NEW_PROVISIONAL,Target reported but exact node/effect unresolved in Reuters evidence reviewed,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0057,2025-09-24,Salavat petrochemical/refinery complex,R1,NEW_CONFIRMED,Second distinct attack; different main distillation unit burned,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0058,2025-09-26,Afipsky oil refinery,R1,NEW_CONFIRMED,Primary processing unit stopped after attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0059,2025-09-28,Luch electricity substation Belgorod,R6,NEW_UNRESOLVED,Potential match to VIINA 391676 but target-level Reuters confirmation remains insufficient,RUSSIA_PROPER,HOLD_UNRESOLVED
+R25R-0060,2025-09-20,Zenzevatka oil pumping station,R3,NEW_CONFIRMED_OSC,Target-level event from OSC dataset used by Reuters graphic; not independent Reuters discovery,RUSSIA_PROPER,ROUTE_OSINT_NOT_REUTERS_YIELD
+R25R-0061,2025-09-24,Zenzevatka oil pumping station,R3,NEW_CONFIRMED_OSC,Distinct repeat from OSC dataset used by Reuters graphic,RUSSIA_PROPER,ROUTE_OSINT_NOT_REUTERS_YIELD
+R25R-0062,2025-09-20,Samara oil pumping station,R3,NEW_CONFIRMED_OSC,Target-level event from OSC dataset used by Reuters graphic,RUSSIA_PROPER,ROUTE_OSINT_NOT_REUTERS_YIELD
+R25R-0063,2025-09-23,Samara oil pumping station,R3,NEW_CONFIRMED_OSC,Distinct repeat from OSC dataset used by Reuters graphic,RUSSIA_PROPER,ROUTE_OSINT_NOT_REUTERS_YIELD
+R25R-0064,2025-09-27,Chuvashia oil pumping station,R3,NEW_UNRESOLVED,OSC/Reuters graphic indicates target but unique node identity unresolved,RUSSIA_PROPER,HOLD_UNRESOLVED
+R25R-0065,2025-10-05,Luch electricity substation Belgorod,R6,NEW_UNRESOLVED,Possible relation to VIINA 399654; retain unresolved pending source-level reconciliation,RUSSIA_PROPER,HOLD_UNRESOLVED
+R25R-0066,2025-10-06,Dzerzhinsk explosives/defence plant,R4,NEW_PROVISIONAL,Ukrainian claim reported by Reuters; effect confirmation incomplete,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0067,2025-10-13,Kirishi oil refinery,R1,NEW_CONFIRMED,Fresh repeat attack with key unit production halt reported,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0068,2025-10-19,Orenburg gas processing plant,R1,NEW_CONFIRMED,Plant stopped receiving Kazakh gas after Ukrainian drone strike,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0069,2025-10-30,Novospassky oil refinery,R1,NEW_PROVISIONAL,Ukrainian General Staff claim; overlaps VIINA 96592 but independent physical effect unresolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0070,2025-10-30,Mari oil refinery,R1,NEW_PROVISIONAL,Ukrainian General Staff claim; overlaps VIINA 96592 but independent effect unresolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0071,2025-10-30,Budyonnovsk gas processing plant,R1,NEW_PROVISIONAL,Ukrainian General Staff claim; overlaps VIINA 96592 but independent effect unresolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0072,2025-11-02,Tuapse port/oil terminal infrastructure,R2,NEW_CONFIRMED,Reuters reported port/oil infrastructure fire/damage after attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0073,2025-11-06,Volgograd oil refinery,R1,MATCH_VIINA,Matches VIINA 68147 RU component same node/date,RUSSIA_PROPER,NO_INCREMENT_MATCH
+R25R-0074,2025-11-11,Saratov oil refinery,R1,NEW_PROVISIONAL,Same date as VIINA 399685 RU1 but Reuters target-level effect not independently established in reviewed source,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0075,2025-11-14,Sheskharis oil terminal Novorossiysk,R2,NEW_CONFIRMED,Two oil berths damaged and oil exports temporarily halted,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0076,2025-11-14,Saratov oil refinery,R1,NEW_PROVISIONAL,Ukrainian General Staff claim reported by Reuters,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0077,2025-11-14,Engels fuel storage facility,R2,NEW_PROVISIONAL,Ukrainian General Staff claim reported by Reuters,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0078,2025-11-15,Ryazan oil refinery,R1,NEW_CONFIRMED,Fresh attack with processing suspension reported,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0079,2025-11-15,Novokuibyshevsk oil refinery,R1,NEW_CONFIRMED,Fresh attack with processing suspension reported,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0080,2025-11-23,Shatura power plant,R6,NEW_CONFIRMED_NEEDS_ELIGIBILITY,Regional authorities reported fire after drone attack; strategic DEEP eligibility still requires explicit target-universe decision,RUSSIA_PROPER,ADD_CONFIRMED_PENDING_SCOPE
+R25R-0081,2025-11-25,Beriev TANTK aircraft repair plant,R4,NEW_PROVISIONAL,Matches VIINA 95110 RU1 but Reuters reviewed evidence remains claim-based for target effect,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0082,2025-11-25,Atlant Aero Molniya UAV plant,R4,NEW_PROVISIONAL,Matches VIINA 95110 RU2 but Reuters reviewed evidence remains claim-based for target effect,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0083,2025-11-25,Sheskharis oil terminal,R2,NEW_PROVISIONAL,Matches VIINA 95110 RU3 but Reuters target-level independent effect for this repeat requires reconciliation,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0084,2025-11-25,Tuapse oil refinery,R1,NEW_PROVISIONAL,Matches VIINA 95110 RU4 but independent effect detail incomplete,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0085,2025-11-29,Afipsky oil refinery,R1,NEW_CONFIRMED,Regional authorities and Reuters reported fire/equipment damage,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0086,2025-11-29,CPC Black Sea terminal SPM-2,R2,NEW_CONFIRMED,SPM-2 severely damaged and unusable; loading stopped,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0087,2025-11-30,Slavyansk-EKO refinery,R1,NEW_PROVISIONAL,VIINA contains this event; Reuters direct target-level confirmation not found in completed search,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0088,2025-11-30,Gukovo district heating boiler,R6,NEW_PROVISIONAL,VIINA contains this component; Reuters direct target-level confirmation not found,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0089,2025-11-30,Unidentified industrial enterprise Novoshakhtinsk,R7,NEW_UNRESOLVED,Same unresolved VIINA residual; no Reuters facility identification found,RUSSIA_PROPER,HOLD_UNRESOLVED
+R25R-0090,2025-12-04,Druzhba pumping infrastructure Tambov region,R3,NEW_CONFIRMED,Reuters reported fifth 2025 attack on Druzhba infrastructure; target node distinct from earlier dated events unless later reconciled otherwise,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0091,2025-12-17,Slavyansk oil refinery,R1,NEW_CONFIRMED,Fresh refinery attack reported with physical effect,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0092,2025-12-25,Novoshakhtinsk oil refinery,R1,NEW_CONFIRMED,Fresh refinery strike and fire reported,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0093,2025-12-25,Temryuk port oil-storage terminal,R2,NEW_CONFIRMED,Fire at oil tanks/terminal after drone attack,RUSSIA_PROPER,ADD_CONFIRMED
+R25R-0094,2025-12-25,Orenburg gas processing plant,R1,NEW_PROVISIONAL,Ukrainian strike claim reported; target-level physical effect confirmation incomplete,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0095,2025-10-24,Belgorod reservoir dam,R7,NEW_CONFIRMED_NEEDS_ELIGIBILITY,Physical damage to dam reported after Ukrainian strike; DEEP target-universe eligibility requires decision,RUSSIA_PROPER,ADD_CONFIRMED_PENDING_SCOPE
+R25R-0096,2025-09-03,Ryazan oil refinery,R1,NEW_PROVISIONAL,Fresh attack candidate from Reuters search; effect/date resolution incomplete,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0097,2025-09-13,Ufa/Bashneft refinery complex,R1,NEW_PROVISIONAL,Attack reported but unique facility/effect not sufficiently resolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0098,2025-09-20,Samara-region refinery,R1,NEW_UNRESOLVED,Reuters reports refinery strike but target identity within Samara group unresolved,RUSSIA_PROPER,HOLD_UNRESOLVED
+R25R-0099,2025-08-28,Krasnodar-region refinery target,R1,NEW_UNRESOLVED,Search result points to refinery event but exact facility/effect unresolved,RUSSIA_PROPER,HOLD_UNRESOLVED
+R25R-0100,2025-09-20,Saratov-region oil infrastructure,R2,NEW_PROVISIONAL,Follow-on Reuters coverage references energy target; exact node not sufficiently resolved,RUSSIA_PROPER,HOLD_PROVISIONAL
+R25R-0101,2025-09-20,Samara-region oil infrastructure,R2,NEW_PROVISIONAL,Follow-on Reuters coverage references energy target; exact node not sufficiently resolved,RUSSIA_PROPER,HOLD_PROVISIONAL
