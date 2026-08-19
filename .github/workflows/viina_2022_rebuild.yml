@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - "scripts/rebuild_viina_2022.py"
+      - "scripts/triage_viina_2022.py"
       - ".github/workflows/viina_2022_rebuild.yml"
 
 concurrency:
@@ -57,28 +58,55 @@ jobs:
           test -s output/VIINA_2022_REBUILD_SUMMARY.txt
           cat output/VIINA_2022_REBUILD_SUMMARY.txt
 
+      - name: Triage 2022 review rows and update work matrix
+        run: |
+          set -euo pipefail
+          python scripts/triage_viina_2022.py \
+            --input output/VIINA_2022_REBUILD.csv \
+            --output output/VIINA_2022_TRIAGE.csv \
+            --priority-output output/VIINA_2022_PRIORITY_RUSSIA.csv \
+            --summary output/VIINA_2022_TRIAGE_SUMMARY.txt \
+            --matrix output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          test -s output/VIINA_2022_TRIAGE.csv
+          test -s output/VIINA_2022_TRIAGE_SUMMARY.txt
+          test -s output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
+          cat output/VIINA_2022_TRIAGE_SUMMARY.txt
+
       - name: Write rebuild provenance
         run: |
           set -euo pipefail
           {
             echo "generated_at_utc=$(date -u +%FT%TZ)"
             echo "viina_commit=$(git -C viina rev-parse HEAD)"
-            echo "protocol=VIINA_2022_ACTOR_INDEPENDENT_V1"
+            echo "protocol=VIINA_2022_ACTOR_INDEPENDENT_V1+VIINA_2022_REVIEW_TRIAGE_V1"
             echo "study_start=2022-02-24"
             echo "study_end=2022-12-31"
             echo "candidate_census_complete=FALSE"
-            sha256sum output/VIINA_2022_REBUILD.csv output/VIINA_2022_REBUILD_SUMMARY.txt
+            sha256sum \
+              output/VIINA_2022_REBUILD.csv \
+              output/VIINA_2022_REBUILD_SUMMARY.txt \
+              output/VIINA_2022_TRIAGE.csv \
+              output/VIINA_2022_PRIORITY_RUSSIA.csv \
+              output/VIINA_2022_TRIAGE_SUMMARY.txt \
+              output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
           } > output/VIINA_2022_REBUILD_PROVENANCE.txt
 
-      - name: Commit rebuild outputs
+      - name: Commit rebuild and triage outputs
         run: |
           set -euo pipefail
-          git add output/VIINA_2022_REBUILD.csv output/VIINA_2022_REBUILD_SUMMARY.txt output/VIINA_2022_REBUILD_PROVENANCE.txt
+          git add \
+            output/VIINA_2022_REBUILD.csv \
+            output/VIINA_2022_REBUILD_SUMMARY.txt \
+            output/VIINA_2022_REBUILD_PROVENANCE.txt \
+            output/VIINA_2022_TRIAGE.csv \
+            output/VIINA_2022_PRIORITY_RUSSIA.csv \
+            output/VIINA_2022_TRIAGE_SUMMARY.txt \
+            output/DEEP_COMPLETENESS_REBUILD_MATRIX_2022_2026.csv
           if git diff --cached --quiet; then
-            echo "No rebuild output changes."
+            echo "No rebuild/triage output changes."
             exit 0
           fi
-          git commit -m "Record VIINA 2022 completeness rebuild"
+          git commit -m "Record VIINA 2022 completeness triage"
           for attempt in 1 2 3; do
             if git push origin HEAD:main; then
               exit 0
