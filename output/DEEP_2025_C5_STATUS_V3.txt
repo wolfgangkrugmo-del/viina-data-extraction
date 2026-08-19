@@ -1,0 +1,26 @@
+DEEP 2025 C5 STATUS V3
+
+Targeted final pass completed for the last two outcome-relevant residuals:
+1. Engels / Kombinat Kristall fuel storage facility — 2025-11-14.
+2. Unidentified industrial enterprise Novoshakhtinsk — 2025-11-30.
+
+DECISIONS
+- Engels 2025-11-14: HOLD_OPEN. Target/node and distinct attack wave are resolved, but no target-specific independent physical-effect confirmation was found. Ukraine reported explosions/fire; Reuters independently records the claim but does not verify target-level damage. A targeted public-OSINT search found no reliable FIRMS/Sentinel/verified post-strike image specific to Kombinat Kristall for this date. OutcomeRelevantUnresolved=TRUE.
+- Novoshakhtinsk 2025-11-30: HOLD_OPEN. Physical fire after the drone attack is independently confirmed, but the facility remains unnamed and ungeolocated. Targeted searches against municipal/systemically-important enterprise lists and refinery location data do not identify the affected enterprise without inference. OutcomeRelevantUnresolved=TRUE.
+
+REGISTER
+Current conservative confirmed Reuters↔VIINA delta remains +43.
+No additional event is added by this pass.
+No existing confirmed event is removed by this pass.
+
+C5
+Frozen rule: YEAR TRUE iff zero records have OutcomeRelevantUnresolved=TRUE when uncertainty can change target counts, sector counts, repeat-node logic or realized outcome classification.
+2025 residual count after this pass: 2.
+C5_2025 = FALSE.
+CandidateCensusComplete = FALSE.
+
+SEARCH STATUS
+The targeted public-OSINT resolution pass for both residuals is exhausted under currently accessible sources. Further resolution would require materially new evidence, such as target-specific commercial satellite imagery, operator/emergency-service records, local incident geolocation, or a later source explicitly naming the Novoshakhtinsk facility.
+
+Authoritative targeted review:
+output/DEEP_2025_C5_TARGETED_FINAL_PASS_V1.csv
