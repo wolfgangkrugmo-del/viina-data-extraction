@@ -19,12 +19,10 @@ assert sum(int(r['NamedReutersDirectComponents']) for r in log)==86
 assert len(rec)==101
 
 fam_short={'R1_ENERGY_REFINING':'R1','R2_ENERGY_STORAGE_EXPORT':'R2','R3_PIPELINE_PUMPING':'R3','R4_DEFENSE_INDUSTRY':'R4','R5_STRATEGIC_AIR':'R5','R6_GRID_SUPPORT':'R6','R7_LOGISTICS_OTHER':'R7'}
-fam_long={v:k for k,v in fam_short.items()}
 def qtr(d):
  m=int(d[5:7]); return 'Q1' if m<=3 else 'Q2' if m<=6 else 'Q3' if m<=9 else 'Q4'
 def norm(s): return re.sub(r'[^a-z0-9]+',' ',(s or '').lower()).strip()
 
-# Stable 86 source slots are fixed exclusively by frozen search-log cell counts.
 manifest=[]; slots=defaultdict(list)
 for lr in log:
  n=int(lr['NamedReutersDirectComponents'])
@@ -35,7 +33,6 @@ for lr in log:
        'RecoveryStatus':'UNRECOVERED_IDENTITY','Anchor':lr['KeyReutersAnchors'],'FinalDisposition':'','Notes':''}
   manifest.append(row); slots[(lr['Quarter'],fam_short[lr['SearchFamily']])].append(row)
 
-# Exact raw-hit rows are the strongest frozen row-level source identities. Map to matching cell slots first.
 used=set()
 for rr in raw:
  key=(qtr(rr['CanonicalEventDate']),fam_short[rr['SearchFamily']])
@@ -46,14 +43,11 @@ for rr in raw:
  s['RecoveredFrom']=rr['ReutersHitID']; s['RecoveryStatus']='EXACT'; s['FinalDisposition']=rr['ReutersStatus']
  s['Notes']=rr['PhysicalEffectEvidence']
 
-# Explicit transform classes based on frozen artifact provenance.
 OSC={'R25R-0060','R25R-0061','R25R-0062','R25R-0063','R25R-0064'}
 VIINA_ADD={'R25R-0040','R25R-0065','R25R-0081','R25R-0082','R25R-0087','R25R-0088','R25R-0089'}
 CORR={'R25R-0067','R25R-0096','R25R-0097','R25R-0098','R25R-0099'}
 FOLLOW={'R25R-0100','R25R-0101'}
 SPLIT={'R25R-0009','R25R-0083','R25R-0084'}
-# These classes are transform provenance only; they do not alter final event inclusion coding.
-
 def tclass(rid):
  if rid in OSC:return 'OSC-Routing'
  if rid in VIINA_ADD:return 'VIINA-Zusatz'
@@ -62,44 +56,33 @@ def tclass(rid):
  if rid in SPLIT:return 'Split'
  return '1:1'
 
-# Build indexes of exact source components for matching.
 bycell=defaultdict(list)
 for s in manifest: bycell[(s['Quarter'],fam_short[s['SearchFamily']])].append(s)
-
 def score(r,s):
  sc=0
  if s['RecoveryStatus']=='EXACT':
   if s['RecoveredCanonicalDate']==r['CanonicalEventDate']: sc+=5
   a=norm(r['TargetOrEvent']); b=norm(s['RecoveredTargetOrEvent'])
   if a and b and (a in b or b in a): sc+=8
-  ta=set(a.split()); tb=set(b.split()); sc+=len(ta&tb)
+  sc+=len(set(a.split())&set(b.split()))
  return sc
 
 bridge=[]
-# First exact-match R25R rows to recovered source identities.
-source_to_rows=defaultdict(list)
-unmapped=[]
 for r in rec:
  rid=r['ReutersReconID']; cls=tclass(rid); key=(qtr(r['CanonicalEventDate']),r['SearchFamily'])
  sid=''; basis=''
  if cls=='OSC-Routing': basis='Open Source Centre data embedded/used by Reuters; external DG_OSINT_SPECIALIST path.'
  elif cls=='VIINA-Zusatz': basis='Reconciliation/VIINA-side addition or component not established as a frozen Reuters-direct source component.'
  else:
-  candidates=bycell.get(key,[])
-  ranked=sorted(((score(r,s),s) for s in candidates), key=lambda x:x[0], reverse=True)
+  ranked=sorted(((score(r,s),s) for s in bycell.get(key,[])), key=lambda x:x[0], reverse=True)
   if ranked and ranked[0][0]>=8:
    sid=ranked[0][1]['SourceComponentID']; basis='Exact frozen raw-hit date/target match.'
-  else:
-   unmapped.append((r,cls,key))
- if sid: source_to_rows[sid].append(rid)
  bridge.append({'ReutersReconID':rid,'CanonicalEventDate':r['CanonicalEventDate'],'TargetOrEvent':r['TargetOrEvent'],
                 'SearchFamily':r['SearchFamily'],'TransformationClass':cls,'SourceComponentID':sid,
                 'ExternalPath':('DG_OSINT_SPECIALIST' if cls=='OSC-Routing' else 'VIINA_RECONCILIATION' if cls=='VIINA-Zusatz' else ''),
                 'MappingStatus':('EXACT' if sid else 'EXTERNAL' if cls in {'OSC-Routing','VIINA-Zusatz'} else 'UNRESOLVED'),
                 'MappingBasis':basis})
 
-# For still-unmapped Reuters transformations/direct rows, use an unused slot in the same frozen cell only when the
-# source log proves that a retained direct component existed there. Identity becomes ANCHORED_ONLY, never EXACT.
 used_by_bridge=set(b['SourceComponentID'] for b in bridge if b['SourceComponentID'])
 for b in bridge:
  if b['MappingStatus']!='UNRESOLVED': continue
@@ -108,13 +91,12 @@ for b in bridge:
  if available:
   s=available[0]; used_by_bridge.add(s['SourceComponentID'])
   if s['RecoveryStatus']=='UNRECOVERED_IDENTITY':
-   s['RecoveredCanonicalDate']=b['CanonicalEventDate']; s['RecoveredTargetOrEvent']=b['TargetOrEvent'];
-   s['RecoveredFrom']='RECONCILIATION_INFERENCE'; s['RecoveryStatus']='ANCHORED_ONLY';
+   s['RecoveredCanonicalDate']=b['CanonicalEventDate']; s['RecoveredTargetOrEvent']=b['TargetOrEvent']
+   s['RecoveredFrom']='RECONCILIATION_INFERENCE'; s['RecoveryStatus']='ANCHORED_ONLY'
    s['Notes']='Identity inferred from cell quota plus R25R reconciliation; no frozen row-level ReutersHitID proves this exact source component.'
-  b['SourceComponentID']=s['SourceComponentID']; b['MappingStatus']='ANCHORED_ONLY';
+  b['SourceComponentID']=s['SourceComponentID']; b['MappingStatus']='ANCHORED_ONLY'
   b['MappingBasis']='Assigned within frozen search-cell quota; not row-level source-proven.'
 
-# Explicitly mark source components without any R25R mapping. These are the decisive source-inventory gaps.
 for s in manifest:
  mapped=[b for b in bridge if b['SourceComponentID']==s['SourceComponentID']]
  if not mapped and s['RecoveryStatus']=='UNRECOVERED_IDENTITY':
@@ -123,16 +105,13 @@ for s in manifest:
  elif mapped:
   s['FinalDisposition']='BRIDGED'
 
-# Every R25R row must have one of the seven requested classes.
 allowed={'1:1','Split','Follow-up','VIINA-Zusatz','OSC-Routing','Korrektur','Non-Candidate'}
 assert len(bridge)==101
 assert all(b['TransformationClass'] in allowed for b in bridge)
-
 with MAN.open('w',encoding='utf-8',newline='') as f:
  w=csv.DictWriter(f,fieldnames=manifest[0].keys()); w.writeheader(); w.writerows(manifest)
 with BR.open('w',encoding='utf-8',newline='') as f:
  w=csv.DictWriter(f,fieldnames=bridge[0].keys()); w.writeheader(); w.writerows(bridge)
-
 exact=sum(s['RecoveryStatus']=='EXACT' for s in manifest)
 anch=sum(s['RecoveryStatus']=='ANCHORED_ONLY' for s in manifest)
 unrec=sum(s['RecoveryStatus']=='UNRECOVERED_IDENTITY' for s in manifest)
@@ -140,9 +119,8 @@ row_exact=sum(b['MappingStatus']=='EXACT' for b in bridge)
 row_anch=sum(b['MappingStatus']=='ANCHORED_ONLY' for b in bridge)
 row_ext=sum(b['MappingStatus']=='EXTERNAL' for b in bridge)
 row_unres=sum(b['MappingStatus']=='UNRESOLVED' for b in bridge)
-# PASS requires all 86 source identities row-level recovered and every R25R mapping exact or explicitly external.
 bridge_complete=(exact==86 and anch==0 and unrec==0 and row_anch==0 and row_unres==0)
-AUD.write_text(f'''REUTERS 2025 SOURCE COMPONENT / 101-ROW BRIDGE FORMAL AUDIT V1\n\nFrozen source components required: 86\nManifest rows: {len(manifest)}\nEXACT source identities: {exact}\nANCHORED_ONLY source identities: {anch}\nUNRECOVERED source identities: {unrec}\n\nR25R rows required: 101\nBridge rows: {len(bridge)}\nEXACT R25R mappings: {row_exact}\nANCHORED_ONLY R25R mappings: {row_anch}\nExplicit external VIINA/OSC mappings: {row_ext}\nUNRESOLVED R25R mappings: {row_unres}\n\nBridgeComplete={'TRUE' if bridge_complete else 'FALSE'}\nRowAcceptanceStatus={'PASS' if bridge_complete else 'NOT_READY'}\nCandidateCensusComplete=FALSE\n\nPASS guard: all 86 frozen Reuters-direct source components must have row-level recovered identities and every one of 101 R25R rows must map exactly to a source component or an explicitly documented VIINA/OSC external path. Cell-quota inference (ANCHORED_ONLY) is insufficient for PASS.\n''',encoding='utf-8')
+AUD.write_text(f'''REUTERS 2025 SOURCE COMPONENT / 101-ROW BRIDGE FORMAL AUDIT V1\n\nFrozen source components required: 86\nManifest rows: {len(manifest)}\nEXACT source identities: {exact}\nANCHORED_ONLY source identities: {anch}\nUNRECOVERED source identities: {unrec}\n\nR25R rows required: 101\nBridge rows: {len(bridge)}\nEXACT R25R mappings: {row_exact}\nANCHORED_ONLY R25R mappings: {row_anch}\nExplicit external VIINA/OSC mappings: {row_ext}\nUNRESOLVED R25R mappings: {row_unres}\n\nBridgeComplete={'TRUE' if bridge_complete else 'FALSE'}\nRowAcceptanceStatus={'PASS' if bridge_complete else 'NOT_READY'}\nCandidateCensusComplete=FALSE\n''',encoding='utf-8')
 print('manifest',len(manifest),'exact',exact,'anchored',anch,'unrecovered',unrec)
 print('bridge',len(bridge),'exact',row_exact,'anchored',row_anch,'external',row_ext,'unresolved',row_unres)
 print('BridgeComplete=',bridge_complete)
