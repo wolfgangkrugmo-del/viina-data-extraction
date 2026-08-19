@@ -52,15 +52,36 @@ def load_ru_ids(path):
             for line in f: ids.add(line.split('\t',1)[0])
     return ids
 
+def is_true(v):
+    return str(v or '').strip().lower() in {'1','1.0','true','t','yes'}
+
+def first_existing(row, names):
+    for n in names:
+        if n in row:
+            return n, row.get(n)
+    return None, None
+
+def val(row,k): return str(row.get(k,'') or '').strip()
+
+def label_value(row, base):
+    # VIINA currently exposes binary classifier columns with _b in several releases;
+    # keep fallbacks so the workflow fails gracefully across release naming changes.
+    name, value = first_existing(row, [base+'_b', base])
+    return name or '', str(value or '').strip()
+
 def scan_info(path, ru):
-    agg=defaultdict(lambda: {'ids':set(),'sources':set(),'urls':set(),'texts':[],'classes':set(),'tt':set(),'aa':set()})
+    agg=defaultdict(lambda: {
+        'ids':set(),'sources':set(),'urls':set(),'texts':[],'classes':set(),'tt':set(),'aa':set(),
+        'ru_geonameids':set(),'ru_places':set(),'ru_adm1':set(),'ru_adm2':set()
+    })
     z,f=first_csv(path)
     try:
         r=csv.DictReader(f)
         for row in r:
             d=ndate(row.get('date'))
             if d is None or not START<=d<=END: continue
-            if str(row.get('geonameid','')).strip() not in ru: continue
+            gid=str(row.get('geonameid','')).strip()
+            if gid not in ru: continue
             text=str(row.get('text','') or '')
             c,t,a=hits(text)
             if not c or not a: continue
@@ -72,54 +93,95 @@ def scan_info(path, ru):
             if row.get('url'): x['urls'].add(str(row['url']).strip())
             if text and len(x['texts'])<6: x['texts'].append(text.replace('\n',' ').strip())
             x['classes'].update(c); x['tt'].update(t); x['aa'].update(a)
+            x['ru_geonameids'].add(gid)
+            if row.get('asciiname'): x['ru_places'].add(str(row['asciiname']).strip())
+            if row.get('ADM1_NAME'): x['ru_adm1'].add(str(row['ADM1_NAME']).strip())
+            if row.get('ADM2_NAME'): x['ru_adm2'].add(str(row['ADM2_NAME']).strip())
     finally:
         f.close(); z.close()
     return agg
 
-def val(row,k): return str(row.get(k,'') or '').strip()
-
-def join_onepd(path, raw):
-    out=[]; z,f=first_csv(path)
+def join_onepd(path, raw, ru):
+    strict=[]; review=[]; z,f=first_csv(path)
+    actor_field_seen=False
     try:
         r=csv.DictReader(f)
+        fields=set(r.fieldnames or [])
+        actor_candidates={'a_ukr_init_b','a_ukr_init'}
+        actor_field_seen=bool(fields & actor_candidates)
+        if not actor_field_seen:
+            raise RuntimeError(f'{path}: neither a_ukr_init_b nor a_ukr_init present; fields={sorted(fields)}')
+
         for row in r:
             key=val(row,'event_id_1pd')
             if key not in raw: continue
             d=ndate(row.get('date'))
             if d is None or not START<=d<=END: continue
+
+            actor_name, actor_val = first_existing(row,['a_ukr_init_b','a_ukr_init'])
+            if not is_true(actor_val):
+                continue
+
             x=raw[key]
-            out.append({
+            onepd_gid=val(row,'geonameid')
+            onepd_ru = bool(onepd_gid and onepd_gid in ru)
+
+            labels={}
+            for base in ['a_ukr_init','a_ukr','a_rus_init','a_rus','t_mil','t_uav','t_airstrike','t_artillery','t_property','t_raid']:
+                nm,v=label_value(row,base)
+                labels[base+'_field']=nm
+                labels[base]=v
+
+            rec={
                 'event_id_1pd':key,'date':str(d),'n_reports_viina':val(row,'n_reports'),
                 'raw_reports_matching':str(len(x['ids'])),'event_ids_matching':'|'.join(sorted(x['ids'])),
                 'sources_matching':'|'.join(sorted(x['sources'])),'source_urls':'|'.join(sorted(x['urls'])),
-                'geonameid':val(row,'geonameid'),'asciiname':val(row,'asciiname'),
-                'ADM1_NAME':val(row,'ADM1_NAME'),'ADM2_NAME':val(row,'ADM2_NAME'),
+                'geonameid':onepd_gid,'asciiname':val(row,'asciiname'),'ADM1_NAME':val(row,'ADM1_NAME'),'ADM2_NAME':val(row,'ADM2_NAME'),
                 'longitude':val(row,'longitude'),'latitude':val(row,'latitude'),'GEO_PRECISION':val(row,'GEO_PRECISION'),
-                'a_ukr':val(row,'a_ukr'),'a_rus':val(row,'a_rus'),'t_mil':val(row,'t_mil'),
-                't_airstrike':val(row,'t_airstrike'),'t_artillery':val(row,'t_artillery'),'t_property':val(row,'t_property'),'t_raid':val(row,'t_raid'),
+                'raw_ru_geonameids':'|'.join(sorted(x['ru_geonameids'])),'raw_ru_places':'|'.join(sorted(x['ru_places'])),
+                'raw_ru_ADM1':'|'.join(sorted(x['ru_adm1'])),'raw_ru_ADM2':'|'.join(sorted(x['ru_adm2'])),
+                **labels,
                 'target_class_auto':'|'.join(sorted(x['classes'])),'matched_target_terms':'|'.join(sorted(x['tt'])),'matched_attack_terms':'|'.join(sorted(x['aa'])),
-                'representative_text':' || '.join(x['texts'])[:12000],'russia_geonames_gate':'TRUE','study_period_gate':'TRUE',
-                'manual_review_required':'TRUE','candidate_status':'DISCOVERY_ONLY'
-            })
+                'representative_text':' || '.join(x['texts'])[:12000],
+                'ukrainian_initiator_gate':'TRUE','onepd_russia_geonames_gate':'TRUE' if onepd_ru else 'FALSE',
+                'raw_russia_mention_gate':'TRUE','study_period_gate':'TRUE','manual_review_required':'TRUE'
+            }
+            if onepd_ru:
+                rec['candidate_status']='STRICT_RUSSIA_UKR_INIT_DISCOVERY'
+                strict.append(rec)
+            else:
+                rec['candidate_status']='REVIEW_LOCATION_NOT_CONFIRMED_BY_1PD'
+                review.append(rec)
     finally:
         f.close(); z.close()
-    return out
+    return strict, review
+
+def write_csv(path, rows):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    if rows:
+        fields=list(rows[0].keys())
+    else:
+        fields=['event_id_1pd','date','candidate_status']
+    with path.open('w',encoding='utf-8',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
 
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument('--viina-data-dir',type=Path,required=True)
     ap.add_argument('--ru-geonames',type=Path,required=True)
     ap.add_argument('--output',type=Path,required=True)
-    a=ap.parse_args(); ru=load_ru_ids(a.ru_geonames); rows=[]
+    ap.add_argument('--review-output',type=Path,required=True)
+    a=ap.parse_args(); ru=load_ru_ids(a.ru_geonames); strict=[]; review=[]
     for y in range(2022,2027):
         raw=scan_info(a.viina_data_dir/f'event_info_latest_{y}.zip',ru)
-        rows += join_onepd(a.viina_data_dir/f'event_1pd_latest_{y}.zip',raw)
-    rows={r['event_id_1pd']:r for r in rows}.values()
-    rows=sorted(rows,key=lambda r:(r['date'],r['event_id_1pd']))
-    a.output.parent.mkdir(parents=True,exist_ok=True)
-    fields=list(rows[0].keys()) if rows else ['event_id_1pd','date','candidate_status']
-    with a.output.open('w',encoding='utf-8',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(rows)
-    print(f'Wrote {len(rows)} candidates to {a.output}')
+        s,q=join_onepd(a.viina_data_dir/f'event_1pd_latest_{y}.zip',raw,ru)
+        strict.extend(s); review.extend(q)
+    strict={r['event_id_1pd']:r for r in strict}.values()
+    review={r['event_id_1pd']:r for r in review}.values()
+    strict=sorted(strict,key=lambda r:(r['date'],r['event_id_1pd']))
+    review=sorted(review,key=lambda r:(r['date'],r['event_id_1pd']))
+    write_csv(a.output,strict); write_csv(a.review_output,review)
+    print(f'Wrote {len(strict)} strict candidates to {a.output}')
+    print(f'Wrote {len(review)} location-review candidates to {a.review_output}')
 
 if __name__=='__main__': main()
