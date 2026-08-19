@@ -1,0 +1,8 @@
+gazetteer_ids=412717
+gazetteer_names=748541
+gazetteer_grid_cells=30320
+Belgorod: expected=STRICT actual=STRICT method=COORDINATE_RU_STRICT distance_km=0.986 nearest_gid=578072 nearest_name=Belgorod
+Samara: expected=STRICT actual=STRICT method=COORDINATE_RU_STRICT distance_km=1.627 nearest_gid=576469 nearest_name=Bezymyanka
+Taganrog: expected=STRICT actual=STRICT method=COORDINATE_RU_STRICT distance_km=0.603 nearest_gid=10232667 nearest_name=Bristol Taganrog
+Feodosia: expected=REVIEW actual=REVIEW method=REVIEW_DISPUTED_CRIMEA distance_km= nearest_gid= nearest_name=
+result=PASS
