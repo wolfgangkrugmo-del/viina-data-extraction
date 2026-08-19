@@ -1,0 +1,37 @@
+REUTERS 2022 DEEP LANE STATUS V1
+
+Track = FROZEN_COMPLETENESS
+Protocol = docs/REUTERS_2022_DEEP_SEARCH_PROTOCOL_V1.md
+StudyWindow = 2022-02-24..2022-12-31
+SearchCellsTotal = 28
+SearchStatus = IN_PROGRESS
+CoverageStatus = PARTIAL
+DependencyAuditStatus = NOT_REVIEWED
+SourceManifest = output/REUTERS_2022_SOURCE_COMPONENT_MANIFEST_V1.csv
+SearchLog = output/REUTERS_2022_DEEP_SEARCH_LOG_V1.csv
+ManifestRowsCurrent = 8
+ReviewStatus = NOT_STARTED
+DedupeReviewStatus = NOT_STARTED
+RowAcceptanceStatus = NOT_READY
+CandidateCensusComplete = FALSE
+
+Current retained source components:
+1. 2022-04-01 Belgorod fuel/oil depot (R2)
+2. 2022-04-25 Bryansk Transneft oil-storage facility (R2; cause/actor unresolved)
+3. 2022-10-11 Shebekino electricity substation (R6)
+4. 2022-11-30 Surazh district oil-storage tank (R2; cause/actor unresolved)
+5. 2022-12-05 Engels strategic bomber air base (R5)
+6. 2022-12-05 Dyagilevo military air base (R5)
+7. 2022-12-06 Kursk airfield oil-storage tank (R5)
+8. 2022-12-26 Engels strategic bomber air base repeat wave (R5)
+
+Provenance safeguard:
+All retained Reuters-direct components are written to the source manifest as they are discovered. Search-cell component counts must equal manifest row counts. No aggregate-only count may be used.
+
+Track separation:
+- Frozen Reuters 2022 source inventory is authoritative for DEEP-COMP-V1 once completed.
+- Development-track analysis may use additional provisional/recovered information but cannot modify frozen source IDs without a versioned correction.
+- Any future recovered-source manifest is separate and cannot substitute for missing frozen provenance.
+
+Next execution step:
+Complete the remaining 28-cell systematic Reuters search, then transfer every manifest component to the mandatory candidate ledger or a machine-documented non-candidate/derivative disposition before review/dedupe closure.
