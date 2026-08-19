@@ -1,0 +1,38 @@
+name: VIINA 2025 extract M1 M2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/extract_viina_2025_m1_m2.py'
+      - '.github/workflows/viina_2025_extract_m1_m2.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Extract blocks
+        run: python scripts/extract_viina_2025_m1_m2.py
+      - name: Commit blocks
+        run: |
+          set -euo pipefail
+          git add output/VIINA_2025_UNKNOWN_M1_REVIEW_BLOCK.csv output/VIINA_2025_UNKNOWN_M2_REVIEW_BLOCK.csv
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record VIINA 2025 M1 M2 review blocks'
+          for i in 1 2 3; do
+            git pull --rebase origin main
+            git push origin HEAD:main && exit 0
+            sleep 2
+          done
+          exit 1
