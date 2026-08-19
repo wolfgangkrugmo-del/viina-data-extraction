@@ -1,0 +1,84 @@
+RU_OFFICIAL 2022 COMPLETION STATUS V2
+
+Track = FROZEN_COMPLETENESS / DEEP-COMP-V1
+StudyWindow = 2022-02-24..2022-12-31
+Protocol = docs/RU_OFFICIAL_2022_DEEP_SEARCH_PROTOCOL_V1.md
+Supersedes aggregate blocker counts in output/RU_OFFICIAL_2022_COMPLETION_STATUS_V1.txt; V1 remains preserved as historical state.
+
+SEARCH-CELL EXECUTION
+SearchCellsTotal = 77
+SearchCellsExecuted = 77
+SearchStatus = COMPLETED
+CoverageStatus = PARTIAL
+SourceDependenceGroup = DG_RU_OFFICIAL
+DependencyAuditStatus = INDEPENDENT
+
+TARGET/NODE RESOLUTION DELTA
+V1 target-level NOT_ASSESSABLE_UNRESOLVED_TARGET = 8.
+Prior verified resolution pass closed/reclassified 3:
+- Belaya Berezka 2022-04-29: stable border-service location/node resolved; UNIQUE.
+- Tetkino 2022-12-05: physical local gas-pipeline hit isolated; UNIQUE; associated power loss not counted as a separate physical grid-node hit.
+- Guyevo 2022-12-05: official reporting stated no destruction; EXCLUDE_NOT_EVENT.
+Remaining before current pass = 5.
+
+Current five-blocker targeted pass:
+- 2022-05-01 unnamed Russian Ministry of Defence object, Belgorod region: REMAINS NOT_ASSESSABLE_UNRESOLVED_TARGET. Tomarovka-area localization is insufficient to assign a unique physical TargetID/NodeID.
+- FSB October aggregate, two substations: REMAINS NOT_ASSESSABLE_UNRESOLVED_TARGET. Aggregate gives no component-level names/dates; do not manufacture individual events.
+- FSB October aggregate, eight border checkpoints: REMAINS NOT_ASSESSABLE_UNRESOLVED_TARGET. Aggregate gives no component-level names/dates; do not manufacture individual events.
+- 2022-10-18 railway/contact-network event: RESOLVED to Dolbino railway station, Vesyolaya Lopan; UNIQUE at target/node level.
+- 2022-11-29 Tetkino energy-supply objects: REMAINS NOT_ASSESSABLE_UNRESOLVED_TARGET. Distinct from same-date Reuters Sudzha event, but plural physical nodes remain unidentified.
+
+CURRENT RECONCILIATION COUNTS
+Retained/source components reviewed = 86
+Cross-lane links to already known Reuters/VIINA canonical candidates = 17
+Components with no Reuters/VIINA match found = 69
+Event-level UNIQUE decisions = 64
+Target-level NOT_ASSESSABLE_UNRESOLVED_TARGET = 4
+InclusionStatus INCLUDE_RUSSIA_PROPER = 44
+InclusionStatus UNRESOLVED = 16
+EXCLUDE_NOT_EVENT = 8
+EXCLUDE_OTHER_SCOPE = 1
+OutcomeRelevantUnresolved = 28
+
+Count provenance:
+- V1: UNIQUE 61; NOT_ASSESSABLE 8; EXCLUDE_NOT_EVENT 7; UNRESOLVED 17; OutcomeRelevantUnresolved 29.
+- Prior three-case resolution: +2 UNIQUE, -3 NOT_ASSESSABLE, +1 EXCLUDE_NOT_EVENT, -1 UNRESOLVED, -1 OutcomeRelevantUnresolved.
+- Current five-case resolution: +1 UNIQUE, -1 NOT_ASSESSABLE; no verified inclusion/outcome-status delta for the four remaining unresolved records.
+
+CROSS-LANE / DEDUPE INTERPRETATION
+- Cross-lane matches are linked rather than counted again.
+- Repeat attacks on the same node in a later attack wave remain separate events under DEEP-COMP-V1.
+- The four remaining target-level not-assessable components are explicit blockers and are not silently declared unique.
+- FSB aggregate components represent reported physical damage and therefore must not be relabeled EXCLUDE_NOT_EVENT merely because component targets are unnamed.
+- The Tetkino 2022-11-29 energy event is geographically distinct from Reuters R22C-017 Sudzha district energy-supply object on the same date.
+- The five previously known Reuters core C5 blockers remain formally unresolved on their blocking fields unless genuinely new qualifying evidence is found.
+
+SOURCE-LANE ACCEPTANCE
+ReviewStatus = IN_PROGRESS
+DedupeReviewStatus = IN_PROGRESS
+RowAcceptanceStatus = NOT_READY
+Reason = four unresolved target/node components plus CoverageStatus=PARTIAL and lane-wide source-class/archive completeness acceptance not yet demonstrated.
+
+2022 GATE CONSEQUENCES
+C4_DedupeComplete = FALSE because 4 NOT_ASSESSABLE_UNRESOLVED_TARGET records remain.
+C5_NoOutcomeRelevantUnresolved = FALSE because 28 OutcomeRelevantUnresolved rows remain in the expanded RU_OFFICIAL reconciliation, including the five frozen Reuters C5 blockers.
+C6_SourceConvergence = FALSE / NOT DEMONSTRATED because RU_OFFICIAL produced substantial new candidate yield and is not an accepted FULL_PROTOCOL lane yet.
+C7_VersionFrozen = FALSE.
+YearAcceptanceStatus = NOT_READY.
+
+CANDIDATE CENSUS STATUS
+CandidateCensusComplete = FALSE
+
+Mandatory DEEP-COMP-V1 implication:
+CandidateCensusComplete may become TRUE only on GLOBAL_SUMMARY after every annual C1-C7 gate is TRUE and every YEAR_SUMMARY has YearAcceptanceStatus=PASS. The current targeted resolution improves C4 from 8 initial target/node blockers to 4, but does not close C4, C5, C6 or C7.
+
+Authoritative artifacts:
+- docs/DEEP_COMPLETENESS_REBUILD_SPEC_V1.md
+- docs/RU_OFFICIAL_2022_DEEP_SEARCH_PROTOCOL_V1.md
+- output/RU_OFFICIAL_2022_SEARCH_CELL_LOG_V1.csv
+- output/RU_OFFICIAL_2022_SOURCE_COMPONENT_MANIFEST_V1.csv
+- output/RU_OFFICIAL_2022_TARGET_NODE_RESOLUTION_V1.csv
+- output/RU_OFFICIAL_2022_COMPLETION_STATUS_V1.txt
+- output/REUTERS_2022_CANDIDATE_DEDUPE_LEDGER_V2.csv
+- output/REUTERS_2022_C5_STATUS_V2.txt
+- output/VIINA_2022_REBUILD.csv
